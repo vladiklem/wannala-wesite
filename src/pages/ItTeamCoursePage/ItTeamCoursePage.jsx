@@ -21,7 +21,7 @@ export const ItTeamCoursePage = ({ isPortable, strings }) => {
             category: "IT",
             action: "clicked Sign Up Course",
         });
-        setTimeout(() => document.querySelector("#name").focus(), 750);
+        setTimeout(() => document.querySelector("#name").focus(), 800);
     }, []);
 
     useEffect(() => {
@@ -52,6 +52,7 @@ export const ItTeamCoursePage = ({ isPortable, strings }) => {
                             <DetailedInfo
                                 strings={strings.itDetailedInfoSection}
                                 isPortable={isPortable}
+                                onClick={onSignUpClick}
                             />
                         </div>
                         <div className="col-12 col-md-5">
@@ -66,7 +67,11 @@ export const ItTeamCoursePage = ({ isPortable, strings }) => {
             </section>
             {isPortable && (
                 <section name="itDetailedInfoSection" className="container">
-                    <DetailedInfo strings={strings.itDetailedInfoSection} isPortable={isPortable} />
+                    <DetailedInfo
+                        strings={strings.itDetailedInfoSection}
+                        isPortable={isPortable}
+                        onClick={onSignUpClick}
+                    />
                 </section>
             )}
             <section

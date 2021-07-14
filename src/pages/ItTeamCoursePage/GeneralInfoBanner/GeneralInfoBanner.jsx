@@ -12,10 +12,6 @@ const bannerFields = [
         value: "2 місяці",
     },
     {
-        label: "Кількість місць",
-        value: "4",
-    },
-    {
         label: "Час",
         value: "вівторок i четвер 18:15–19:15",
     },

@@ -3,11 +3,11 @@ import cx from "classnames";
 
 import { CourseStructure } from "./CourseStructure/CourseStructure";
 import { AuthorsScrollable } from "./AuthorsScrollable/AuthorsScrollable";
-import { CollapseGroup } from "components/";
+import { CollapseGroup, Button } from "components/";
 
 import styles from "./DetailedInfo.module.scss";
 
-export const DetailedInfo = ({ isPortable, strings }) => {
+export const DetailedInfo = ({ isPortable, strings, onClick }) => {
     const getCollapseProps = useCallback(
         (emoji) => (item, index, array) => ({
             togglerClassName: "font-weight-semibold text-left px-3",
@@ -40,7 +40,20 @@ export const DetailedInfo = ({ isPortable, strings }) => {
             <h2 id="wannablab-show-action-button" className="h0 mb-4">
                 {strings.h2_2}
             </h2>
-            <CourseStructure className="mb-5" />
+            <CourseStructure className={isPortable ? "mb-4" : "mb-5"} />
+            {isPortable && (
+                <Button
+                    href={`#wannablab-it-course-registration${
+                        isPortable ? "" : "-inner-container"
+                    }`}
+                    color="green-soft"
+                    className="mt-4 py-3 h3 font-weight-bold rounded-xl mb-5"
+                    onClick={onClick}
+                    block
+                >
+                    Записатися ⬇️
+                </Button>
+            )}
             <h2 className="h0 mb-4">{strings.h2_4}</h2>
             <CollapseGroup
                 className="mb-5"
@@ -54,11 +67,7 @@ export const DetailedInfo = ({ isPortable, strings }) => {
                 array={strings.authorsList}
             />
             <h2 className="h0 mb-4">{strings.h2_5}</h2>
-            <CollapseGroup
-                className="mb-5"
-                list={strings.faqList}
-                getCollapseProps={getCollapseProps("🤔")}
-            />
+            <CollapseGroup list={strings.faqList} getCollapseProps={getCollapseProps("🤔")} />
         </>
     );
 };
