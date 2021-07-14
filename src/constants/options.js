@@ -10,7 +10,7 @@ export const eventTypeOptions = [
 ];
 
 export const mentorOptions = [
-    { label: "Марта Ярош", value: "martaYarosh" },
+    { label: "Марта Чайковська", value: "martaYarosh" },
     { label: "Марина Торохтій", value: "marinaTorohtiy" },
     { label: "Катя Тимченко", value: "kateTimchenko" },
     { label: "Аня Степова", value: "annStepova" },

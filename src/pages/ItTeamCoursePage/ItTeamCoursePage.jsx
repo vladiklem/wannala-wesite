@@ -15,7 +15,6 @@ import styles from "./ItTeamCoursePage.module.scss";
 
 export const ItTeamCoursePage = ({ isPortable, strings }) => {
     const dispatch = useDispatch();
-    // const [isVisible, setIsVisible] = useState(isPortable);
 
     const onSignUpClick = useCallback(() => {
         fireAnalyticsEvent({
@@ -25,27 +24,12 @@ export const ItTeamCoursePage = ({ isPortable, strings }) => {
         setTimeout(() => document.querySelector("#name").focus(), 750);
     }, []);
 
-    // const onMobileSignUpClick = useCallback(() => {
-    //     setIsVisible(false);
-    //     onSignUpClick();
-    // }, [setIsVisible, onSignUpClick]);
-
     useEffect(() => {
         dispatch(toggleHeader());
     }, [dispatch]);
 
     return (
         <article className={cx({ "pt-5": !isPortable, "pt-4": isPortable })}>
-            {/* <Button
-                href={`#wannablab-it-course-registration${isPortable ? "" : "-inner-container"}`}
-                color="green-soft"
-                className={cx("p-3 h3 rounded-circle shadow-soft", styles.actionButton, {
-                    "d-none": !isVisible,
-                })}
-                onClick={onMobileSignUpClick}
-            >
-                <AddUserIcon width={32} height={32} fill="#fff" />
-            </Button> */}
             <section name="itIntroSection" className="mb-5">
                 <h1 className={cx("container", { "h1 lh-44": isPortable, h0: !isPortable })}>
                     {strings.itIntroSection.h1}

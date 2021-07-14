@@ -37,6 +37,6 @@ export const ContactsBlock = ({ isRow = true, className }) => (
                 </a>
             </li>
         </ul>
-        <EmailNewsForm />
+        {/* <EmailNewsForm /> */}
     </div>
 );

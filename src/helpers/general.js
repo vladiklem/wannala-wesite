@@ -5,3 +5,8 @@ export const scrollToTop = () =>
     });
 
 export const isNewLead = (status) => ["new", "new-quiz", "new-level-test"].includes(status);
+
+export const detectLang = () => "ua";
+// ["ua", "ru"].includes(window.navigator.language.toLowerCase())
+//     ? window.navigator.language
+//     : "ua";

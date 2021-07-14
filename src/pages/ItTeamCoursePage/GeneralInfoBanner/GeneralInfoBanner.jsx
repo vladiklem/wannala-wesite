@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import cx from "classnames";
 import { Button } from "components/index";
 
@@ -12,12 +12,16 @@ const bannerFields = [
         value: "2 місяці",
     },
     {
+        label: "Кількість місць",
+        value: "4",
+    },
+    {
         label: "Час",
-        value: "вівторок i четверг 18:15–19:15",
+        value: "вівторок i четвер 18:15–19:15",
     },
     {
         label: "Вартість",
-        value: "4 770 грн або 5540 ( 2 платежі по 2770 грн)",
+        value: "4 777 грн або 5554 ( 2 платежі по 2777 грн)",
     },
 ];
 

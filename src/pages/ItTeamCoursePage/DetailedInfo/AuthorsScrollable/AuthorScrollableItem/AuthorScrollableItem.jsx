@@ -24,10 +24,10 @@ export const AuthorScrollableItem = ({
             key={src}
         >
             <div className="row">
-                <div className="col-6">
+                <div className="col-5">
                     <img src={src} alt={alt} className="image rounded-circle" />
                 </div>
-                <div className="col-6">
+                <div className="col-7">
                     <h3 className="h2 mb-2">{name}</h3>
                     <a href={inst} className="regular font-weight-semibold">
                         INSTAGRAM

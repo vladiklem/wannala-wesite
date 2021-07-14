@@ -195,7 +195,7 @@ export const valuesList = {
 export const mentorsList = [
     {
         slug: "marta-yarosh",
-        name: "Марта Ярош",
+        name: "Марта Чайковська",
         src: IMAGES.martaItAvatar,
         list: ["IELTS (7.5 CERF C1)", "50+ успішних студентів"],
         color: "light-green",
