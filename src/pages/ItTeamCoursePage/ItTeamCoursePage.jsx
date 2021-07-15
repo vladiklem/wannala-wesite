@@ -1,7 +1,6 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import cx from "classnames";
-import PreloadImage from "react-preload-image";
 
 import { toggleHeader } from "store/app/actions";
 import { LeadForm } from "components/styled/LeadForm/LeadForm";
@@ -32,27 +31,23 @@ export const ItTeamCoursePage = ({ isPortable, strings }) => {
     return (
         <article className={cx({ "pt-5": !isPortable, "pt-4": isPortable })}>
             <section name="itIntroSection" className="mb-5">
-                <h1 className={cx("container mb-3", { "h1 lh-44": isPortable, h0: !isPortable })}>
+                <h1 className={cx("container", { "h1 lh-44": isPortable, h0: !isPortable })}>
                     {strings.itIntroSection.h1}
                 </h1>
                 <div className="d-md-none">
-                    <PreloadImage
+                    <img
                         alt={strings.itIntroSection.img.alt}
                         src={strings.itIntroSection.img.src}
-                        className="mb-2"
-                        style={{ height: 300 }}
-                        lazy
+                        className="image mb-2"
                     />
                 </div>
                 <div className="container">
                     <div className="row">
                         <div className="col-12 col-md-7 d-none d-md-block">
-                            <PreloadImage
+                            <img
                                 alt={strings.itIntroSection.img.alt}
                                 src={strings.itIntroSection.img.src}
-                                className="mb-2 position-relative"
-                                style={{ height: 300 }}
-                                lazy
+                                className="image mb-2"
                             />
                             <DetailedInfo
                                 strings={strings.itDetailedInfoSection}
