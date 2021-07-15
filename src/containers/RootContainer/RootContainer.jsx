@@ -48,8 +48,6 @@ export const RootContainer = () => {
         dispatch,
     ]);
 
-    console.log(lang);
-
     const strings = useMemo(() => translations[lang], [lang]);
 
     const onCoursesClick = useCallback(() => {

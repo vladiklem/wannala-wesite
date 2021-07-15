@@ -25,7 +25,7 @@ export const DetailedInfo = ({ isPortable, strings, onClick }) => {
         <>
             <h2 className="h0 mb-4">{strings.h2_1}</h2>
             <h3 className="font-weight-normal h2-28 mb-5">{strings.h3_1}</h3>
-            <div className="mb-5">
+            <div className="mb-6">
                 <h2 className="h0 mb-4">{strings.h2_6}</h2>
                 <div>
                     {strings.matchList.map(({ emoji, description }) => (

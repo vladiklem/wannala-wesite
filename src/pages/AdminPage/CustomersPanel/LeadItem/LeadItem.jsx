@@ -26,8 +26,6 @@ export const LeadItem = ({
 
     const handleDelete = useCallback(() => onDelete(id), [id, onDelete]);
 
-    console.log(props);
-
     return (
         <Collapse
             className={cx("border rounded mb-3 px-4 position-relative", styles.container, {
