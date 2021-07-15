@@ -21,14 +21,14 @@ export const AuthorsScrollable = ({ array, isPortable, className }) => {
             offset={offset}
             id="wannablab-authors"
         >
-            {array.map(({ img, description, name }, index) => (
+            {array.map(({ img, description, name, inst }, index) => (
                 <AuthorScrollableItem
                     src={img.src}
                     alt={img.alt}
                     index={index}
                     name={name}
                     description={description}
-                    inst="/"
+                    inst={inst}
                     array={array}
                     isPortable={isPortable}
                 />

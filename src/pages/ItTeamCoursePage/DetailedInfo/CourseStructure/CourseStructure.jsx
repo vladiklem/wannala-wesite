@@ -8,8 +8,8 @@ const structure = [
         title: "Часопис англійською",
         titleEng: "Basic tenses",
         lessons: [
-            "Past Simple (Your previous work experience)",
-            "Present Simple (Your work, hobbies, free time)",
+            "Past Simple — після уроку ти навчишся правильно розповідати про свій досвід роботи, формулювати речення у минулому швидко і використовувати умовні конструкції",
+            "Present Simple — під час уроку розберемо чому говорити she don`t та I am agree - не ок, а згодом ти зможеш будувати свої речення в теперішньому часі корректно, розповідати про свої звички та обов’язки на роботі з впевненістю",
             "Future Simple (Your Future plan + goals)",
             "Спікінг клаб",
         ],

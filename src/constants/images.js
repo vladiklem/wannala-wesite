@@ -12,7 +12,7 @@ import soloEconomCover from "assets/images/solo-econom-cover.webp";
 import leraItAvatar from "assets/images/lera_it_avatar.jpeg";
 import martaItAvatar from "assets/images/marta_it_avatar.jpeg";
 import vladItAvatar from "assets/images/vlad_it_avatar.jpeg";
-import itCover from "assets/images/it_cover.png";
+import itCover from "assets/images/it-cover.webp";
 import itHero from "assets/images/it-hero.png";
 
 export const IMAGES = {
