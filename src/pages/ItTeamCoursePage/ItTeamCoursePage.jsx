@@ -21,7 +21,7 @@ export const ItTeamCoursePage = ({ isPortable, strings }) => {
             category: "IT",
             action: "clicked Sign Up Course",
         });
-        setTimeout(() => document.querySelector("#name").focus(), 800);
+        setTimeout(() => document.querySelector("#name").focus(), 900);
     }, []);
 
     useEffect(() => {
