@@ -2,9 +2,8 @@ import React from "react";
 import cx from "classnames";
 
 import { ContactsBlock } from "components/styled/ContactsBlock/ContactsBlock";
-import { Button, buttonColorEnum } from "components/index";
 
-import logo from "assets/images/logo.png";
+import logo from "assets/images/new-logo.png";
 
 export const Footer = ({ isPortable, handleLogin }) => {
     return (
@@ -16,7 +15,13 @@ export const Footer = ({ isPortable, handleLogin }) => {
                 })}
             >
                 <div className="row align-items-center mb-3 no-gutters w-100">
-                    <img className="mr-3" src={logo} width="50" height="60" alt="Логотип компанії wannablab" />
+                    <img
+                        className="mr-3"
+                        src={logo}
+                        width="50"
+                        height="60"
+                        alt="Логотип компанії wannablab"
+                    />
                     <p className="regular">
                         powered by <br />{" "}
                         <span className="font-weight-semibold">wannablab family</span>
@@ -24,9 +29,6 @@ export const Footer = ({ isPortable, handleLogin }) => {
                 </div>
                 <ContactsBlock className="mb-3" />
             </div>
-            {/* <Button onClick={handleLogin} color={buttonColorEnum.UNSTYLED}>
-                Залогінитися
-            </Button> */}
         </footer>
     );
 };

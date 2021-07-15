@@ -9,7 +9,7 @@ export const formModeEnum = {
 };
 
 export const mediaBreakpointsEnum = {
-    XXS: 320,
+    XXS: 325,
     XS: 568,
     SM: 667,
     MD: 768,

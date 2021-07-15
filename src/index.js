@@ -14,7 +14,6 @@ TagManager.initialize(tagManagerArgs);
 
 //Google Analytics init
 
-// ReactGA.initialize('250646407', { debug: true });
 ReactGA.initialize("UA-181455329-1");
 ReactGA.pageview(window.location.pathname + window.location.search);
 

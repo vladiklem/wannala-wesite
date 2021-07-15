@@ -9,7 +9,7 @@ const bannerFields = [
     },
     {
         label: "Тривалість",
-        value: "2 місяці",
+        value: "2 місяці (16 уроків)",
     },
     {
         label: "Час",
@@ -26,13 +26,13 @@ export const GeneralInfoBanner = ({ className, isPortable, onClick }) => (
         {bannerFields.map(({ label, value }, index, array) => (
             <div className={cx({ "mb-3": index + 1 !== array.length })}>
                 <span className="mr-1">{label}:</span>
-                <span>{value}</span>
+                <span className="font-weight-semibold">{value}</span>
             </div>
         ))}
         <Button
             href={`#wannablab-it-course-registration${isPortable ? "" : "-inner-container"}`}
             color="green-soft"
-            className="mt-4 py-3 h3 font-weight-bold rounded-xl"
+            className="mt-4 py-3 h3 font-weight-bold rounded-circle"
             onClick={onClick}
             block
         >

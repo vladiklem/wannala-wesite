@@ -1,27 +1,35 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import cx from "classnames";
+import { useMediaQuery } from "react-responsive";
 
 import { toggleHeader } from "store/app/actions";
 import { LeadForm } from "components/styled/LeadForm/LeadForm";
-// import { Button } from "components/";
-// import { AddUserIcon } from "components/Icons/AddUserIcon";
 import { fireAnalyticsEvent } from "analytics/";
 
 import { GeneralInfoBanner } from "./GeneralInfoBanner/GeneralInfoBanner";
 import { DetailedInfo } from "./DetailedInfo/DetailedInfo";
 
 import styles from "./ItTeamCoursePage.module.scss";
+import { mediaBreakpointsEnum } from "constants/enums";
+import { getBrowserId } from "helpers/general";
 
 export const ItTeamCoursePage = ({ isPortable, strings }) => {
     const dispatch = useDispatch();
+    const isTiny = useMediaQuery({ maxWidth: mediaBreakpointsEnum.XXS });
+
+    const getHeadingClassName = useCallback(
+        (indent, portableIndent) =>
+            `${isTiny ? "h1" : "h0"} mb-${isPortable && portableIndent ? portableIndent : indent}`,
+        [isTiny, isPortable],
+    );
 
     const onSignUpClick = useCallback(() => {
         fireAnalyticsEvent({
             category: "IT",
             action: "clicked Sign Up Course",
         });
-        setTimeout(() => document.querySelector("#name").focus(), 900);
+        setTimeout(() => document.querySelector("#name").focus(), getBrowserId() === 2 ? 300 : 900);
     }, []);
 
     useEffect(() => {
@@ -29,9 +37,14 @@ export const ItTeamCoursePage = ({ isPortable, strings }) => {
     }, [dispatch]);
 
     return (
-        <article className={cx({ "pt-5": !isPortable, "pt-4": isPortable })}>
+        <article className={cx({ "pt-4": !isPortable, "pt-3": isPortable })}>
             <section name="itIntroSection" className="mb-5">
-                <h1 className={cx("container", { "h1 lh-44": isPortable, h0: !isPortable })}>
+                <h1
+                    className={cx("container", {
+                        "h1 lh-44 mb-1": isPortable,
+                        "h0 mb-3": !isPortable,
+                    })}
+                >
                     {strings.itIntroSection.h1}
                 </h1>
                 <div className="d-md-none">
@@ -52,7 +65,9 @@ export const ItTeamCoursePage = ({ isPortable, strings }) => {
                             <DetailedInfo
                                 strings={strings.itDetailedInfoSection}
                                 isPortable={isPortable}
+                                getHeadingClassName={getHeadingClassName}
                                 onClick={onSignUpClick}
+                                isTiny={isTiny}
                             />
                         </div>
                         <div className="col-12 col-md-5">
@@ -70,7 +85,9 @@ export const ItTeamCoursePage = ({ isPortable, strings }) => {
                     <DetailedInfo
                         strings={strings.itDetailedInfoSection}
                         isPortable={isPortable}
+                        getHeadingClassName={getHeadingClassName}
                         onClick={onSignUpClick}
+                        isTiny={isTiny}
                     />
                 </section>
             )}

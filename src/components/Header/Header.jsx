@@ -7,7 +7,7 @@ import { buttonColorEnum, Button } from "components/Button/Button";
 import { NavItem } from "./NavItem/NavItem";
 import styles from "./Header.module.scss";
 
-import logo from "assets/images/logo.png";
+import logo from "assets/images/new-logo.png";
 
 import { fireAnalyticsEvent } from "analytics";
 import events from "analytics/events";

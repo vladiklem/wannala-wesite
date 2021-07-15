@@ -5,6 +5,8 @@ import { ArrowRightLong } from "components/Icons/ArrowRightLong";
 import { Button } from "components/index";
 
 import styles from "./Scrollable.module.scss";
+import { useMediaQuery } from "react-responsive";
+import { mediaBreakpointsEnum } from "constants/enums";
 
 export const Scrollable = ({
     className,
@@ -17,6 +19,7 @@ export const Scrollable = ({
     components,
     id,
 }) => {
+    const isTiny = useMediaQuery({ maxWidth: mediaBreakpointsEnum.XXS });
     const scrollableContainer = useRef(null);
     const Header = useMemo(() => (components && components.Header ? components.Header : null), [
         components,
@@ -54,14 +57,20 @@ export const Scrollable = ({
                             color="unstyled"
                             onClick={onClickArrowLeft}
                             size="sm"
-                            className={cx(styles.arrow, styles.left, "py-2 px-3")}
+                            className={cx(styles.arrow, styles.left, "py-2", {
+                                "px-3": !isTiny,
+                                "px-2_5": isTiny,
+                            })}
                         >
                             <ArrowRightLong width={20} height={20} />
                         </Button>
                         <Button
                             color="unstyled"
                             onClick={onClickArrowRight}
-                            className={cx(styles.arrow, "py-2 px-3")}
+                            className={cx(styles.arrow, "py-2", {
+                                "px-3": !isTiny,
+                                "px-2_5": isTiny,
+                            })}
                         >
                             <ArrowRightLong width={20} height={20} />
                         </Button>

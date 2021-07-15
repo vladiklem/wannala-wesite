@@ -6,7 +6,7 @@ import { AuthorScrollableItem } from "./AuthorScrollableItem/AuthorScrollableIte
 
 const getOffset = (isPortable) => (isPortable ? document.documentElement.clientWidth - 64 : 599);
 
-export const AuthorsScrollable = ({ array, isPortable, className }) => {
+export const AuthorsScrollable = ({ array, isPortable, isTiny, className }) => {
     const [offset, setOffset] = useState(100);
 
     useEffect(() => {
@@ -31,6 +31,7 @@ export const AuthorsScrollable = ({ array, isPortable, className }) => {
                     inst={inst}
                     array={array}
                     isPortable={isPortable}
+                    isTiny={isTiny}
                 />
             ))}
         </Scrollable>

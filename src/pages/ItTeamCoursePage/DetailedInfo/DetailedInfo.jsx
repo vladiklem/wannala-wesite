@@ -7,7 +7,7 @@ import { CollapseGroup, Button } from "components/";
 
 import styles from "./DetailedInfo.module.scss";
 
-export const DetailedInfo = ({ isPortable, strings, onClick }) => {
+export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings, onClick }) => {
     const getCollapseProps = useCallback(
         (emoji) => (item, index, array) => ({
             togglerClassName: "font-weight-semibold text-left px-3",
@@ -23,13 +23,19 @@ export const DetailedInfo = ({ isPortable, strings, onClick }) => {
 
     return (
         <>
-            <h2 className="h0 mb-4">{strings.h2_1}</h2>
+            <h2 className={getHeadingClassName(4)}>{strings.h2_1}</h2>
             <h3 className="font-weight-normal h2-28 mb-5">{strings.h3_1}</h3>
             <div className="mb-6">
-                <h2 className="h0 mb-4">{strings.h2_6}</h2>
+                <h2 className={getHeadingClassName(4)}>{strings.h2_6}</h2>
                 <div>
-                    {strings.matchList.map(({ emoji, description }) => (
-                        <div className={cx("position-relative d-flex mb-5", styles.matchItem)}>
+                    {strings.matchList.map(({ emoji, description }, index) => (
+                        <div
+                            className={cx(
+                                "position-relative d-flex mb-5",
+                                styles.matchItem,
+                                `ml-${index + 1}`,
+                            )}
+                        >
                             <h3 className="h3 font-weight-normal">
                                 {emoji} {description}
                             </h3>
@@ -37,7 +43,7 @@ export const DetailedInfo = ({ isPortable, strings, onClick }) => {
                     ))}
                 </div>
             </div>
-            <h2 id="wannablab-show-action-button" className="h0 mb-4">
+            <h2 id="wannablab-show-action-button" className={getHeadingClassName(4)}>
                 {strings.h2_2}
             </h2>
             <CourseStructure className={isPortable ? "mb-4" : "mb-5"} />
@@ -47,27 +53,33 @@ export const DetailedInfo = ({ isPortable, strings, onClick }) => {
                         isPortable ? "" : "-inner-container"
                     }`}
                     color="green-soft"
-                    className="mt-4 py-3 h3 font-weight-bold rounded-xl mb-5"
+                    className="mt-4 py-3 h3 font-weight-bold rounded-circle mb-5"
                     onClick={onClick}
                     block
                 >
                     Записатися ⬇️
                 </Button>
             )}
-            <h2 className="h0 mb-4">{strings.h2_4}</h2>
+            <h2 className={getHeadingClassName(4)}>{strings.h2_4}</h2>
             <CollapseGroup
                 className="mb-5"
+                defaultOpenedCollapseId={null}
                 list={strings.valuesList}
                 getCollapseProps={getCollapseProps("✅")}
             />
-            <h2 className="h0 mb-3">{strings.h2_3}</h2>
+            <h2 className={getHeadingClassName(3)}>{strings.h2_3}</h2>
             <AuthorsScrollable
                 className="mb-3"
                 isPortable={isPortable}
+                isTiny={isTiny}
                 array={strings.authorsList}
             />
-            <h2 className="h0 mb-4">{strings.h2_5}</h2>
-            <CollapseGroup list={strings.faqList} getCollapseProps={getCollapseProps("🤔")} />
+            <h2 className={getHeadingClassName(4)}>{strings.h2_5}</h2>
+            <CollapseGroup
+                defaultOpenedCollapseId={null}
+                list={strings.faqList}
+                getCollapseProps={getCollapseProps("🤔")}
+            />
         </>
     );
 };

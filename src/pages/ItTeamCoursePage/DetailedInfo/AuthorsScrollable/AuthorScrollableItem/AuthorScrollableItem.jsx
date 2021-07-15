@@ -14,11 +14,12 @@ export const AuthorScrollableItem = ({
     description,
     inst,
     isPortable,
+    isTiny,
 }) => {
     return (
         <ScrollableItem
             className={cx(styles.item, "pl-1", {
-                "mr-4": index !== array.length -1,
+                "mr-4": index !== array.length - 1,
                 [styles.isPortable]: isPortable,
             })}
             key={src}
@@ -28,13 +29,13 @@ export const AuthorScrollableItem = ({
                     <img src={src} alt={alt} className="image rounded-circle" />
                 </div>
                 <div className="col-7">
-                    <h3 className="h2 mb-2">{name}</h3>
+                    <h3 className={cx("h2 mb-2", { h2: !isTiny, h3: isTiny })}>{name}</h3>
                     <a href={inst} className="regular font-weight-semibold">
                         INSTAGRAM
                     </a>
                 </div>
                 <div className="col-12 mt-3">
-                    <h4 className="font-weight-normal">{description}</h4>
+                    <h4 className={cx("font-weight-normal", { h4: isTiny })}>{description}</h4>
                 </div>
             </div>
         </ScrollableItem>
