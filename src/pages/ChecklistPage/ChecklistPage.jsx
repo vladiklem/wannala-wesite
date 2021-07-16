@@ -10,7 +10,7 @@ import regularity from "assets/images/regularity.png";
 
 import styles from "./ChecklistPage.module.scss";
 
-export const ChecklistPage = () => {
+const ChecklistPage = () => {
     return (
         <Fragment>
             <div className={styles.container}>
@@ -155,3 +155,5 @@ export const ChecklistPage = () => {
         </Fragment>
     );
 };
+
+export default ChecklistPage;

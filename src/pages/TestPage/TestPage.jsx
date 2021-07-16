@@ -86,7 +86,7 @@ const testResults = {
     },
 };
 
-export const TestPage = () => {
+const TestPage = () => {
     const dispatch = useDispatch();
     const { handleSubmit, register } = useForm();
     const [test, setTest] = useState(0);
@@ -238,3 +238,5 @@ export const TestPage = () => {
         </div>
     );
 };
+
+export default TestPage;

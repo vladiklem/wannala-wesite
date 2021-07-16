@@ -16,10 +16,10 @@ import { LeadForm } from "components/styled/LeadForm/LeadForm";
 import { GroupsScrollableList } from "components/styled/GroupsScrollableList/GroupsScrollableList";
 import { MentorsScrollableList } from "components/styled/MentorsScrollableList/MentorsScrollableList";
 
-import { fireAnalyticsEvent } from "analytics"
-import events from 'analytics/events'
+import { fireAnalyticsEvent } from "analytics";
+import events from "analytics/events";
 
-export const CoursePage = () => {
+const CoursePage = () => {
     const groups = useSelector(selectGroups);
     const { slug } = useParams();
     const { matchesList, advantagesList, name, quoteId, ...course } = coursesList.find(
@@ -27,8 +27,7 @@ export const CoursePage = () => {
     );
     const isPortable = useMediaQuery({ maxWidth: mediaBreakpointsEnum.MD });
 
-    const onClick = () => fireAnalyticsEvent(events.WANT_THIS_COURSE, slug)
-    
+    const onClick = () => fireAnalyticsEvent(events.WANT_THIS_COURSE, slug);
 
     useEffect(() => {
         scrollToTop();
@@ -132,3 +131,5 @@ export const CoursePage = () => {
         </article>
     );
 };
+
+export default CoursePage;

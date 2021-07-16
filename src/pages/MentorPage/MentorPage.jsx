@@ -13,7 +13,7 @@ import { LeadForm } from "components/styled/LeadForm/LeadForm";
 import { GroupsScrollableList } from "components/styled/GroupsScrollableList/GroupsScrollableList";
 import { selectGroups } from "store/groups/selectors";
 
-export const MentorPage = () => {
+const MentorPage = () => {
     const { slug } = useParams();
     const groups = useSelector(selectGroups);
     const isPortable = useMediaQuery({ maxWidth: mediaBreakpointsEnum.MD });
@@ -110,3 +110,5 @@ export const MentorPage = () => {
         </article>
     );
 };
+
+export default MentorPage;

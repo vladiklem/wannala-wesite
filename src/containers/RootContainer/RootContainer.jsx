@@ -1,18 +1,11 @@
-import React, { useEffect, useState, useCallback, useMemo } from "react";
+import React, { useEffect, useState, useCallback, useMemo, Suspense, lazy } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import cx from "classnames";
 
 import { ModalsContainer } from "containers/ModalsContainer/ModalsContainer";
-import { Home } from "pages/Home/Home";
-import { AdminPage } from "pages/AdminPage/AdminPage";
-import { ChecklistPage } from "pages/ChecklistPage/ChecklistPage";
 import { NotFoundPage } from "pages/NotFoundPage/NotFoundPage";
-import { CoursePage } from "pages/CoursePage/CoursePage";
-import { MentorPage } from "pages/MentorPage/MentorPage";
-import { QuizPage } from "pages/QuizPage/QuizPage";
-import { TestPage } from "pages/TestPage/TestPage";
 import { Header, Footer } from "components/index";
 import { firebaseService } from "services/firebaseService";
 import { initUsers } from "store/users/actions";
@@ -31,6 +24,14 @@ import styles from "./RootContainer.module.scss";
 import "assets/styles/index.scss";
 import { initLeads } from "store/leads/actions";
 import { ItTeamCoursePage } from "pages/ItTeamCoursePage/ItTeamCoursePage";
+
+const Home = lazy(() => import("pages/Home/Home"));
+const AdminPage = lazy(() => import("pages/AdminPage/AdminPage"));
+const CoursePage = lazy(() => import("pages/CoursePage/CoursePage"));
+const QuizPage = lazy(() => import("pages/QuizPage/QuizPage"));
+const MentorPage = lazy(() => import("pages/MentorPage/MentorPage"));
+const ChecklistPage = lazy(() => import("pages/ChecklistPage/ChecklistPage"));
+const TestPage = lazy(() => import("pages/TestPage/TestPage"));
 
 firebaseService.init();
 
@@ -83,54 +84,59 @@ export const RootContainer = () => {
     }, [dispatch]);
 
     return (
-        <Router>
-            <Header
-                isPortable={isPortable}
-                onCoursesClick={onCoursesClick}
-                onPricesClick={onPricesClick}
-                isVisible={headerSettings.isVisible}
-            />
-            <main
-                className={cx(styles.background, {
-                    "list-scale-animation1": coursesClicked,
-                    "list-scale-animation2": pricesClicked,
-                })}
-            >
-                <ModalsContainer />
-                <Switch>
-                    <Route path="/" render={renderRoute({ routeComponent: Home })} exact />
-                    <Route
-                        path="/course/:slug"
-                        render={renderRoute({ routeComponent: CoursePage })}
-                    />
-                    <Route
-                        path="/mentor/:slug"
-                        render={renderRoute({ routeComponent: MentorPage })}
-                    />
-                    <Route
-                        path="/check-list"
-                        render={renderRoute({ routeComponent: ChecklistPage })}
-                    />
-                    <Route
-                        path="/it"
-                        render={renderRoute({
-                            routeComponent: ItTeamCoursePage,
-                            props: { isPortable, strings },
-                        })}
-                    />
-                    <Route path="/test" render={renderRoute({ routeComponent: TestPage })} />
-                    <Route path="/quiz/:slug" render={renderRoute({ routeComponent: QuizPage })} />
-                    <PrivateRoute
-                        path="/admin"
-                        isLoading={admin.isLoading}
-                        hasAccess={admin.isAdmin}
-                        component={AdminPage}
-                        selector={selectAdmin}
-                    />
-                    <Route component={NotFoundPage} />
-                </Switch>
-            </main>
-            <Footer handleLogin={openLoginModal} isPortable={isPortable} />
-        </Router>
+        <Suspense fallback={() => <span>"loading"</span>}>
+            <Router>
+                <Header
+                    isPortable={isPortable}
+                    onCoursesClick={onCoursesClick}
+                    onPricesClick={onPricesClick}
+                    isVisible={headerSettings.isVisible}
+                />
+                <main
+                    className={cx(styles.background, {
+                        "list-scale-animation1": coursesClicked,
+                        "list-scale-animation2": pricesClicked,
+                    })}
+                >
+                    <ModalsContainer />
+                    <Switch>
+                        <Route path="/" render={renderRoute({ routeComponent: Home })} exact />
+                        <Route
+                            path="/course/:slug"
+                            render={renderRoute({ routeComponent: CoursePage })}
+                        />
+                        <Route
+                            path="/mentor/:slug"
+                            render={renderRoute({ routeComponent: MentorPage })}
+                        />
+                        <Route
+                            path="/check-list"
+                            render={renderRoute({ routeComponent: ChecklistPage })}
+                        />
+                        <Route
+                            path="/it"
+                            render={renderRoute({
+                                routeComponent: ItTeamCoursePage,
+                                props: { isPortable, strings },
+                            })}
+                        />
+                        <Route path="/test" render={renderRoute({ routeComponent: TestPage })} />
+                        <Route
+                            path="/quiz/:slug"
+                            render={renderRoute({ routeComponent: QuizPage })}
+                        />
+                        <PrivateRoute
+                            path="/admin"
+                            isLoading={admin.isLoading}
+                            hasAccess={admin.isAdmin}
+                            component={AdminPage}
+                            selector={selectAdmin}
+                        />
+                        <Route component={NotFoundPage} />
+                    </Switch>
+                </main>
+                <Footer handleLogin={openLoginModal} isPortable={isPortable} />
+            </Router>
+        </Suspense>
     );
 };

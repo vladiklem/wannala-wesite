@@ -20,7 +20,7 @@ import styles from "./AdminPage.module.scss";
 import { GeneralDashboard } from "./GeneralDashboard/GeneralDashboard";
 import { BudgetDashboard } from "./BudgetDashboard/BudgetDashboard";
 
-export const AdminPage = () => {
+const AdminPage = () => {
     const { url, path } = useRouteMatch();
     const isPortable = useMediaQuery({ maxWidth: mediaBreakpointsEnum.MD });
     const [isOpen, setIsOpen] = useState(!isPortable);
@@ -108,3 +108,5 @@ export const AdminPage = () => {
         </>
     );
 };
+
+export default AdminPage;

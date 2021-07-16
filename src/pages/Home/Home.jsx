@@ -12,7 +12,7 @@ import { fireAnalyticsEvent } from "analytics";
 import events from "analytics/events";
 import { ValuesSection } from "./ValuesSection/ValuesSection";
 
-export const Home = () => {
+const Home = () => {
     const history = useHistory();
     const isPortable = useMediaQuery({ maxWidth: mediaBreakpointsEnum.MD });
 
@@ -89,3 +89,5 @@ export const Home = () => {
         </article>
     );
 };
+
+export default Home;

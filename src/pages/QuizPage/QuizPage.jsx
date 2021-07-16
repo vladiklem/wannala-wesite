@@ -12,7 +12,7 @@ import { quizQuestionsObj } from "constants/lists";
 import { QuizForm } from "./QuizForm/QuizForm";
 import styles from "./QuizPage.module.scss";
 
-export const QuizPage = () => {
+const QuizPage = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const { slug } = useParams();
@@ -55,3 +55,5 @@ export const QuizPage = () => {
         </div>
     );
 };
+
+export default QuizPage;
