@@ -32,6 +32,7 @@ export const AuthorsScrollable = ({ array, isPortable, isTiny, className }) => {
                     array={array}
                     isPortable={isPortable}
                     isTiny={isTiny}
+                    key={index}
                 />
             ))}
         </Scrollable>

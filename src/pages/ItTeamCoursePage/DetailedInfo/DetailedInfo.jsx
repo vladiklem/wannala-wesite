@@ -35,6 +35,7 @@ export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings,
                                 styles.matchItem,
                                 `ml-${index + 1}`,
                             )}
+                            key={index}
                         >
                             <h3 className="h3 font-weight-normal">
                                 {emoji} {description}

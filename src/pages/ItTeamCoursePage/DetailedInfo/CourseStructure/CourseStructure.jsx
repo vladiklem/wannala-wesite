@@ -158,6 +158,7 @@ export const CourseStructure = ({ className }) => {
                             ? setOpenCollapseId(null)
                             : setOpenCollapseId(index)
                     }
+                    key={emoji}
                 >
                     <List list={lessons} type="primary-new" />
                 </Collapse>

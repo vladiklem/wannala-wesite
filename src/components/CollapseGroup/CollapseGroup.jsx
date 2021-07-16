@@ -22,6 +22,7 @@ export const CollapseGroup = ({
                     openCollapseId={openCollapseId}
                     setOpenCollapseId={setOpenCollapseId}
                     getCollapseProps={getCollapseProps}
+                    key={index}
                 />
             ))}
         </div>

@@ -24,7 +24,7 @@ const bannerFields = [
 export const GeneralInfoBanner = ({ className, isPortable, onClick }) => (
     <div className={cx("h3 font-weight-normal border p-4 rounded-lg border-width-2", className)}>
         {bannerFields.map(({ label, value }, index, array) => (
-            <div className={cx({ "mb-3": index + 1 !== array.length })}>
+            <div key={index} className={cx({ "mb-3": index + 1 !== array.length })}>
                 <span className="mr-1">{label}:</span>
                 <span className="font-weight-semibold">{value}</span>
             </div>

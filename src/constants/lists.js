@@ -1,5 +1,3 @@
-import { IMAGES } from "./images";
-
 import { Input, inputTypeEnum, Radio } from "components/index";
 import beginner from "assets/audio/beginner_elementary.mp3";
 import intermediate from "assets/audio/pre_intermediate_intermediate.mp3";
@@ -9,29 +7,17 @@ import { PersonalAttitude } from "components/Icons/PersonalAttitude";
 import { Learning } from "components/Icons/Learning";
 import { Grammar } from "components/Icons/Grammar";
 
-export const servicesList = [
-    {
-        slug: "group-lessons",
-        title: "Групові уроки",
-        description: "Командна робота над мовленням у форматі спікінг клабу",
-        imgSrc: IMAGES.groupLessonsImg,
-        className: "bg-light-purple",
-    },
-    {
-        slug: "personal-lessons",
-        title: "Індивідуальні уроки",
-        description: "Інтенсивна робота у бажаному напрямку один на один",
-        imgSrc: IMAGES.personalLessonsImg,
-        className: "bg-light-blue",
-    },
-    {
-        slug: "small-talks",
-        title: "Small talks",
-        description: "Швидка практика на кожен день",
-        imgSrc: IMAGES.smallTalkLessonsImg,
-        className: "bg-light-green",
-    },
-];
+import sophia from "assets/images/sophia.jpeg";
+import kateAvatar from "assets/images/kate_avatar.jpeg";
+import anyaAvatar from "assets/images/anya_avatar.jpeg";
+import groupCover from "assets/images/group-cover.webp";
+import soloCover from "assets/images/solo-cover.webp";
+import proCover from "assets/images/pro-cover.png";
+import vovaAvatar from "assets/images/vova_avatar.webp";
+import volodymyrAvatar from "assets/images/volodymyr_avatar.webp";
+import marynaAvatar from "assets/images/maryna_avatar.webp";
+import soloEconomCover from "assets/images/solo-econom-cover.webp";
+import martaItAvatar from "assets/images/marta_it_avatar.jpeg";
 
 export const coursesList = [
     {
@@ -60,7 +46,7 @@ export const coursesList = [
             "Поставиш правильну вимову",
             "Зможеш правильно використовувати професійну лексику",
         ],
-        imgSrc: IMAGES.proCover,
+        imgSrc: proCover,
         lessonsCount: 20,
         price: 2970,
         className: "bg-pro-new",
@@ -75,7 +61,7 @@ export const coursesList = [
         name: "Basic",
         description:
             "2 групових заняття в тиждень, вічна підписка на Netflix, командний перегляд серіалів англійською",
-        imgSrc: IMAGES.groupCover,
+        imgSrc: groupCover,
         lessonsCount: 8,
         price: 1270,
         className: "bg-group-new",
@@ -108,7 +94,7 @@ export const coursesList = [
         quoteId: 2,
         description:
             "Індивідуальний план навчання, 2 індивідуальних заняття в тиждень, вічна підписка на Netflix",
-        imgSrc: IMAGES.soloCover,
+        imgSrc: soloCover,
         lessonsCount: 8,
         price: 2370,
         className: "bg-solo-new",
@@ -137,7 +123,7 @@ export const coursesList = [
         quoteId: 2,
         description:
             "Індивідуальний план навчання, 2 індивідуальних заняття в тиждень, вічна підписка на Netflix",
-        imgSrc: IMAGES.soloEconomCover,
+        imgSrc: soloEconomCover,
         lessonsCount: 8,
         price: 1870,
         className: "bg-solo-econom-new text-white",
@@ -196,7 +182,7 @@ export const mentorsList = [
     {
         slug: "marta-yarosh",
         name: "Марта Чайковська",
-        src: IMAGES.martaItAvatar,
+        src: martaItAvatar,
         list: ["IELTS (7.5 CERF C1)", "50+ успішних студентів"],
         color: "light-green",
         shortDescription: "Вчитель англійської мови для дорослих починаючи від рівня А2 до С1.",
@@ -207,7 +193,7 @@ export const mentorsList = [
     {
         slug: "ann-stepova",
         name: "Аня Степова",
-        src: IMAGES.anyaAvatar,
+        src: anyaAvatar,
         longDescription: (
             <>
                 {" "}
@@ -229,7 +215,7 @@ export const mentorsList = [
     {
         slug: "kate-timchenko",
         name: "Катя Тимченко",
-        src: IMAGES.kateAvatar,
+        src: kateAvatar,
         list: ["3+ роки практики", "1500+ уроків"],
         shortDescription: "Репетитор англійської мови для дорослих та дітей.",
         longDescription:
@@ -240,7 +226,7 @@ export const mentorsList = [
     {
         slug: "marina-torokhtiy",
         name: "Марина Торохтій",
-        src: IMAGES.marynaAvatar,
+        src: marynaAvatar,
         shortDescription: "Вчитель яка знає 6 мов  та пожила вже у чотирьох країнах!",
         longDescription:
             "Привіт, я Марина, думаєш говорити англійською страшно? Тоді мої смол токи саме для тебе, це буде ізі & фані адже я маю безліч досвіду в спілкуванні з іноземцями, чого і тебе навчу😊 Жила в Португалії, в Канаді та наразі в Німеччині.",
@@ -253,21 +239,21 @@ export const mentorsList = [
 export const usersFeedbackList = [
     {
         name: "Софія",
-        avatar: IMAGES.sophia,
+        avatar: sophia,
         description:
             "Нещодавно підписала контракт з англомовним клієнтом, з яким сама працювала. Можу говорити з ним по 45 хвилин і взагалі ніякого дискомфорту немає. Під час дзвінків я знаю, що навіть якщо щось не знатиму на англ, то зможу це пояснити і все буде окей.",
         alt: "Софія, студентка школи розмовної англійської wannablab",
     },
     {
         name: "Вова",
-        avatar: IMAGES.vovaAvatar,
+        avatar: vovaAvatar,
         description:
             "Мій рівень на тестуванні оцінили в А2. Ціллю була робота, пов’язана із комунікацією англійською. Через 2 місяці я успішно пройшов співбесіду та працюю customer support і далі вивчаю англійську.",
         alt: "Вова, студент школи розмовної англійської wannablab",
     },
     {
         name: "Володимир",
-        avatar: IMAGES.volodymyrAvatar,
+        avatar: volodymyrAvatar,
         description:
             "Я навчився думати англійською на побутовому рівні. Навіть вдома я намагаюся проговорювати назви предметів англійською. Зараз я переписуюся зі своїм знайомим з Лондону і мені вже не потрібен для цього перекладач. Скоро ми плануємо зустрітися, тому це для мене ще один стимул вдосконалювати мову. ",
         alt: "Володимир, студент школи розмовної англійської wannablab",

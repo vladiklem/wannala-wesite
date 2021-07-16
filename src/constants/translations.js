@@ -1,11 +1,15 @@
-import { IMAGES } from "./images";
+import leraItAvatar from "assets/images/lera_it_avatar.jpeg";
+import martaItAvatar from "assets/images/marta_it_avatar.jpeg";
+import vladItAvatar from "assets/images/vlad_it_avatar.jpeg";
+import itCover from "assets/images/cover-with-marta2.png";
+import itHero from "assets/images/it-hero.png";
 
 export const translations = {
     ua: {
         itIntroSection: {
             h1: "Курс “English in IT team”",
             img: {
-                src: IMAGES.itCover,
+                src: itCover,
                 alt:
                     "Командна робота в IT компанії. Командная работа в IT компании. Корпоративный английский. English in IT team”",
             },
@@ -13,7 +17,7 @@ export const translations = {
         itRegistrationSection: {
             h2: "Запис на курс",
             img: {
-                src: IMAGES.itHero,
+                src: itHero,
                 alt: "IT English communication hero",
             },
             form: {
@@ -63,7 +67,7 @@ export const translations = {
                     description:
                         "Хай, я твій ментор на цьому курсі. За рік роботи у wannablab я провела понад 1500 занять та вивела більш ніж 70 учнів зі ступору англійської мови. Будеш наступним?",
                     img: {
-                        src: IMAGES.martaItAvatar,
+                        src: martaItAvatar,
                         alt:
                             "Марта Чайковська - головний вчитель, автор програми курсу 'Англійська комунікація в IT команді'",
                     },
@@ -76,7 +80,7 @@ export const translations = {
                     description:
                         "Здоровки :) Разом з Мартою я збирав проблеми, з якими ти можеш стикнутися в інтернаціональних IT командах, і допомагав знайти їх рішення. Сам в IT вже понад 5 років, з яких півтора провів в міжнародних командах.",
                     img: {
-                        src: IMAGES.vladItAvatar,
+                        src: vladItAvatar,
                         alt: "Влад Балюк - організатор курсу 'Англійська комунікація в IT команді'",
                     },
                     inst: "https://www.instagram.com/vlad_lem_/",
@@ -87,7 +91,7 @@ export const translations = {
                     description:
                         "Привіт! Я організатор цього курсу і вже понад рік працюю у шведській компанії, як розробник. Від мене ти отримаєш корисні скіли для роботи в команді та допомогу в організаційних питаннях.",
                     img: {
-                        src: IMAGES.leraItAvatar,
+                        src: leraItAvatar,
                         alt:
                             "Велерія Михальова - організатор курсу 'Англійська комунікація в IT команді'",
                     },

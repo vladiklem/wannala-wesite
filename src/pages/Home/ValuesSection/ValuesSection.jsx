@@ -15,6 +15,7 @@ export const ValuesSection = ({ isPortable, className }) => (
                 className="mb-3"
                 isPortable={isPortable}
                 index={index}
+                key={valueProps.title}
                 {...valueProps}
             />
         ))}

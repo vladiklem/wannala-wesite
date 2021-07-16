@@ -1,13 +1,15 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, lazy } from "react";
 import { useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-import { Input, Button, Select, CustomSelect } from "components/index";
+import { Input, Button, CustomSelect } from "components/index";
 import { objWithId, groupsToSelectOptions } from "utils/converters";
 import { initialEvent } from "constants/initialValues";
 import { eventTypeOptions, mentorOptions } from "constants/options";
 import { formModeEnum, formSubmitButtonEnum, eventTypesEnum } from "constants/enums";
+
+const Select = lazy(() => import("components/Select/Select"));
 
 export const EventForm = ({
     mode = formModeEnum.CREATE,

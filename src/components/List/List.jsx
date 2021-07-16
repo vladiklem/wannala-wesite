@@ -15,8 +15,8 @@ export const List = ({
         <div className={className}>
             {title && <h2 className="h3 mb-2_5">{title}</h2>}
             <ul className={`list list-${type} text-left`}>
-                {finalList.map((item) => (
-                    <li className={cx("mb-1 list__item", itemClassName)} key={item}>
+                {finalList.map((item, index) => (
+                    <li className={cx("mb-1 list__item", itemClassName)} key={index}>
                         {item}
                     </li>
                 ))}

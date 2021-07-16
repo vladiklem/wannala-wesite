@@ -1,12 +1,14 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, lazy } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-import { Input, Button, Select, CustomSelect } from "components/index";
+import { Input, Button, CustomSelect } from "components/index";
 import { objWithId } from "utils/converters";
 import { initialGroup } from "constants/initialValues";
 import { mentorOptions } from "constants/options";
 import { formModeEnum, formSubmitButtonEnum } from "constants/enums";
+
+const Select = lazy(() => import("components/Select/Select"));
 
 export const GroupForm = ({
     mode = formModeEnum.CREATE,

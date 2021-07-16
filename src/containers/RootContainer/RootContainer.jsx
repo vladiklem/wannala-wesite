@@ -23,7 +23,6 @@ import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
 import styles from "./RootContainer.module.scss";
 import "assets/styles/index.scss";
 import { initLeads } from "store/leads/actions";
-import { ItTeamCoursePage } from "pages/ItTeamCoursePage/ItTeamCoursePage";
 
 const Home = lazy(() => import("pages/Home/Home"));
 const AdminPage = lazy(() => import("pages/AdminPage/AdminPage"));
@@ -32,6 +31,7 @@ const QuizPage = lazy(() => import("pages/QuizPage/QuizPage"));
 const MentorPage = lazy(() => import("pages/MentorPage/MentorPage"));
 const ChecklistPage = lazy(() => import("pages/ChecklistPage/ChecklistPage"));
 const TestPage = lazy(() => import("pages/TestPage/TestPage"));
+const ItTeamCoursePage = lazy(() => import("pages/ItTeamCoursePage/ItTeamCoursePage"));
 
 firebaseService.init();
 
