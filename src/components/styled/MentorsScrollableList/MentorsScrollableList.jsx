@@ -5,7 +5,7 @@ import { mentorsList } from "constants/lists";
 
 import { MentorScrollableItem } from "./MentorScrollableItem/MentorScrollableItem";
 
-export const MentorsScrollableList = ({ toMentor, list = mentorsList, className, isPortable }) => {
+const MentorsScrollableList = ({ toMentor, list = mentorsList, className, isPortable }) => {
     const offset = useMemo(() => (isPortable ? 250 : 556), [isPortable]);
 
     return (
@@ -32,3 +32,5 @@ export const MentorsScrollableList = ({ toMentor, list = mentorsList, className,
         </Scrollable>
     );
 };
+
+export default MentorsScrollableList;

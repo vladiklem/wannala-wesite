@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import cx from "classnames";
 
-import { ModalsContainer } from "containers/ModalsContainer/ModalsContainer";
-import { NotFoundPage } from "pages/NotFoundPage/NotFoundPage";
 import { Header, Footer } from "components/index";
 import { firebaseService } from "services/firebaseService";
 import { initUsers } from "store/users/actions";
@@ -31,6 +29,8 @@ const MentorPage = lazy(() => import("pages/MentorPage/MentorPage"));
 const ChecklistPage = lazy(() => import("pages/ChecklistPage/ChecklistPage"));
 const TestPage = lazy(() => import("pages/TestPage/TestPage"));
 const ItTeamCoursePage = lazy(() => import("pages/ItTeamCoursePage/ItTeamCoursePage"));
+const NotFoundPage = lazy(() => import("pages/NotFoundPage/NotFoundPage"));
+const ModalsContainer = lazy(() => import("containers/ModalsContainer/ModalsContainer"));
 
 firebaseService.init();
 
@@ -38,6 +38,7 @@ export const RootContainer = () => {
     const dispatch = useDispatch();
     const admin = useSelector(selectAdmin);
     const headerSettings = useSelector(selectHeaderSettings);
+    const { name } = useSelector((store) => store.modals);
     const [coursesClicked, setCoursesClicked] = useState(false);
     const [pricesClicked, setPricesClicked] = useState(false);
 
@@ -94,7 +95,7 @@ export const RootContainer = () => {
                         "list-scale-animation2": pricesClicked,
                     })}
                 >
-                    <ModalsContainer />
+                    {name !== modalNamesEnum.NONE && <ModalsContainer />}
                     <Switch>
                         <Route path="/" render={renderRoute({ routeComponent: Home })} exact />
                         <Route

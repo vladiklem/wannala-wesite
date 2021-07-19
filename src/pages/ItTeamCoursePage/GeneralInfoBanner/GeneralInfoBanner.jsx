@@ -5,7 +5,7 @@ import { Button } from "components/index";
 const bannerFields = [
     {
         label: "Старт",
-        value: "20 липня",
+        value: "22 липня",
     },
     {
         label: "Тривалість",

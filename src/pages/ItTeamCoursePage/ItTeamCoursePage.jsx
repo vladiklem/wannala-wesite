@@ -1,10 +1,9 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, lazy } from "react";
 import { useDispatch } from "react-redux";
 import cx from "classnames";
 import { useMediaQuery } from "react-responsive";
 
 import { toggleHeader } from "store/app/actions";
-import { LeadForm } from "components/styled/LeadForm/LeadForm";
 import { fireAnalyticsEvent } from "analytics/";
 
 import { GeneralInfoBanner } from "./GeneralInfoBanner/GeneralInfoBanner";
@@ -18,6 +17,8 @@ import leraItAvatar from "assets/images/lera_it_avatar.jpeg";
 import martaItAvatar from "assets/images/marta_it_avatar.jpeg";
 import vladItAvatar from "assets/images/vlad_it_avatar.jpeg";
 import itHero from "assets/images/it-hero.png";
+
+const LeadForm = lazy(() => import("components/styled/LeadForm/LeadForm"));
 
 export const translations = {
     ua: {
@@ -210,9 +211,9 @@ const ItTeamCoursePage = ({ isPortable }) => {
                         style={{ width: "100%", height: 200 }}
                         src="https://www.youtube.com/embed/YrBSjLa_yOM"
                         title="YouTube video player"
-                        frameborder="0"
+                        frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
+                        allowFullScreen
                     ></iframe>
                 </div>
                 <div className="container">
@@ -222,9 +223,9 @@ const ItTeamCoursePage = ({ isPortable }) => {
                                 style={{ width: "100%", height: 315 }}
                                 src="https://www.youtube.com/embed/YrBSjLa_yOM"
                                 title="YouTube video player"
-                                frameborder="0"
+                                frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen
+                                allowFullScreen
                                 className="rounded-xl"
                             ></iframe>
                             <DetailedInfo

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { lazy } from "react";
 import cx from "classnames";
 
-import { MentorsScrollableList } from "components/styled/MentorsScrollableList/MentorsScrollableList";
-
 import styles from "./InteractionSection.module.scss";
+
+const MentorsScrollableList = lazy(() =>
+    import("components/styled/MentorsScrollableList/MentorsScrollableList"),
+);
 
 export const InteractionSections = (props) => {
     return (

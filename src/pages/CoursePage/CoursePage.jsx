@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { useMediaQuery } from "react-responsive";
@@ -12,12 +12,17 @@ import { Quote } from "components/styled/index";
 import { scrollToTop } from "helpers/general";
 
 import styles from "./CoursePage.module.scss";
-import { LeadForm } from "components/styled/LeadForm/LeadForm";
-import { GroupsScrollableList } from "components/styled/GroupsScrollableList/GroupsScrollableList";
-import { MentorsScrollableList } from "components/styled/MentorsScrollableList/MentorsScrollableList";
 
 import { fireAnalyticsEvent } from "analytics";
 import events from "analytics/events";
+
+const LeadForm = lazy(() => import("components/styled/LeadForm/LeadForm"));
+const GroupsScrollableList = lazy(() =>
+    import("components/styled/GroupsScrollableList/GroupsScrollableList"),
+);
+const MentorsScrollableList = lazy(() =>
+    import("components/styled/MentorsScrollableList/MentorsScrollableList"),
+);
 
 const CoursePage = () => {
     const groups = useSelector(selectGroups);

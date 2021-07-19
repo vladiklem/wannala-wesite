@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, lazy } from "react";
 import { useParams } from "react-router";
 import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
@@ -9,9 +9,10 @@ import { mediaBreakpointsEnum } from "constants/enums";
 import { Button, List, Loader } from "components/index";
 import { scrollToTop } from "helpers/general";
 
-import { LeadForm } from "components/styled/LeadForm/LeadForm";
-import { GroupsScrollableList } from "components/styled/GroupsScrollableList/GroupsScrollableList";
 import { selectGroups } from "store/groups/selectors";
+
+const LeadForm = lazy(() => import("components/styled/LeadForm/LeadForm"));
+const GroupsScrollableList = lazy(() => import("components/styled/GroupsScrollableList/GroupsScrollableList"));
 
 const MentorPage = () => {
     const { slug } = useParams();

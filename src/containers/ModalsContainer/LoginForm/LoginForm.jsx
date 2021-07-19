@@ -8,7 +8,7 @@ import { Input, Button } from "components/index";
 import { appAdminAuth } from "store/app/actions";
 import { adminPasswordCheck } from "utils/password";
 
-export const LoginForm = ({ isOpen, toggle }) => {
+const LoginForm = ({ isOpen, toggle }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { handleSubmit, register } = useForm();
@@ -46,3 +46,5 @@ export const LoginForm = ({ isOpen, toggle }) => {
         </Modal>
     );
 };
+
+export default LoginForm;

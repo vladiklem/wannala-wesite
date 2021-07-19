@@ -28,7 +28,7 @@ const structure = [
             </>,
             <>
                 <strong>Спікінг клаб</strong>
-                <italic>{" — 'Мої плани на майбутнє та історія вибору професії' "}</italic>
+                <span>{" — 'Мої плани на майбутнє та історія вибору професії' "}</span>
             </>,
         ],
         description:
@@ -59,11 +59,11 @@ const structure = [
             </>,
             <>
                 <strong>Спікінг клаб</strong>
-                <italic>
+                <span>
                     {
                         " — 'Role play' - a manager and employee (практика діалогів і критики), обговорення непорозумінь на роботі та способів їх уникнення "
                     }
-                </italic>
+                </span>
             </>,
         ],
         description: "",
@@ -90,11 +90,11 @@ const structure = [
             </>,
             <>
                 <strong>Спікінг клаб</strong>
-                <italic>
+                <span>
                     {
                         " — як змінився світ та ІТ індустрія після появи коронавірусу і які продукти почали з’являтися на ринках "
                     }
-                </italic>
+                </span>
             </>,
         ],
         titleEng: "Projects",
@@ -125,11 +125,11 @@ const structure = [
             </>,
             <>
                 <strong>Спікінг клаб</strong>
-                <italic>
+                <span>
                     {
                         " — вирішення спільної проблеми в команді і практика усунення можливих непорозумінь "
                     }
-                </italic>
+                </span>
             </>,
         ],
         description: "",
