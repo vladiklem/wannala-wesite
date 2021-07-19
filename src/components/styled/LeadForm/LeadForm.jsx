@@ -14,7 +14,7 @@ import events from "analytics/events";
 
 import styles from "./LeadForm.module.scss";
 
-export const LeadForm = ({
+const LeadForm = ({
     className,
     description = "",
     actionButtonProps,
@@ -105,3 +105,5 @@ export const LeadForm = ({
         </form>
     );
 };
+
+export default LeadForm;

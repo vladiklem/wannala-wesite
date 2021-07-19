@@ -1,8 +1,7 @@
-import React, { useCallback } from "react";
+import React, { useCallback, lazy } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useHistory } from "react-router-dom";
 
-import { LeadForm } from "components/styled/LeadForm/LeadForm";
 import { mediaBreakpointsEnum } from "constants/enums";
 
 import { GreetingsSection } from "./GreetingsSection/GreetingsSection";
@@ -11,6 +10,8 @@ import { FeedbackSection } from "./FeedbackSection/FeedbackSection";
 import { fireAnalyticsEvent } from "analytics";
 import events from "analytics/events";
 import { ValuesSection } from "./ValuesSection/ValuesSection";
+
+const LeadForm = lazy(() => import("components/styled/LeadForm/LeadForm"));
 
 const Home = () => {
     const history = useHistory();

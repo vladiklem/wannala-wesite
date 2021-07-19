@@ -1,22 +1,19 @@
-import React, { useEffect, useState, useCallback, useMemo, Suspense, lazy } from "react";
+import React, { useEffect, useState, useCallback, Suspense, lazy } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import cx from "classnames";
 
-import { ModalsContainer } from "containers/ModalsContainer/ModalsContainer";
-import { NotFoundPage } from "pages/NotFoundPage/NotFoundPage";
 import { Header, Footer } from "components/index";
 import { firebaseService } from "services/firebaseService";
 import { initUsers } from "store/users/actions";
 import { initEvents } from "store/events/actions";
 import { initGroups } from "store/groups/actions";
 import { changeLanguage, initApp } from "store/app/actions";
-import { selectAdmin, selectHeaderSettings, selectLanguage } from "store/app/selectors";
+import { selectAdmin, selectHeaderSettings } from "store/app/selectors";
 import { toggleModal } from "store/modals/actions";
 import { modalNamesEnum, mediaBreakpointsEnum } from "constants/enums";
 import { detectLang } from "helpers/general";
-import { translations } from "constants/translations";
 
 import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
 
@@ -32,6 +29,8 @@ const MentorPage = lazy(() => import("pages/MentorPage/MentorPage"));
 const ChecklistPage = lazy(() => import("pages/ChecklistPage/ChecklistPage"));
 const TestPage = lazy(() => import("pages/TestPage/TestPage"));
 const ItTeamCoursePage = lazy(() => import("pages/ItTeamCoursePage/ItTeamCoursePage"));
+const NotFoundPage = lazy(() => import("pages/NotFoundPage/NotFoundPage"));
+const ModalsContainer = lazy(() => import("containers/ModalsContainer/ModalsContainer"));
 
 firebaseService.init();
 
@@ -39,7 +38,7 @@ export const RootContainer = () => {
     const dispatch = useDispatch();
     const admin = useSelector(selectAdmin);
     const headerSettings = useSelector(selectHeaderSettings);
-    const lang = useSelector(selectLanguage);
+    const { name } = useSelector((store) => store.modals);
     const [coursesClicked, setCoursesClicked] = useState(false);
     const [pricesClicked, setPricesClicked] = useState(false);
 
@@ -48,8 +47,6 @@ export const RootContainer = () => {
     const openLoginModal = useCallback(() => dispatch(toggleModal(modalNamesEnum.LOGIN)), [
         dispatch,
     ]);
-
-    const strings = useMemo(() => translations[lang], [lang]);
 
     const onCoursesClick = useCallback(() => {
         setTimeout(() => {
@@ -98,7 +95,7 @@ export const RootContainer = () => {
                         "list-scale-animation2": pricesClicked,
                     })}
                 >
-                    <ModalsContainer />
+                    {name !== modalNamesEnum.NONE && <ModalsContainer />}
                     <Switch>
                         <Route path="/" render={renderRoute({ routeComponent: Home })} exact />
                         <Route
@@ -117,7 +114,7 @@ export const RootContainer = () => {
                             path="/it"
                             render={renderRoute({
                                 routeComponent: ItTeamCoursePage,
-                                props: { isPortable, strings },
+                                props: { isPortable },
                             })}
                         />
                         <Route path="/test" render={renderRoute({ routeComponent: TestPage })} />

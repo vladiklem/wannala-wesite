@@ -1,10 +1,9 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, lazy } from "react";
 import { useDispatch } from "react-redux";
 import cx from "classnames";
 import { useMediaQuery } from "react-responsive";
 
 import { toggleHeader } from "store/app/actions";
-import { LeadForm } from "components/styled/LeadForm/LeadForm";
 import { fireAnalyticsEvent } from "analytics/";
 
 import { GeneralInfoBanner } from "./GeneralInfoBanner/GeneralInfoBanner";
@@ -17,15 +16,15 @@ import { getBrowserId } from "helpers/general";
 import leraItAvatar from "assets/images/lera_it_avatar.jpeg";
 import martaItAvatar from "assets/images/marta_it_avatar.jpeg";
 import vladItAvatar from "assets/images/vlad_it_avatar.jpeg";
-import itCover from "assets/images/cover-with-marta2.png";
 import itHero from "assets/images/it-hero.png";
+
+const LeadForm = lazy(() => import("components/styled/LeadForm/LeadForm"));
 
 export const translations = {
     ua: {
         itIntroSection: {
-            h1: "Курс “English in IT team”",
+            h1: "👨‍💻👩‍💻 Курс “English in IT team”",
             img: {
-                src: itCover,
                 alt:
                     "Командна робота в IT компанії. Командная работа в IT компании. Корпоративный английский. English in IT team”",
             },
@@ -201,27 +200,34 @@ const ItTeamCoursePage = ({ isPortable }) => {
             <section name="itIntroSection" className="mb-5">
                 <h1
                     className={cx("container", {
-                        "h1 lh-44 mb-1": isPortable,
-                        "h0 mb-3": !isPortable,
+                        "h1 lh-44 mb-3": isPortable,
+                        "h0 mb-5": !isPortable,
                     })}
                 >
                     {strings.itIntroSection.h1}
                 </h1>
                 <div className="d-md-none">
-                    <img
-                        alt={strings.itIntroSection.img.alt}
-                        src={strings.itIntroSection.img.src}
-                        className="image mb-2"
-                    />
+                    <iframe
+                        style={{ width: "100%", height: 200 }}
+                        src="https://www.youtube.com/embed/YrBSjLa_yOM"
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    ></iframe>
                 </div>
                 <div className="container">
                     <div className="row">
                         <div className="col-12 col-md-7 d-none d-md-block">
-                            <img
-                                alt={strings.itIntroSection.img.alt}
-                                src={strings.itIntroSection.img.src}
-                                className="image mb-2"
-                            />
+                            <iframe
+                                style={{ width: "100%", height: 315 }}
+                                src="https://www.youtube.com/embed/YrBSjLa_yOM"
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className="rounded-xl"
+                            ></iframe>
                             <DetailedInfo
                                 strings={strings.itDetailedInfoSection}
                                 isPortable={isPortable}
@@ -230,9 +236,9 @@ const ItTeamCoursePage = ({ isPortable }) => {
                                 isTiny={isTiny}
                             />
                         </div>
-                        <div className="col-12 col-md-5">
+                        <div className="col-12 col-md-5 mt-4 mt-md-0">
                             <GeneralInfoBanner
-                                className={cx({ [cx(styles.panel, "mt-5")]: !isPortable })}
+                                className={cx({ [styles.panel]: !isPortable })}
                                 onClick={onSignUpClick}
                                 isPortable={isPortable}
                             />
@@ -261,7 +267,7 @@ const ItTeamCoursePage = ({ isPortable }) => {
                     id="wannablab-it-course-registration-inner-container"
                     className="d-flex align-items-center justify-content-center flex-column"
                 >
-                    <div className={isPortable ? "col-6" : "col-4"}>
+                    <div className={isPortable ? "col-8" : "col-4"}>
                         <img
                             className="image"
                             src={strings.itRegistrationSection.img.src}

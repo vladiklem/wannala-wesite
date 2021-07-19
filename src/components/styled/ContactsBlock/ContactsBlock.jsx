@@ -2,7 +2,6 @@ import React from "react";
 import cx from "classnames";
 
 import { Instagram, Telegram } from "components/Icons/social";
-import { EmailNewsForm } from "forms/EmailNewsForm/EmailNewsForm";
 import { email, instagramLink, telegramLink, telNumber } from "constants/social";
 
 export const ContactsBlock = ({ isRow = true, className }) => (
