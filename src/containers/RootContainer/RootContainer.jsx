@@ -8,13 +8,11 @@ import { ModalsContainer } from "containers/ModalsContainer/ModalsContainer";
 import { Header, Footer } from "components/index";
 import { firebaseService } from "services/firebaseService";
 import { initUsers } from "store/users/actions";
-import { initEvents } from "store/events/actions";
 import { initGroups } from "store/groups/actions";
-import { changeLanguage, initApp } from "store/app/actions";
+import { initApp } from "store/app/actions";
 import { selectAdmin, selectHeaderSettings } from "store/app/selectors";
 import { toggleModal } from "store/modals/actions";
 import { modalNamesEnum, mediaBreakpointsEnum } from "constants/enums";
-import { detectLang } from "helpers/general";
 
 import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
 
@@ -72,11 +70,9 @@ export const RootContainer = () => {
 
     useEffect(() => {
         dispatch(initUsers());
-        dispatch(initEvents());
         dispatch(initGroups());
         dispatch(initApp());
         dispatch(initLeads());
-        dispatch(changeLanguage(detectLang()));
     }, [dispatch]);
 
     return (
