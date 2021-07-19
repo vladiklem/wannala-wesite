@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, lazy } from "react";
-import { useForm, Controller } from "react-hook-form";
+import React, { useCallback, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 import { Input, Button, CustomSelect } from "components/index";
@@ -7,8 +7,6 @@ import { objWithId } from "utils/converters";
 import { initialGroup } from "constants/initialValues";
 import { mentorOptions } from "constants/options";
 import { formModeEnum, formSubmitButtonEnum } from "constants/enums";
-
-const Select = lazy(() => import("components/Select/Select"));
 
 export const GroupForm = ({
     mode = formModeEnum.CREATE,
@@ -19,7 +17,7 @@ export const GroupForm = ({
     onSubmit,
     onDelete,
 }) => {
-    const { control, reset, register, handleSubmit, errors } = useForm({
+    const { reset, register, handleSubmit, errors } = useForm({
         defaultValues: initialValue,
     });
 
@@ -60,7 +58,7 @@ export const GroupForm = ({
                         options={mentorOptions}
                         ref={register}
                     />
-                    <Controller
+                    {/* <Controller
                         control={control}
                         name="members"
                         render={({ onChange, onBlur, value, name, ref }) => (
@@ -77,7 +75,7 @@ export const GroupForm = ({
                                 placeholder="Блабери..."
                             />
                         )}
-                    />
+                    /> */}
                     <Input
                         label="Опис"
                         name="description"
