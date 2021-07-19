@@ -1,18 +1,12 @@
 import leraItAvatar from "assets/images/lera_it_avatar.jpeg";
 import martaItAvatar from "assets/images/marta_it_avatar.jpeg";
 import vladItAvatar from "assets/images/vlad_it_avatar.jpeg";
-import itCover from "assets/images/cover-with-marta2.png";
 import itHero from "assets/images/it-hero.png";
 
 export const translations = {
     ua: {
         itIntroSection: {
-            h1: "Курс “English in IT team”",
-            img: {
-                src: itCover,
-                alt:
-                    "Командна робота в IT компанії. Командная работа в IT компании. Корпоративный английский. English in IT team”",
-            },
+            h1: "👨‍💻👩‍💻 Курс “English in IT team”",
         },
         itRegistrationSection: {
             h2: "Запис на курс",
