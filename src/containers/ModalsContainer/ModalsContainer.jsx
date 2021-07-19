@@ -1,10 +1,10 @@
-import React, { useCallback } from "react";
+import React, { useCallback, lazy } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { modalNamesEnum } from "constants/enums";
 import { toggleModal } from "store/modals/actions";
 
-import { LoginForm } from "./LoginForm/LoginForm";
+const LoginForm = lazy(() => import("./LoginForm/LoginForm"));
 
 export const ModalsContainer = () => {
     const dispatch = useDispatch();

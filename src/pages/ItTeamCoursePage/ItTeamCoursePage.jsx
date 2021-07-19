@@ -1,10 +1,9 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, lazy } from "react";
 import { useDispatch } from "react-redux";
 import cx from "classnames";
 import { useMediaQuery } from "react-responsive";
 
 import { toggleHeader } from "store/app/actions";
-import { LeadForm } from "components/styled/LeadForm/LeadForm";
 import { fireAnalyticsEvent } from "analytics/";
 
 import { GeneralInfoBanner } from "./GeneralInfoBanner/GeneralInfoBanner";
@@ -14,6 +13,8 @@ import styles from "./ItTeamCoursePage.module.scss";
 import { mediaBreakpointsEnum } from "constants/enums";
 import { getBrowserId } from "helpers/general";
 import { translations } from "./ItTeamCoursePage.constants";
+
+const LeadForm = lazy(() => import("components/styled/LeadForm/LeadForm"));
 
 const strings = translations.ua;
 

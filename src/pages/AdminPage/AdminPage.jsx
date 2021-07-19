@@ -11,7 +11,6 @@ import { mediaBreakpointsEnum } from "constants/enums";
 import { CustomRoute } from "containers/RootContainer/CustomRoute/CustomRoute";
 import { selectAdmin } from "store/app/selectors";
 
-import { EventsPanel } from "./EventsPanel/EventsPanel";
 import { UsersPanel } from "./UsersPanel/UsersPanel";
 import { GroupsPanel } from "./GroupsPanel/GroupsPanel";
 import { CustomersPanel } from "./CustomersPanel/CustomersPanel";
@@ -92,9 +91,6 @@ const AdminPage = () => {
                         </Route>
                         <Route path={`${path}/users`}>
                             <UsersPanel />
-                        </Route>
-                        <Route path={`${path}/events`}>
-                            <EventsPanel />
                         </Route>
                         <Route path={`${path}/groups`}>
                             <GroupsPanel />
