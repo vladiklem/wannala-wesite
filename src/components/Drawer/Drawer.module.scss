@@ -1,0 +1,62 @@
+@import "src/assets/styles/config/shadows";
+
+.drawer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    box-shadow: $shadow-soft;
+    transition-delay: 0ms;
+    z-index: 1013;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.drawerRight {
+    right: 0;
+    transform: translateX(100%);
+    will-change: transform;
+    transition: transform ease-in-out 0.25s;
+
+    &.opened {
+        transform: translateX(0);
+    }
+}
+
+.drawerLeft {
+    left: 0;
+    transform: translateX(-100%);
+    will-change: transform;
+    transition: transform ease-in-out 0.25s;
+
+    &.opened {
+        transform: translateX(0);
+    }
+}
+
+.drawerContent {
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.backdrop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1012;
+    overflow: hidden;
+    opacity: 0;
+    background-color: black;
+    will-change: opacity, visibility;
+    visibility: hidden;
+    transition: opacity ease-in-out 0.35s, visibility ease-in-out 0.35s;
+}
+
+.backdropVisible {
+    opacity: 0.5;
+    visibility: visible;
+    transition: opacity ease-in-out 0.35s, visibility ease-in-out 0.35s;
+}

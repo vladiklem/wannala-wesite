@@ -29,7 +29,7 @@ const events = {
     },
     LEAD_FORM_SUBMIT: (type) => ({
         category: "Lead Form",
-        action: `${type} Lead Form Submit`,
+        action: `${type} Lead Submitted`,
     }),
 };
 

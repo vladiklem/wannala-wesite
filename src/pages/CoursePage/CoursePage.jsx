@@ -16,7 +16,7 @@ import styles from "./CoursePage.module.scss";
 import { fireAnalyticsEvent } from "analytics/";
 import events from "analytics/events";
 
-const LeadForm = lazy(() => import("components/styled/LeadForm/LeadForm"));
+const LeadForm = lazy(() => import("forms/LeadForm/LeadForm"));
 const GroupsScrollableList = lazy(() =>
     import("components/styled/GroupsScrollableList/GroupsScrollableList"),
 );

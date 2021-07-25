@@ -40,7 +40,6 @@ export const Collapse = ({
                 color={buttonColorEnum.UNSTYLED}
                 size="lg"
                 block={true}
-                isSquare={true}
                 onClick={toggle}
             >
                 <div

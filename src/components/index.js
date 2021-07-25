@@ -13,3 +13,4 @@ export * from "./Header/Header";
 export * from "./Footer/Footer";
 export * from "./ProgressBar/ProgressBar";
 export * from "./CollapseGroup/CollapseGroup";
+export * from "./Tag/Tag";

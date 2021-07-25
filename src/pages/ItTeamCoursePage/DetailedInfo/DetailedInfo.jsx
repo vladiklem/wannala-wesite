@@ -10,7 +10,7 @@ import styles from "./DetailedInfo.module.scss";
 export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings, onClick }) => {
     const getCollapseProps = useCallback(
         (emoji) => (item, index, array) => ({
-            togglerClassName: "font-weight-semibold text-left px-3",
+            togglerClassName: "font-weight-semibold text-left px-3 py-2_5",
             togglerContent: <span className="pr-1">{`${emoji} ${item.title}`}</span>,
             children: item.description,
             className: cx("border border-primary-new border-width-2 rounded-xl", {
@@ -50,9 +50,6 @@ export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings,
             <CourseStructure className={isPortable ? "mb-4" : "mb-5"} />
             {isPortable && (
                 <Button
-                    href={`#wannablab-it-course-registration${
-                        isPortable ? "" : "-inner-container"
-                    }`}
                     color="green-soft"
                     className="mt-4 py-3 h3 font-weight-bold rounded-circle mb-5"
                     onClick={onClick}

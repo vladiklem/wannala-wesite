@@ -1,0 +1,19 @@
+@import "~assets/styles/config/colors";
+
+.oldValue:before {
+    content: " ";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    transform: rotate(10deg);
+    border-radius: 8px;
+    background-color: $action-new;
+}
+
+.tag {
+    position: absolute;
+    top: 0;
+    right: -48px;
+}

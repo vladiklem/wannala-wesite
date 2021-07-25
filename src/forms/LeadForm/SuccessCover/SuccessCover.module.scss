@@ -1,17 +1,7 @@
 @import "~assets/styles/config/colors";
 @import "~assets/styles/config/shadows";
 
-.form {
-    max-width: 560px;
-    padding: 24px 40px 32px 40px;
-}
-
-.button {
-    margin-top: 24px;
-}
-
 .successCover {
-    padding: 24px 40px 32px 40px;
     position: absolute;
     left: 0;
     right: 0;
@@ -32,16 +22,4 @@
 
 .successIcon {
     color: transparent;
-}
-
-.testTimeList {
-    margin-left: -8px;
-    margin-bottom: -8px;
-}
-
-@media only screen and (max-width: 1024px) {
-    .form {
-        padding-right: 32px;
-        padding-left: 32px;
-    }
 }

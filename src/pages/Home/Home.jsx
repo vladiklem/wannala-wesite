@@ -11,7 +11,7 @@ import { fireAnalyticsEvent } from "analytics";
 import events from "analytics/events";
 import { ValuesSection } from "./ValuesSection/ValuesSection";
 
-const LeadForm = lazy(() => import("components/styled/LeadForm/LeadForm"));
+const LeadForm = lazy(() => import("forms/LeadForm/LeadForm"));
 
 const Home = () => {
     const history = useHistory();

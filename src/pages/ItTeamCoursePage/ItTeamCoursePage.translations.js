@@ -2,11 +2,16 @@ import leraItAvatar from "assets/images/lera_it_avatar.jpeg";
 import martaItAvatar from "assets/images/marta_it_avatar.jpeg";
 import vladItAvatar from "assets/images/vlad_it_avatar.jpeg";
 import itHero from "assets/images/it-hero.png";
+import itCover from "assets/images/it-cover.png";
 
-export const translations = {
+const translations = {
     ua: {
         itIntroSection: {
             h1: "👨‍💻👩‍💻 Курс “English in IT team”",
+            img: {
+                src: itCover,
+                alt: "Командна робота разом з Мартою Чайковською. Результат пілся курсу.",
+            },
         },
         itRegistrationSection: {
             h2: "Запис на курс",
@@ -19,6 +24,9 @@ export const translations = {
                     "Залиш свій контакт і Лєра або Влад зателефонують тобі вже сьогодні ввечері 😃",
                 afterWord:
                     "Дякуємо, що вирішили займатися з нами ❤️ Чекайте на наш дзвінок після 18-ти вечора.",
+            },
+            drawer: {
+                heading: "назад",
             },
         },
         itDetailedInfoSection: {
@@ -149,3 +157,5 @@ export const translations = {
         },
     },
 };
+
+export default translations;

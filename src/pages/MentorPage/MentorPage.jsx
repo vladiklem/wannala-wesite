@@ -11,7 +11,7 @@ import { scrollToTop } from "helpers/general";
 
 import { selectGroups } from "store/groups/selectors";
 
-const LeadForm = lazy(() => import("components/styled/LeadForm/LeadForm"));
+const LeadForm = lazy(() => import("forms/LeadForm/LeadForm"));
 const GroupsScrollableList = lazy(() =>
     import("components/styled/GroupsScrollableList/GroupsScrollableList"),
 );

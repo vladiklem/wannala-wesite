@@ -144,7 +144,7 @@ export const CourseStructure = ({ className }) => {
         <div className={className}>
             {structure.map(({ lessons, titleEng, emoji }, index, array) => (
                 <Collapse
-                    togglerClassName="font-weight-semibold text-left px-3"
+                    togglerClassName="font-weight-semibold text-left px-3 py-2_5"
                     togglerContent={`${emoji}  ${titleEng}`}
                     className={cx("border border-primary-new border-width-2 rounded-xl", {
                         "mb-3": index + 1 !== array.length,

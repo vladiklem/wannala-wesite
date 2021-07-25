@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import cx from "classnames";
+import moment from "moment";
 
 import { Collapse, Button } from "components/index";
 import { isNewLead } from "helpers/general";
@@ -38,7 +39,17 @@ export const LeadItem = ({
                         {props.type && <span className="badge badge-primary ml-2">IT</span>}
                     </div>
                     <br />
-                    <span className="font-weight-semibold">Номер телефону: </span> {phoneNumber}
+                    <div>
+                        <span className="font-weight-semibold">Тел: </span> {phoneNumber}
+                    </div>
+                    <div>
+                        {props.timestamp && (
+                            <>
+                                <span className="font-weight-semibold">Дата:</span>{" "}
+                                {moment(props.timestamp).format("MMM DD, HH:mm")}
+                            </>
+                        )}
+                    </div>
                 </div>
             }
             contentClassName="d-flex align-items-center justify-content-between row pb-4 pt-2"
