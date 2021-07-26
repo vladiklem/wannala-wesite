@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { useMediaQuery } from "react-responsive";
 import cx from "classnames";
 
-import { coursesList, usersFeedbackList } from "constants/lists";
+import { coursesList } from "constants/lists";
 import { mediaBreakpointsEnum } from "constants/enums";
 import { Button, List } from "components/index";
 import { selectGroups } from "store/groups/selectors";
@@ -110,7 +110,7 @@ const CoursePage = () => {
                 <h2 className="h2 mb-2">{`План ${name} підходить тобі, якщо:`}</h2>
                 <List list={matchesList} className="mb-4" />
             </section>
-            <section className="mb-5 container">
+            {/* <section className="mb-5 container">
                 <h2 className="h2 mb-2">Відгук студента курсу</h2>
                 <Quote
                     src={usersFeedbackList[quoteId].avatar}
@@ -118,7 +118,7 @@ const CoursePage = () => {
                     author={usersFeedbackList[quoteId].name}
                     isPortable={isPortable}
                 />
-            </section>
+            </section> */}
             <section className="mb-5 container">
                 <h2 className="h2 mb-2">План Pro підходить тобі, якщо:</h2>
                 <List list={advantagesList} className="mb-4" />

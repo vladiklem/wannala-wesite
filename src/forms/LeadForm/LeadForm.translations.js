@@ -6,7 +6,7 @@ const translations = {
         phoneField: {
             label: "Номер телефону",
         },
-        actionButtonLabel: "Спробувати",
+        actionButtonLabel: "У подорож 🚀",
         contentDescription: "А ось, що ми пропонуємо по контенту:",
         social: {
             inst: "креативний інгліш",

@@ -11,13 +11,8 @@ export const InfoBannerRow = ({ index, array, item: { label, value, newValue } }
             key={index}
             className={cx({ "mb-3": index + 1 !== array.length && !newValue, "mb-1": newValue })}
         >
-            <span className="mr-1">{label}:</span>
-            <span
-                className={cx(
-                    { [styles.oldValue]: !!newValue },
-                    "font-weight-semibold position-relative",
-                )}
-            >
+            <span className="mr-1 font-weight-semibold">{label}:</span>
+            <span className={cx({ [styles.oldValue]: !!newValue }, "position-relative")}>
                 {value}
                 {!!newValue && (
                     <Tag
@@ -31,8 +26,8 @@ export const InfoBannerRow = ({ index, array, item: { label, value, newValue } }
             </span>
         </div>
         {!!newValue && (
-            <div key={index} className={cx({ "mb-3": index + 1 !== array.length })}>
-                <span className="mr-1 text-white">{label}:</span>
+            <div key={index} className={cx({ "mb-3_5": index + 1 !== array.length })}>
+                <span className="mr-1 text-white visibility-hidden">{label}:</span>
                 <span className={cx("font-weight-semibold")}>{newValue}</span>
             </div>
         )}

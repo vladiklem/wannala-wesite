@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 import { selectUsers } from "store/users/selectors";
 import { selectInstagramInfo, selectTelegramInfo } from "store/app/selectors";
-import { usersFeedbackList } from "constants/lists";
 import { Button } from "components/index";
 
 import { ProgressItem } from "./ProgressItem/ProgressItem";
@@ -32,7 +31,7 @@ export const GeneralDashboard = ({ isPortable }) => {
                         Кількість активних клієнтів <strong>до 1 вересня</strong>
                     </ProgressItem>
                     <ProgressItem
-                        current={usersFeedbackList.length}
+                        current={0}
                         goal={feedbackGoal}
                         isPortable={isPortable}
                         className="mb-4 col-md-6 col-sm-12"

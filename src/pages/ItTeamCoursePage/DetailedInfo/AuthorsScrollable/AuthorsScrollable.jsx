@@ -4,7 +4,7 @@ import { Scrollable } from "components/";
 
 import { AuthorScrollableItem } from "./AuthorScrollableItem/AuthorScrollableItem";
 
-const getOffset = (isPortable) => (isPortable ? document.documentElement.clientWidth - 64 : 599);
+const getOffset = (isPortable) => (isPortable ? document.documentElement.clientWidth - 40 : 599);
 
 export const AuthorsScrollable = ({ array, isPortable, isTiny, className }) => {
     const [offset, setOffset] = useState(100);
@@ -20,6 +20,8 @@ export const AuthorsScrollable = ({ array, isPortable, isTiny, className }) => {
             isScrollbarVisible={false}
             offset={offset}
             id="wannablab-authors"
+            containerClassName="pt-2"
+            isLocked={false}
         >
             {array.map(({ img, description, name, inst }, index) => (
                 <AuthorScrollableItem

@@ -1,16 +1,18 @@
 import React, { useCallback } from "react";
 import cx from "classnames";
 
+import { CollapseGroup, Button } from "components/";
+import AndersenPartnerBlock from "components/styled/AndersenPartnerBlock/AndersenPartnerBlock";
+
 import { CourseStructure } from "./CourseStructure/CourseStructure";
 import { AuthorsScrollable } from "./AuthorsScrollable/AuthorsScrollable";
-import { CollapseGroup, Button } from "components/";
 
 import styles from "./DetailedInfo.module.scss";
 
 export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings, onClick }) => {
     const getCollapseProps = useCallback(
         (emoji) => (item, index, array) => ({
-            togglerClassName: "font-weight-semibold text-left px-3 py-2_5",
+            togglerClassName: "font-weight-semibold font-18 text-left px-3 py-2_5",
             togglerContent: <span className="pr-1">{`${emoji} ${item.title}`}</span>,
             children: item.description,
             className: cx("border border-primary-new border-width-2 rounded-xl", {
@@ -24,7 +26,7 @@ export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings,
     return (
         <>
             <h2 className={getHeadingClassName(4)}>{strings.h2_1}</h2>
-            <h3 className="font-weight-normal h2-28 mb-5">{strings.h3_1}</h3>
+            <h3 className="font-weight-normal h3 mb-5">{strings.h3_1}</h3>
             <div className="mb-6">
                 <h2 className={getHeadingClassName(4)}>{strings.h2_6}</h2>
                 <div>
@@ -65,13 +67,16 @@ export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings,
                 list={strings.valuesList}
                 getCollapseProps={getCollapseProps("✅")}
             />
-            <h2 className={getHeadingClassName(3)}>{strings.h2_3}</h2>
-            <AuthorsScrollable
-                className="mb-3"
-                isPortable={isPortable}
-                isTiny={isTiny}
-                array={strings.authorsList}
-            />
+            <div className="position-relative pb-5">
+                <h2 className={getHeadingClassName(3)}>{strings.h2_3}</h2>
+                <AuthorsScrollable
+                    className="mb-3"
+                    isPortable={isPortable}
+                    isTiny={isTiny}
+                    array={strings.authorsList}
+                />
+                <AndersenPartnerBlock />
+            </div>
             <h2 className={getHeadingClassName(4)}>{strings.h2_5}</h2>
             <CollapseGroup
                 defaultOpenedCollapseId={null}

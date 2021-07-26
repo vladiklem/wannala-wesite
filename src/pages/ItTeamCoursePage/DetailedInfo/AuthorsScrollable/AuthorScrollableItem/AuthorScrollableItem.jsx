@@ -18,8 +18,7 @@ export const AuthorScrollableItem = ({
 }) => {
     return (
         <ScrollableItem
-            className={cx(styles.item, "pl-1", {
-                "mr-4": index !== array.length - 1,
+            className={cx(styles.item, "mr-2", {
                 [styles.isPortable]: isPortable,
             })}
             key={src}
@@ -35,7 +34,7 @@ export const AuthorScrollableItem = ({
                     </a>
                 </div>
                 <div className="col-12 mt-3">
-                    <h4 className={cx("font-weight-normal", { h4: isTiny })}>{description}</h4>
+                    <h4 className={cx("regular", { h4: isTiny })}>{description}</h4>
                 </div>
             </div>
         </ScrollableItem>

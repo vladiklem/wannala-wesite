@@ -7,14 +7,11 @@ import { PersonalAttitude } from "components/Icons/PersonalAttitude";
 import { Learning } from "components/Icons/Learning";
 import { Grammar } from "components/Icons/Grammar";
 
-import sophia from "assets/images/sophia.jpeg";
 import kateAvatar from "assets/images/kate_avatar.jpeg";
 import anyaAvatar from "assets/images/anya_avatar.jpeg";
 import groupCover from "assets/images/group-cover.webp";
 import soloCover from "assets/images/solo-cover.webp";
 import proCover from "assets/images/pro-cover.png";
-import vovaAvatar from "assets/images/vova_avatar.webp";
-import volodymyrAvatar from "assets/images/volodymyr_avatar.webp";
 import marynaAvatar from "assets/images/maryna_avatar.webp";
 import soloEconomCover from "assets/images/solo-econom-cover.webp";
 import martaItAvatar from "assets/images/marta_it_avatar.jpeg";
@@ -233,30 +230,6 @@ export const mentorsList = [
         list: ["native speaker", "500+ проведених уроків"],
         color: "soft-purple",
         instaHref: "https://www.instagram.com/p/CLoWqlBHXQv/",
-    },
-];
-
-export const usersFeedbackList = [
-    {
-        name: "Софія",
-        avatar: sophia,
-        description:
-            "Нещодавно підписала контракт з англомовним клієнтом, з яким сама працювала. Можу говорити з ним по 45 хвилин і взагалі ніякого дискомфорту немає. Під час дзвінків я знаю, що навіть якщо щось не знатиму на англ, то зможу це пояснити і все буде окей.",
-        alt: "Софія, студентка школи розмовної англійської wannablab",
-    },
-    {
-        name: "Вова",
-        avatar: vovaAvatar,
-        description:
-            "Мій рівень на тестуванні оцінили в А2. Ціллю була робота, пов’язана із комунікацією англійською. Через 2 місяці я успішно пройшов співбесіду та працюю customer support і далі вивчаю англійську.",
-        alt: "Вова, студент школи розмовної англійської wannablab",
-    },
-    {
-        name: "Володимир",
-        avatar: volodymyrAvatar,
-        description:
-            "Я навчився думати англійською на побутовому рівні. Навіть вдома я намагаюся проговорювати назви предметів англійською. Зараз я переписуюся зі своїм знайомим з Лондону і мені вже не потрібен для цього перекладач. Скоро ми плануємо зустрітися, тому це для мене ще один стимул вдосконалювати мову. ",
-        alt: "Володимир, студент школи розмовної англійської wannablab",
     },
 ];
 

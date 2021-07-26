@@ -14,6 +14,10 @@
     clip-path: circle(0);
 }
 
+.visibility-hidden {
+    visibility: hidden !important;
+}
+
 .rotate-180 {
     transform: rotate(180deg);
 }

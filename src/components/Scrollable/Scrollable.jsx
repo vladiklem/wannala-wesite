@@ -13,6 +13,7 @@ export const Scrollable = ({
     hasArrows = false,
     isScrollHidden = false,
     isScrollbarVisible = true,
+    isLocked = true,
     offset = 145,
     children,
     containerClassName = "",
@@ -80,9 +81,10 @@ export const Scrollable = ({
             <div
                 ref={scrollableContainer}
                 className={cx(
-                    "p-4 transition-quart-250",
+                    "transition-quart-250",
                     {
                         "overflow-hidden": isScrollHidden,
+                        "p-4": isLocked,
                         [styles.containerScrollbarInvisible]: !isScrollbarVisible,
                     },
                     styles.container,
