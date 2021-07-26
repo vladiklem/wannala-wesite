@@ -36,7 +36,12 @@ const LeadForm = ({
     const onSubmit = useCallback(
         (data) => {
             dispatch(addLead({ ...data, type, timestamp: Date.now() }));
-            fireAnalyticsEvent(events.LEAD_FORM_SUBMIT(type));
+            fireAnalyticsEvent(
+                events.LEAD_FORM_SUBMIT(
+                    type === "it" ? "IT landing" : "Lead Form",
+                    `${type} Lead Submitted`,
+                ),
+            );
             redirectUrl && setTimeout(() => window.stringsation.replace(redirectUrl), 500);
             cb && cb();
         },

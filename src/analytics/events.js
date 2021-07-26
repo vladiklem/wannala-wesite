@@ -27,10 +27,18 @@ const events = {
         category: "Navigation Menu",
         action: "Clicked Top Navigation",
     },
-    LEAD_FORM_SUBMIT: (type) => ({
-        category: "Lead Form",
-        action: `${type} Lead Submitted`,
+    LEAD_FORM_SUBMIT: (category, action) => ({
+        category: category || "Lead Form",
+        action: action || "Lead Submitted",
     }),
+    IT_COURSE_SIGNUP: {
+        category: "IT landing",
+        action: "IT Drawer opened",
+    },
+    IT_COURSE_OPENED: {
+        category: "IT landing",
+        action: "Landing Opened"
+    },
 };
 
 export default events;

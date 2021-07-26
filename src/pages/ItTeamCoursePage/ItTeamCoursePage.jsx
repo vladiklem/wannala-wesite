@@ -5,6 +5,8 @@ import { useMediaQuery } from "react-responsive";
 
 import { toggleHeader } from "store/app/actions";
 import { mediaBreakpointsEnum } from "constants/enums";
+import { fireAnalyticsEvent } from "analytics/";
+import events from "analytics/events";
 
 import { GeneralInfoBanner } from "./GeneralInfoBanner/GeneralInfoBanner";
 import { DetailedInfo } from "./DetailedInfo/DetailedInfo";
@@ -21,7 +23,10 @@ const ItTeamCoursePage = ({ isPortable }) => {
     const isTiny = useMediaQuery({ maxWidth: mediaBreakpointsEnum.XXS });
     const [isOpen, setIsOpen] = useState(false);
 
-    const onToggle = useCallback(() => setIsOpen((open) => !open), [setIsOpen]);
+    const onToggle = useCallback(() => {
+        !isOpen && fireAnalyticsEvent(events.IT_COURSE_SIGNUP);
+        setIsOpen((open) => !open);
+    }, [setIsOpen, isOpen]);
 
     const getHeadingClassName = useCallback(
         (indent, portableIndent) =>
@@ -31,6 +36,7 @@ const ItTeamCoursePage = ({ isPortable }) => {
 
     useEffect(() => {
         dispatch(toggleHeader());
+        fireAnalyticsEvent(events.IT_COURSE_OPENED);
     }, [dispatch]);
 
     return (
