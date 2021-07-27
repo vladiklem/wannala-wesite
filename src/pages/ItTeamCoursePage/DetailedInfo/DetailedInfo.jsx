@@ -27,7 +27,7 @@ export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings,
         <>
             <h2 className={getHeadingClassName(4)}>{strings.h2_1}</h2>
             <h3 className="font-weight-normal h3 mb-5">{strings.h3_1}</h3>
-            <div className="mb-6">
+            {/* <div className="mb-6">
                 <h2 className={getHeadingClassName(4)}>{strings.h2_6}</h2>
                 <div>
                     {strings.matchList.map(({ emoji, description }, index) => (
@@ -45,11 +45,11 @@ export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings,
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> */}
             <h2 id="wannablab-show-action-button" className={getHeadingClassName(4)}>
                 {strings.h2_2}
             </h2>
-            <CourseStructure className={isPortable ? "mb-4" : "mb-5"} />
+            <CourseStructure isPortable={isPortable} className={isPortable ? "mb-4" : "mb-5"} />
             {isPortable && (
                 <Button
                     color="green-soft"
