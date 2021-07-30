@@ -13,10 +13,6 @@
     animation-fill-mode: both;
     background-color: $white;
     animation: load7 1.8s infinite ease-in-out;
-
-    &.softPurple {
-        background-color: $purple-soft;
-    }
 }
 .loader {
     font-size: 0.7rem;

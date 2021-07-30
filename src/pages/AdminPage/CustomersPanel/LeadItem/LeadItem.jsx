@@ -57,7 +57,6 @@ export const LeadItem = ({
             <span className="col-6">
                 <Button
                     className="rounded-lg text-highlighted font-weight-semibold"
-                    color="purple-soft"
                     onClick={handleUpdate}
                 >
                     {isPortable ? "набрала" : "Набрала та додала в таблицю"}

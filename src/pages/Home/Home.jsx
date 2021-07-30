@@ -21,28 +21,12 @@ const Home = () => {
         document.getElementById("wannablab-lead-form").scrollIntoView();
 
         fireAnalyticsEvent(events.CALL_LATER);
-        setTimeout(() => document.getElementById("name").focus(), 750);
     }, []);
-
-    // const onGroupSelect = useCallback(
-    //     (item) => {
-    //         setDescription(`Ви записуєтесь в группу \n\n "${item.title}" 🎉 `);
-    //         onOrderClick();
-    //     },
-    //     [setDescription, onOrderClick],
-    // );
-    // const onMentorSelect = useCallback(
-    //     ({ name }) => {
-    //         setDescription(`Ви записуєтесь на приватні заняття до \n\n "${name}" 🎉 `);
-    //         fireAnalyticsEvent(events.CALL_LATER);
-    //         onOrderClick();
-    //     },
-    //     [setDescription, onOrderClick],
-    // );
 
     const toCourse = useCallback(
         (slug) => {
-            history.push(`/course/${slug}`);
+            console.log(slug);
+            history.push(slug === "it" ? "/it" : `/course/${slug}`);
             fireAnalyticsEvent(events.READ_MORE_ABOUT_COURSE, slug);
         },
         [history],
@@ -70,18 +54,10 @@ const Home = () => {
                 className="mb-4"
             />
             <ValuesSection className="mb-5 pt-4" isPortable={isPortable} />
-            <InteractionSections
-                toMentor={toMentor}
-                // onMentorSelect={onMentorSelect}
-                // onGroupSelect={onGroupSelect}
-                isPortable={isPortable}
-            />
+            <InteractionSections toMentor={toMentor} isPortable={isPortable} />
             <FeedbackSection isPortable={isPortable} />
-            <section id="wannablab-lead-form" className="full-screen-height bg-secondary-new-70">
+            <section id="wannablab-lead-form" className="pb-6 pt-6 bg-primary-new-75">
                 <div className="container d-flex flex-column align-items-center">
-                    <h2 className="h2 mt-5 mb-5 text-center text-white text-highlighted">
-                        Вже <strong>44 людини</strong> вивчили англійську з нами
-                    </h2>
                     <div className="flex-grow-1 d-flex align-items-center justify-content-center">
                         <LeadForm description="Залиште свої контакти і ми самі перетелефонуємо 😃" />
                     </div>

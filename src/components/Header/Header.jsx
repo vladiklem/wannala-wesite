@@ -35,7 +35,12 @@ const navigation = [
     },
 ];
 
-export const Header = ({ onCoursesClick, onPricesClick, isPortable, isVisible }) => {
+export const Header = ({
+    onCoursesClick = () => {},
+    onPricesClick = () => {},
+    isPortable,
+    isVisible,
+}) => {
     const history = useHistory();
     const [isOpen, setIsOpen] = useState(false);
 

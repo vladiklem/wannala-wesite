@@ -6,6 +6,8 @@ import { coursesList } from "constants/lists";
 import { leraContact } from "constants/social";
 import { ServiceScrollableItem } from "components/styled/ServiceScrollableItem/ServiceScrollableItem";
 
+const getOffset = (isPortable) => (isPortable ? 263 + 16 + 48 : 599);
+
 export const GreetingsSection = ({ onOrderClick, isPortable, toCourse, className }) => (
     <section className={cx("d-flex flex-column container", className)}>
         <h2
@@ -28,11 +30,17 @@ export const GreetingsSection = ({ onOrderClick, isPortable, toCourse, className
         </div>
         <Scrollable
             hasArrows={true}
-            offset={isPortable ? 300 : 460}
+            offset={getOffset(isPortable)}
             containerClassName="ml-n4 mr-n4"
             isScrollbarVisible={false}
             components={{
-                Header: <h2 className="h2-responsive font-weight-bold">Наші плани та курси</h2>,
+                Header: (
+                    <h2
+                        className={cx({ regular: isPortable, h2: !isPortable }, "font-weight-bold")}
+                    >
+                        Наші плани та курси
+                    </h2>
+                ),
             }}
         >
             {coursesList.map(({ imgSrc, ...item }, index, array) => (
@@ -49,17 +57,20 @@ export const GreetingsSection = ({ onOrderClick, isPortable, toCourse, className
         </Scrollable>
         <div className={cx("d-flex mt-3", { "flex-column": isPortable })}>
             <Button
-                className={cx("font-weight-bold text-highlighted rounded-xl bg-primary-new", {
-                    "mr-3": !isPortable,
-                    "mb-3": isPortable,
-                })}
+                className={cx(
+                    "font-weight-bold text-highlighted rounded-circle bg-action-new border-0 shadow-soft",
+                    {
+                        "mr-3": !isPortable,
+                        "mb-3": isPortable,
+                    },
+                )}
                 size="lg"
                 onClick={onOrderClick}
             >
                 Замовити дзвінок
             </Button>
             <Button
-                className={cx("font-weight-bold rounded-xl", {
+                className={cx("font-weight-bold rounded-circle", {
                     "mr-3": !isPortable,
                     "mb-3": isPortable,
                 })}
@@ -71,7 +82,7 @@ export const GreetingsSection = ({ onOrderClick, isPortable, toCourse, className
                 Пройти тестування рівня
             </Button>
             <Button
-                className="font-weight-bold rounded-xl"
+                className="font-weight-bold rounded-circle"
                 href={leraContact}
                 color="primary-new"
                 size="lg"

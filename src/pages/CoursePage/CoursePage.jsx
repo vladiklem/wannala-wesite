@@ -1,14 +1,16 @@
 import React, { useEffect, lazy } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { useMediaQuery } from "react-responsive";
 import cx from "classnames";
 
 import { coursesList } from "constants/lists";
 import { mediaBreakpointsEnum } from "constants/enums";
-import { Button, List } from "components/index";
+import { Button, List } from "components/";
+import { DiscountedPrice } from "components/styled/DiscountedPrice/DiscountedPrice";
 import { selectGroups } from "store/groups/selectors";
-import { Quote } from "components/styled/index";
+import { initGroups } from "store/groups/actions";
+import { Quote } from "components/styled/Quote/Quote";
 import { scrollToTop } from "helpers/general";
 
 import styles from "./CoursePage.module.scss";
@@ -25,6 +27,7 @@ const MentorsScrollableList = lazy(() =>
 );
 
 const CoursePage = () => {
+    const dispatch = useDispatch();
     const groups = useSelector(selectGroups);
     const { slug } = useParams();
     const { matchesList, advantagesList, name, quoteId, ...course } = coursesList.find(
@@ -35,8 +38,9 @@ const CoursePage = () => {
     const onClick = () => fireAnalyticsEvent(events.WANT_THIS_COURSE, slug);
 
     useEffect(() => {
+        dispatch(initGroups());
         scrollToTop();
-    }, []);
+    }, [dispatch]);
 
     return (
         <article className="pt-4">
@@ -93,7 +97,13 @@ const CoursePage = () => {
                             </div>
                             <div className="col-md-6 col-sm-12">
                                 <span className="font-weight-semibold">Ціна:</span>
-                                {` ${course.price} грн`}
+                                <DiscountedPrice
+                                    oldPrice={course.price.old}
+                                    newPrice={course.price.new}
+                                    discount={20}
+                                    className="h4 d-inline-flex align-items-center ml-2"
+                                    newPriceClassName="h3 ml-2"
+                                />
                             </div>
                         </div>
                     </div>
@@ -123,13 +133,10 @@ const CoursePage = () => {
                 <h2 className="h2 mb-2">План Pro підходить тобі, якщо:</h2>
                 <List list={advantagesList} className="mb-4" />
             </section>
-            <section id="wannablab-lead-form" className="bg-primary-new-75 full-screen-height">
-                <div className="container d-flex flex-column align-items-center">
-                    <h2 className="h2 mt-5 mb-5 text-center text-white">
-                        Курс пройшли вже <strong>57 людей</strong>
-                    </h2>
+            <section id="wannablab-lead-form" className="bg-primary-new-75">
+                <div className="container d-flex flex-column align-items-center pt-6 pb-6">
                     <div className="flex-grow-1 d-flex align-items-center justify-content-center">
-                        <LeadForm />
+                        <LeadForm description="Запишись на пробний урок-знайомство з Мартою." />
                     </div>
                 </div>
             </section>

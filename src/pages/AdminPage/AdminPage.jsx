@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import cx from "classnames";
 
@@ -10,20 +10,24 @@ import { scrollToTop } from "helpers/general";
 import { mediaBreakpointsEnum } from "constants/enums";
 import { CustomRoute } from "containers/RootContainer/CustomRoute/CustomRoute";
 import { selectAdmin } from "store/app/selectors";
+import { initUsers } from "store/users/actions";
+import { initGroups } from "store/groups/actions";
+import { initLeads } from "store/leads/actions";
 
 import { UsersPanel } from "./UsersPanel/UsersPanel";
 import { GroupsPanel } from "./GroupsPanel/GroupsPanel";
 import { CustomersPanel } from "./CustomersPanel/CustomersPanel";
-
-import styles from "./AdminPage.module.scss";
 import { GeneralDashboard } from "./GeneralDashboard/GeneralDashboard";
 import { BudgetDashboard } from "./BudgetDashboard/BudgetDashboard";
 
+import styles from "./AdminPage.module.scss";
+
 const AdminPage = () => {
-    const { url, path } = useRouteMatch();
+    const dispatch = useDispatch();
+    const admin = useSelector(selectAdmin);
     const isPortable = useMediaQuery({ maxWidth: mediaBreakpointsEnum.MD });
     const [isOpen, setIsOpen] = useState(!isPortable);
-    const admin = useSelector(selectAdmin);
+    const { url, path } = useRouteMatch();
 
     const isBudgetVisible = useMemo(() => admin.roles.some((role) => role === "org"), [admin]);
 
@@ -32,8 +36,11 @@ const AdminPage = () => {
     }, [setIsOpen]);
 
     useEffect(() => {
+        dispatch(initUsers());
+        dispatch(initGroups());
+        dispatch(initLeads());
         scrollToTop();
-    }, []);
+    }, [dispatch]);
 
     return (
         <>

@@ -1,14 +1,11 @@
-import React, { useEffect, useState, useCallback, Suspense, lazy } from "react";
+import React, { useEffect, useCallback, Suspense, lazy } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
-import cx from "classnames";
 
 import { ModalsContainer } from "containers/ModalsContainer/ModalsContainer";
 import { Header, Footer } from "components/index";
 import { firebaseService } from "services/firebaseService";
-import { initUsers } from "store/users/actions";
-import { initGroups } from "store/groups/actions";
 import { initApp } from "store/app/actions";
 import { selectAdmin, selectHeaderSettings } from "store/app/selectors";
 import { toggleModal } from "store/modals/actions";
@@ -18,7 +15,6 @@ import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
 
 import styles from "./RootContainer.module.scss";
 import "assets/styles/index.scss";
-import { initLeads } from "store/leads/actions";
 
 const Home = lazy(() => import("pages/Home/Home"));
 const AdminPage = lazy(() => import("pages/AdminPage/AdminPage"));
@@ -36,30 +32,12 @@ export const RootContainer = () => {
     const dispatch = useDispatch();
     const admin = useSelector(selectAdmin);
     const headerSettings = useSelector(selectHeaderSettings);
-    const [coursesClicked, setCoursesClicked] = useState(false);
-    const [pricesClicked, setPricesClicked] = useState(false);
 
     const isPortable = useMediaQuery({ maxWidth: mediaBreakpointsEnum.MD });
 
     const openLoginModal = useCallback(() => dispatch(toggleModal(modalNamesEnum.LOGIN)), [
         dispatch,
     ]);
-
-    const onCoursesClick = useCallback(() => {
-        setTimeout(() => {
-            setCoursesClicked(true);
-        }, 300);
-        setTimeout(() => {
-            setCoursesClicked(false);
-        }, 1260);
-    }, []);
-
-    const onPricesClick = () => {
-        setPricesClicked(true);
-        setTimeout(() => {
-            setPricesClicked(false);
-        }, 560);
-    };
 
     const renderRoute = useCallback(
         ({ routeComponent: Component, props: outerProps }) => (props) => (
@@ -69,27 +47,14 @@ export const RootContainer = () => {
     );
 
     useEffect(() => {
-        dispatch(initUsers());
-        dispatch(initGroups());
         dispatch(initApp());
-        dispatch(initLeads());
     }, [dispatch]);
 
     return (
         <Suspense fallback={() => <span>"loading"</span>}>
             <Router>
-                <Header
-                    isPortable={isPortable}
-                    onCoursesClick={onCoursesClick}
-                    onPricesClick={onPricesClick}
-                    isVisible={headerSettings.isVisible}
-                />
-                <main
-                    className={cx(styles.background, {
-                        "list-scale-animation1": coursesClicked,
-                        "list-scale-animation2": pricesClicked,
-                    })}
-                >
+                <Header isPortable={isPortable} isVisible={headerSettings.isVisible} />
+                <main className={styles.background}>
                     <ModalsContainer />
                     <Switch>
                         <Route path="/" render={renderRoute({ routeComponent: Home })} exact />

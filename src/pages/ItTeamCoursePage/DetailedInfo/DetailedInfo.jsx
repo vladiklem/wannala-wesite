@@ -7,8 +7,6 @@ import AndersenPartnerBlock from "components/styled/AndersenPartnerBlock/Anderse
 import { CourseStructure } from "./CourseStructure/CourseStructure";
 import { AuthorsScrollable } from "./AuthorsScrollable/AuthorsScrollable";
 
-import styles from "./DetailedInfo.module.scss";
-
 export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings, onClick }) => {
     const getCollapseProps = useCallback(
         (emoji) => (item, index, array) => ({

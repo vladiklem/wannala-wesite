@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, lazy } from "react";
 import { useParams } from "react-router";
 import { useMediaQuery } from "react-responsive";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import cx from "classnames";
 
 import { mentorsList } from "constants/lists";
@@ -10,6 +10,7 @@ import { Button, List, Loader } from "components/index";
 import { scrollToTop } from "helpers/general";
 
 import { selectGroups } from "store/groups/selectors";
+import { initGroups } from "store/groups/actions";
 
 const LeadForm = lazy(() => import("forms/LeadForm/LeadForm"));
 const GroupsScrollableList = lazy(() =>
@@ -17,6 +18,7 @@ const GroupsScrollableList = lazy(() =>
 );
 
 const MentorPage = () => {
+    const dispatch = useDispatch();
     const { slug } = useParams();
     const groups = useSelector(selectGroups);
     const isPortable = useMediaQuery({ maxWidth: mediaBreakpointsEnum.MD });
@@ -29,8 +31,9 @@ const MentorPage = () => {
     }, []);
 
     useEffect(() => {
+        dispatch(initGroups());
         scrollToTop();
-    }, []);
+    }, [dispatch]);
 
     return (
         <article className="pt-4">

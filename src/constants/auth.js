@@ -8,10 +8,6 @@ export const admins = [
         roles: ["org"],
     },
     {
-        username: "Marina",
-        roles: ["manager"],
-    },
-    {
         username: "Roma",
         roles: ["marketing"],
     },

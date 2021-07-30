@@ -6,7 +6,6 @@ import { Loader } from "components/index";
 import styles from "./Button.module.scss";
 
 export const buttonColorEnum = {
-    SUCCESS_GRADIENT: "success-gradient",
     WHITE: "white",
     INVISIBLE: "invisible",
     UNSTYLED: "unstyled",

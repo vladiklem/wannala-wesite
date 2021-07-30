@@ -14,20 +14,6 @@
     }
 }
 
-.btn-success-gradient {
-    background: $green;
-    color: $white;
-    line-height: 32px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: all ease-in-out 0.25s;
-
-    &:hover {
-        background: $green-700;
-        color: $white;
-    }
-}
-
 .btn-white {
     background-color: $white;
     color: $gray-900;
@@ -46,32 +32,6 @@
 .btn-invisible {
     background-color: transparent;
     color: transparent;
-}
-
-.btn-purple-soft {
-    background-color: $purple-soft;
-    color: $white;
-    border: none;
-    transition: all ease-in-out 0.25s;
-    outline: 0;
-
-    &:hover {
-        box-shadow: $shadow-soft;
-        color: white;
-    }
-}
-
-.btn-blue-soft {
-    background-color: $blue-soft;
-    color: $white;
-    border: 0;
-    transition: all ease-in-out 0.25s;
-    outline: 0;
-
-    &:hover {
-        box-shadow: $shadow-soft;
-        color: $white;
-    }
 }
 
 .btn-green-soft {

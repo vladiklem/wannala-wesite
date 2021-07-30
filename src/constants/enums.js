@@ -22,18 +22,3 @@ export const modalNamesEnum = {
     AD: "AD_MODAL",
     NONE: "NONE_MODAL",
 };
-
-export const userTypesEnum = {
-    BLABER: "BLABER",
-    MENTOR: "MENTOR",
-    GUEST: "GUEST",
-};
-
-export const eventTypesEnum = {
-    GROUP_LESSON: "groupLesson",
-    WEBINAR: "webinar",
-    LECTION: "lection",
-    PRIVATE_LESSON: "privateLesson",
-    WATCH: "watch",
-    CALL: "call",
-};

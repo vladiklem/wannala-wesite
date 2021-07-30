@@ -8,7 +8,7 @@ export const NavItem = ({ id, children, onClick, ...props }) => {
         <li>
             <Button
                 href={`#${id}`}
-                className="bg-white text-gray-900 py-2 px-4 text-decoration-none shadow-soft mr-3 rounded border border-blue-soft transition-250"
+                className="bg-white text-gray-900 py-2 px-4 text-decoration-none shadow-soft mr-3 rounded border transition-250"
                 color={buttonColorEnum.UNSTYLED}
                 onClick={handleClick}
                 {...props}

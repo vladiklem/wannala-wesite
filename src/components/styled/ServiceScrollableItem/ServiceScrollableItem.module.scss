@@ -1,11 +1,10 @@
 .container {
     width: 480px;
-    min-height: 256px;
 
     &.mobile {
         width: auto;
-        max-width: 300px;
-        min-height: 480px;
+        min-width: 311px;
+        min-height: 320px;
     }
 
     .status {

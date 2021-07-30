@@ -4,44 +4,12 @@
     background-color: $white;
 }
 
-.bg-primary-soft {
-    background-color: $primary-soft;
-}
-
 .bg-light-green {
     background-color: $green-soft !important;
 }
 
-.bg-soft-blue {
-    background-color: $blue-soft !important;
-}
-
-.bg-soft-purple {
-    background-color: $purple-soft !important;
-}
-
-.bg-light-blue {
-    background-color: $light-blue !important;
-}
-
-.bg-light-purple {
-    background-color: $light-purple !important;
-}
-
-.bg-gradient {
-    background: linear-gradient(to right, #fbf8ff, #f9f4ff);
-}
-
 .bg-green-200 {
     background-color: $green-200 !important;
-}
-
-.exp-bg {
-    background: linear-gradient(
-        180deg,
-        rgba(228, 199, 255, 0.5) 92.19%,
-        rgba(253, 253, 150, 0.5) 100%
-    );
 }
 
 // New Design System
@@ -72,22 +40,6 @@
 
 .bg-white-new {
     background-color: $white-new !important;
-}
-
-.bg-group-new {
-    background-color: $group-cover-new !important;
-}
-
-.bg-solo-new {
-    background-color: $solo-cover-new !important;
-}
-
-.bg-solo-econom-new {
-    background-color: #0DAF96 !important;
-}
-
-.bg-pro-new {
-    background-color: $pro-cover-new !important;
 }
 
 .bg-secondary-gradient {

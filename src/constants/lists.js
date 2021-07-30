@@ -1,7 +1,4 @@
 import { Input, inputTypeEnum, Radio } from "components/index";
-import beginner from "assets/audio/beginner_elementary.mp3";
-import intermediate from "assets/audio/pre_intermediate_intermediate.mp3";
-import advanced from "assets/audio/upper_intermediate_advanced.mp3";
 import { Conversation } from "components/Icons/Conversation";
 import { PersonalAttitude } from "components/Icons/PersonalAttitude";
 import { Learning } from "components/Icons/Learning";
@@ -10,47 +7,10 @@ import { Grammar } from "components/Icons/Grammar";
 import kateAvatar from "assets/images/kate_avatar.jpeg";
 import anyaAvatar from "assets/images/anya_avatar.jpeg";
 import groupCover from "assets/images/group-cover.webp";
-import soloCover from "assets/images/solo-cover.webp";
-import proCover from "assets/images/pro-cover.png";
 import marynaAvatar from "assets/images/maryna_avatar.webp";
-import soloEconomCover from "assets/images/solo-econom-cover.webp";
 import martaItAvatar from "assets/images/marta_it_avatar.jpeg";
 
 export const coursesList = [
-    {
-        title: "Pro - для швидкого навчання",
-        slug: "pro-plan",
-        name: "Pro",
-        quoteId: 0,
-        description:
-            "2 групових заняття в тиждень, 1 індивідуальне заняття в тиждень, 2 small talk з нейтів спікером в тиждень, вічна підписка на Netflix",
-        list: [
-            "8 групових занять",
-            "4 індивідуальних заняття",
-            "2 small talks з нейтів спікером / тиждень",
-            "∞ підписка на Netflix",
-        ],
-        matchesList: [
-            "Тобі потрібно покращити розмовну англійську в найкоротший термін",
-            "Хочеш зробити англійську частиною буденної рутини",
-            "Потрібно навчитись розмовляти на професійні теми",
-            "Рівень англійської: A2+",
-        ],
-        advantagesList: [
-            "Швидко думати англійською ",
-            "Спілкуватись з носіями один на один",
-            "Швидко сприймати на слух",
-            "Поставиш правильну вимову",
-            "Зможеш правильно використовувати професійну лексику",
-        ],
-        imgSrc: proCover,
-        lessonsCount: 20,
-        price: 2970,
-        className: "bg-pro-new",
-        status: {
-            id: "ongoing",
-        },
-    },
     {
         title: "Basiс - для веселого навчання",
         slug: "basic-plan",
@@ -60,8 +20,10 @@ export const coursesList = [
             "2 групових заняття в тиждень, вічна підписка на Netflix, командний перегляд серіалів англійською",
         imgSrc: groupCover,
         lessonsCount: 8,
-        price: 1270,
-        className: "bg-group-new",
+        price: {
+            old: 1270,
+            new: 970,
+        },
         list: [
             "8 групових занять",
             "∞ підписка на Netflix",
@@ -85,65 +47,19 @@ export const coursesList = [
         },
     },
     {
-        title: "Solo - для персонального навчання",
-        slug: "solo-plan",
-        name: "Solo",
-        quoteId: 2,
-        description:
-            "Індивідуальний план навчання, 2 індивідуальних заняття в тиждень, вічна підписка на Netflix",
-        imgSrc: soloCover,
-        lessonsCount: 8,
-        price: 2370,
-        className: "bg-solo-new",
-        list: ["Індивідуальний план навчання", "8 індивідуальних занять", "∞ підписка на Netflix"],
-        matchesList: [
-            "Хочеш вивчити англійську з 0",
-            "Хочеш заповнити свої пробіли у граматиці",
-            "Є чітке розуміння потрібної лексики",
-            "Потрібен гнучкий графік",
-            "Рівень англійської: будь-який",
-        ],
-        advantagesList: [
-            "Базовій граматиці",
-            "Поставиш правильну вимову",
-            "Зможеш правильно використовувати професійну лексику",
-            "Зможеш коригувати свій план навчання так, щоб тобі було максимально цікаво та ефективно",
-        ],
-        status: {
-            id: "ongoing",
+        title: `Курс "English in the IT team"`,
+        slug: "it",
+        name: "it-course",
+        lessonsCount: 16,
+        price: {
+            old: 4970,
+            new: 3970,
         },
-    },
-    {
-        title: "Solo econom",
-        slug: "solo-econom-plan",
-        name: "Solo",
-        quoteId: 2,
-        description:
-            "Індивідуальний план навчання, 2 індивідуальних заняття в тиждень, вічна підписка на Netflix",
-        imgSrc: soloEconomCover,
-        lessonsCount: 8,
-        price: 1870,
-        className: "bg-solo-econom-new text-white",
-        list: [
-            "Індивідуальний план навчання",
-            "8 індивідуальних по 45 хв",
-            "∞ підписка на Netflix",
-        ],
-        matchesList: [
-            "Хочеш вивчити англійську з 0",
-            "Хочеш заповнити свої пробіли у граматиці",
-            "Є чітке розуміння потрібної лексики",
-            "Потрібен гнучкий графік",
-            "Рівень англійської: будь-який",
-        ],
-        advantagesList: [
-            "Базовій граматиці",
-            "Поставиш правильну вимову",
-            "Зможеш правильно використовувати професійну лексику",
-            "Зможеш коригувати свій план навчання так, щоб тобі було максимально цікаво та ефективно",
-        ],
+        actionButtonLabel: "Детальніше",
+        list: ["4 essential теми для IT", "16 занять", "командний перегляд серіалів англійською"],
         status: {
-            id: "ongoing",
+            id: "start-soon",
+            date: "29 липня",
         },
     },
 ];
@@ -335,23 +251,6 @@ export const quizQuestionsObj = {
 export const questionsList = [
     {
         type: "radio",
-        name: "listening-1",
-        component: Radio,
-        audio: {
-            source: beginner,
-            description: "Прослухай аудіо і відміть правильну відповідь",
-        },
-        description: "Kelly is satisfied with her rest in Blackpool.",
-        commonProps: {
-            name: "listening-1",
-        },
-        list: [
-            { value: "yes1", children: "yes" },
-            { value: "no1", children: "no" },
-        ],
-    },
-    {
-        type: "radio",
         name: "grammer-1",
         component: Radio,
         description: "We ... to work every day.",
@@ -431,23 +330,6 @@ export const questionsList = [
     },
     {
         type: "radio",
-        name: "listening-2",
-        component: Radio,
-        audio: {
-            source: intermediate,
-            description: "Прослухай аудіо і відміть правильну відповідь",
-        },
-        description: "Nina was shy that is why she didn’t give her telephone number.",
-        commonProps: {
-            name: "listening-2",
-        },
-        list: [
-            { value: "yes2", children: "yes" },
-            { value: "no2", children: "no" },
-        ],
-    },
-    {
-        type: "radio",
         name: "grammer-5",
         component: Radio,
         description: "There must be ... coffee left in the coffee-pot.",
@@ -505,25 +387,6 @@ export const questionsList = [
             { value: "criticize-always", children: "criticize always" },
             { value: "are-always-criticizing", children: "are always criticizing" },
             { value: "always-are-criticizing", children: "always are criticizing" },
-        ],
-    },
-    {
-        type: "radio",
-        name: "listening-3",
-        component: Radio,
-        audio: {
-            source: advanced,
-            description: "Прослухай аудіо і відміть правильну відповідь",
-        },
-        description: "Which word most fits the description of a person?",
-        commonProps: {
-            name: "listening-3",
-        },
-        list: [
-            { value: "critical", children: "critical" },
-            { value: "cruel", children: "cruel" },
-            { value: "arrogant", children: "arrogant" },
-            { value: "deceitful", children: "deceitful" },
         ],
     },
     {

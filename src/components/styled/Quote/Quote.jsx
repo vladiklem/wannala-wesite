@@ -20,7 +20,7 @@ export const Quote = ({
             <img
                 width={118}
                 height={118}
-                className="image rounded-circle border border-width-2 border-blue-soft"
+                className="image rounded-circle border border-width-2"
                 src={src}
                 alt={alt || `${author} - студент курсів англійської від wanalab.`}
             />

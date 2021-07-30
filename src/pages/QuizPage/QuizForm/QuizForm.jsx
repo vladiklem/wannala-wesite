@@ -29,9 +29,13 @@ export const QuizForm = ({ stepList, onFinish, onSubmit, lastSlideNode }) => {
         [setStep, step, len, handleSubmit, onSubmit, onFinish, lastSlideNode],
     );
 
-    const onPrev = useCallback(() => {
-        step > 0 && setStep((step) => step - 1);
-    }, [step]);
+    const onPrev = useCallback(
+        (e) => {
+            e.target.type === "submit" && e.preventDefault();
+            step > 0 && setStep((step) => step - 1);
+        },
+        [step],
+    );
 
     const buttonOnClick = useMemo(() => (step < len - 1 ? onPrev : onNext), [
         onNext,
@@ -43,6 +47,8 @@ export const QuizForm = ({ stepList, onFinish, onSubmit, lastSlideNode }) => {
     useEffect(() => {
         stepItem.focus && setTimeout(() => document.getElementById(stepItem.focus).focus(), 100);
     }, [stepItem]);
+
+    console.log(step);
 
     return (
         <form
@@ -62,7 +68,7 @@ export const QuizForm = ({ stepList, onFinish, onSubmit, lastSlideNode }) => {
                             isHidden={step !== index}
                             register={register}
                             onClick={item.type === "radio" ? onNext : undefined}
-                            key={item.name || item.type}
+                            key={index + item.name}
                         />
                     ))}
                     <div

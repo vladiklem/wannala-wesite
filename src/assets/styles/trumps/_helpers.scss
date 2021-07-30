@@ -31,47 +31,6 @@
     display: none;
 }
 
-.burger-icon {
-    position: relative;
-    height: 4px;
-    width: 32px;
-    border-radius: 20px;
-    background-color: $gray-900;
-    transition: all 250ms ease-in-out;
-
-    &:after,
-    &:before {
-        content: " ";
-        position: absolute;
-        left: 0;
-        height: 4px;
-        width: 32px;
-        border-radius: 20px;
-        background-color: $gray-900;
-        transition: all 250ms ease-in-out;
-    }
-
-    &:after {
-        bottom: -10px;
-    }
-
-    &:before {
-        top: -10px;
-    }
-
-    &.open {
-        background-color: transparent;
-
-        &:after {
-            transform: rotate(90deg);
-        }
-
-        &:before {
-            transform: rotate(180deg);
-        }
-    }
-}
-
 .full-screen-height {
     min-height: 100vh;
 }
