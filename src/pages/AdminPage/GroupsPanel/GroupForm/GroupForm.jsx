@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-import { Input, Button, CustomSelect } from "components/index";
+import { Input, Button, CustomSelect } from "components/";
 import { objWithId } from "utils/converters";
 import { initialGroup } from "constants/initialValues";
 import { mentorOptions } from "constants/options";

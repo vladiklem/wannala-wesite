@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 import { ModalsContainer } from "containers/ModalsContainer/ModalsContainer";
-import { Header, Footer } from "components/index";
+import { Header, Footer } from "components/";
 import { firebaseService } from "services/firebaseService";
 import { initApp } from "store/app/actions";
 import { selectAdmin, selectHeaderSettings } from "store/app/selectors";

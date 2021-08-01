@@ -2,7 +2,7 @@ import React from "react";
 import cx from "classnames";
 
 import { Quote } from "components/styled/Quote/Quote";
-import { ScrollableItem } from "components/index";
+import { ScrollableItem } from "components/";
 
 import styles from "./FeedbackScrollableItem.module.scss";
 

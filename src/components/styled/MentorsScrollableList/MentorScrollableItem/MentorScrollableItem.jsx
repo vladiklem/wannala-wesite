@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import cx from "classnames";
 
-import { ScrollableItem, Button, List } from "components/index";
+import { ScrollableItem, Button, List } from "components/";
 import { Instagram } from "components/Icons/social/Instagram";
 
 import styles from "./MentorScrollableItem.module.scss";

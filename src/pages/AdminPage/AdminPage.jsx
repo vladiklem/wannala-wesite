@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import cx from "classnames";
 
-import { buttonColorEnum, SideBar, Button } from "components/index";
+import { buttonColorEnum, SideBar, Button } from "components/";
 import { ArrowRightLong } from "components/Icons/ArrowRightLong";
 import { scrollToTop } from "helpers/general";
 import { mediaBreakpointsEnum } from "constants/enums";

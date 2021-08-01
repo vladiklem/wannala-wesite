@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Button, buttonColorEnum } from "components/index";
+import { Button, buttonColorEnum } from "components/";
 
 export const NavItem = ({ id, children, onClick, ...props }) => {
     const handleClick = useCallback(() => onClick(id), [onClick, id]);

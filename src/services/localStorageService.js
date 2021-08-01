@@ -16,7 +16,11 @@ class LocalStorageService {
     }
 
     setItem(key, value) {
-        return localStorage.setItem(key, JSON.stringify(value))
+        return localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    insertObjectField(key, fields) {
+        return this.setItem(key, { ...this.getItem(key), ...fields });
     }
 }
 

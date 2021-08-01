@@ -1,8 +1,7 @@
 import React, { useCallback } from "react";
 import cx from "classnames";
-import moment from "moment";
 
-import { Collapse, Button } from "components/index";
+import { Collapse, Button } from "components/";
 import { isNewLead } from "helpers/general";
 
 import styles from "./LeadItem.module.scss";
@@ -46,7 +45,6 @@ export const LeadItem = ({
                         {props.timestamp && (
                             <>
                                 <span className="font-weight-semibold">Дата:</span>{" "}
-                                {moment(props.timestamp).format("MMM DD, HH:mm")}
                             </>
                         )}
                     </div>

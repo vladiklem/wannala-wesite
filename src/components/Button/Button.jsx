@@ -1,7 +1,8 @@
+import React, { memo } from "react";
 import { Button as ReactstrapButton } from "reactstrap";
 import cx from "classnames";
 
-import { Loader } from "components/index";
+import { Loader } from "components/";
 
 import styles from "./Button.module.scss";
 
@@ -12,7 +13,7 @@ export const buttonColorEnum = {
     SECONDARY_NEW: "secondary-new",
 };
 
-export const Button = ({
+export const Button = memo(({
     className,
     isSquare,
     isRounded,
@@ -38,4 +39,4 @@ export const Button = ({
             {isLoading ? <Loader /> : children}
         </ReactstrapButton>
     );
-};
+});

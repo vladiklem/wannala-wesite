@@ -4,9 +4,9 @@ import { useMediaQuery } from "react-responsive";
 import { useDispatch, useSelector } from "react-redux";
 import cx from "classnames";
 
-import { mentorsList } from "constants/lists";
+import mentorsList from "constants/lists/mentorsList";
 import { mediaBreakpointsEnum } from "constants/enums";
-import { Button, List, Loader } from "components/index";
+import { Button, List, Loader } from "components/";
 import { scrollToTop } from "helpers/general";
 
 import { selectGroups } from "store/groups/selectors";

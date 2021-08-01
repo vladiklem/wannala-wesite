@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 
-import { ProgressBar } from "components/index";
+import { ProgressBar } from "components/";
 
 export const ProgressItem = ({ isPortable, current, goal, className, children }) => (
     <div className={className}>

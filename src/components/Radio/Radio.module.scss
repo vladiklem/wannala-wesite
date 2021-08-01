@@ -32,6 +32,12 @@
         padding-top: 16px;
         padding-right: 16px;
 
+        &.isPortable {
+            padding-bottom: 12px;
+            padding-top: 12px;
+            padding-right: 12px;
+        }
+
         &:before {
             content: " ";
             position: absolute;
@@ -49,7 +55,7 @@
     &__check {
         position: absolute;
         top: 50%;
-        transform: translateY(-110%);
+        transform: translateY(-50%);
         left: 8px;
         clip-path: circle(0);
 

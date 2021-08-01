@@ -1,7 +1,3 @@
-import moment from "moment";
-
-import { weekDays } from "constants/date";
-
 export const getFormattedCalendarEvents = (events) =>
     events.map(({ startDate, endDate, ...item }) => ({
         start: new Date(startDate),
@@ -10,8 +6,3 @@ export const getFormattedCalendarEvents = (events) =>
         endDate,
         ...item,
     }));
-
-export const getTestTimeLabel = (date) =>
-    `${weekDays[moment(date).day()].short}: ${moment(date).get("hours") || "00"}:${
-        moment(date).get("minutes") || "00"
-    }`;

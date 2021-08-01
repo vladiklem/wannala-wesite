@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import cx from "classnames";
 
 import { Team } from "components/Icons/Team";
-import { ScrollableItem, Button, List } from "components/index";
+import { ScrollableItem, Button, List } from "components/";
 
 import styles from "./GroupScrollableItem.module.scss";
 

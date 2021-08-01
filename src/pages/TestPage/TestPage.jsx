@@ -4,11 +4,11 @@ import { useForm } from "react-hook-form";
 import cx from "classnames";
 import { fireAnalyticsEvent } from "analytics";
 
-import { Button, buttonColorEnum, ProgressBar } from "components/index";
+import { Button, buttonColorEnum, ProgressBar } from "components/";
 import { Check } from "components/Icons/Check";
 import { scrollToTop } from "helpers/general";
 import events from "analytics/events";
-import { questionsList } from "constants/lists";
+import { questionsList } from "./TestPage.constants";
 import { telNumber } from "constants/social";
 import { addLead } from "store/leads/actions";
 

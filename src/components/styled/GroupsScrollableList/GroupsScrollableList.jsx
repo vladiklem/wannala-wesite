@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 
-import { Scrollable } from "components/index";
+import { Scrollable } from "components/";
 
 import { GroupScrollableItem } from "./GroupScrollableItem/GroupScrollableItem";
 

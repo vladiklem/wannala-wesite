@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 
-import { Scrollable } from "components/index";
-import { mentorsList } from "constants/lists";
+import { Scrollable } from "components/";
+import mentorsList from "constants/lists/mentorsList"
 
 import { MentorScrollableItem } from "./MentorScrollableItem/MentorScrollableItem";
 
@@ -21,7 +21,7 @@ export const MentorsScrollableList = ({ toMentor, list = mentorsList, className,
             {list.map(({ name, ...itemProps }, index) => (
                 <MentorScrollableItem
                     index={index}
-                    array={mentorsList}
+                    array={list}
                     key={name}
                     name={name}
                     onClick={toMentor}

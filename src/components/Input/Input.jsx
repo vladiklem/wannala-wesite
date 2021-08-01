@@ -21,11 +21,12 @@ export const Input = forwardRef(
             errorMessage,
             alternative = false,
             inputType = inputTypeEnum.DEFAULT,
+            inputClassName = "",
             ...props
         },
         ref,
     ) => {
-        return alternative || (inputType === inputTypeEnum.ALTERNATIVE) ? (
+        return alternative || inputType === inputTypeEnum.ALTERNATIVE ? (
             <div>
                 <Tag
                     className={cx(styles.alternativeInput, className)}
@@ -41,18 +42,26 @@ export const Input = forwardRef(
                     name={name}
                     placeholder={label}
                     ref={ref}
-                    className={cx(styles.customFormInput, {
-                        [styles.invalid]: invalid || errorMessage,
-                        [styles.textarea]: Tag === "textarea",
-                        [styles.new]: inputType === inputTypeEnum.NEW,
-                    })}
+                    className={cx(
+                        styles.customFormInput,
+                        {
+                            [styles.invalid]: invalid || errorMessage,
+                            [styles.textarea]: Tag === "textarea",
+                            [styles.new]: inputType === inputTypeEnum.NEW,
+                        },
+                        inputClassName,
+                    )}
                     {...props}
                 />
                 {!!label && (
                     <label
-                        className={cx(styles.customFormLabel, {
-                            "bg-white-new": inputType === inputTypeEnum.NEW,
-                        }, labelClassName)}
+                        className={cx(
+                            styles.customFormLabel,
+                            {
+                                "bg-white-new": inputType === inputTypeEnum.NEW,
+                            },
+                            labelClassName,
+                        )}
                         htmlFor={id || name}
                     >
                         {label}

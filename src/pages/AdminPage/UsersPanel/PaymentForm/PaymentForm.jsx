@@ -2,15 +2,10 @@ import React, { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-import { Input, Button } from "components/index";
+import { Input, Button } from "components/";
 import { initialPayment } from "constants/initialValues";
 
-export const PaymentForm = ({
-    userId,
-    isOpen,
-    toggle,
-    onSubmit,
-}) => {
+export const PaymentForm = ({ userId, isOpen, toggle, onSubmit }) => {
     const { reset, register, handleSubmit, errors } = useForm({
         defaultValues: {
             ...initialPayment,

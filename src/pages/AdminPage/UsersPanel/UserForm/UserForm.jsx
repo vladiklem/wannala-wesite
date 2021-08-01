@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 
-import { Input, CustomSelect } from "components/index";
+import { Input, CustomSelect } from "components/";
 import { objWithId } from "utils/converters";
 import { initialUser } from "constants/initialValues";
 import { formModeEnum, formSubmitButtonEnum } from "constants/enums";
@@ -88,16 +88,8 @@ export const UserForm = ({
                         options={sourceOptions}
                         label="Звідки прийшов"
                     />
-                    <Input
-                        label="Дата наступної оплати"
-                        name="chargeDate"
-                        type="date"
-                    />
-                    <Input
-                        label="Сума до сплати"
-                        name="chargeSum"
-                        type="number"
-                    />
+                    <Input label="Дата наступної оплати" name="chargeDate" type="date" />
+                    <Input label="Сума до сплати" name="chargeSum" type="number" />
                     <Input
                         label="Опис"
                         name="description"

@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 
-import { Button, Scrollable } from "components/index";
+import { Button, Scrollable } from "components/";
 import { coursesList } from "constants/lists";
 import { leraContact } from "constants/social";
 import { ServiceScrollableItem } from "components/styled/ServiceScrollableItem/ServiceScrollableItem";

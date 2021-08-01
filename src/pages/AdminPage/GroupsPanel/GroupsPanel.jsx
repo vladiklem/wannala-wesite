@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { Button } from "components/index";
+import { Button } from "components/";
 import { addGroup, deleteGroup, updateGroup } from "store/groups/actions";
 import { usersToSelectOptions } from "utils/converters";
 import { initialGroup } from "constants/initialValues";

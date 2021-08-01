@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import { selectUsers } from "store/users/selectors";
 import { selectInstagramInfo, selectTelegramInfo } from "store/app/selectors";
-import { Button } from "components/index";
+import { Button } from "components/";
 
 import { ProgressItem } from "./ProgressItem/ProgressItem";
 

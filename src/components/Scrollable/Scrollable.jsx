@@ -2,7 +2,7 @@ import React, { useRef, useCallback, useMemo } from "react";
 import cx from "classnames";
 import { ArrowRightLong } from "components/Icons/ArrowRightLong";
 
-import { Button } from "components/index";
+import { Button } from "components/";
 
 import styles from "./Scrollable.module.scss";
 import { useMediaQuery } from "react-responsive";

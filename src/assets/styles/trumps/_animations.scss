@@ -2,11 +2,15 @@
 @import "~assets/styles/config/transitions";
 
 .transition-250 {
-    transition: all 250ms ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 .transition-quart-250 {
     transition: $easeOutQuart;
+}
+
+.transition-text-100 {
+    transition: color 0.1s ease-in-out;
 }
 
 .typing {

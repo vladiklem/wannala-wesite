@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { Button } from "components/index";
+import { Button } from "components/";
 import { addUser, deleteUser, editUser, addPayment } from "store/users/actions";
 import { initialUser } from "constants/initialValues";
 import { formModeEnum } from "constants/enums";

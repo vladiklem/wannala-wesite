@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 
-import { valuesList } from "constants/lists";
+import { valuesList } from "../Home.constants";
 import { objToArray } from "utils/converters";
 
 import { ValueItem } from "./ValueItem/ValueItem";

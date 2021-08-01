@@ -7,10 +7,6 @@ const events = {
         category: "Level Test",
         action: "Open Level Test page",
     },
-    JOIN_QUIZ: {
-        category: "Quiz",
-        action: "Open Quiz page",
-    },
     READ_MORE_ABOUT_COURSE: {
         category: "Homepage",
         action: "Clicked Більше про курс",
@@ -39,6 +35,11 @@ const events = {
         category: "IT landing",
         action: "Landing Opened"
     },
+    LEAD_QUIZ_VISITED: {
+        category: "Quiz Lead",
+        action: "VQuiz Lead visited",
+    },
+
 };
 
 export default events;

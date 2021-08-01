@@ -1,5 +1,5 @@
 import React, { useMemo, useCallback } from "react";
-import { Collapse } from "components/index";
+import { Collapse } from "components/";
 
 export const CollapseGroupItem = ({
     item,

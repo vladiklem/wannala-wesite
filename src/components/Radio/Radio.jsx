@@ -18,6 +18,7 @@ export const Radio = forwardRef(
             name,
             id,
             children,
+            isPortable,
             labelClassName,
             ...props
         },
@@ -41,11 +42,12 @@ export const Radio = forwardRef(
             />
             <label
                 className={cx(
-                    "position-relative transition-250 border rounded-lg w-100 mb-3 regular cursor-pointer",
+                    "position-relative transition-250 transition-text-100 border rounded-lg w-100 regular cursor-pointer",
                     {
                         [styles.radio__defaultLabel]: type === radioTypesEnum.DEFAULT,
                         [cx(styles.radio__borderedLabel, "border")]:
                             type === radioTypesEnum.BORDERED,
+                        [styles.isPortable]: isPortable,
                     },
                     labelClassName,
                 )}

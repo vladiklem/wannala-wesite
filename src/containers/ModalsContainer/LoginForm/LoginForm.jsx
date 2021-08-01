@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Modal, ModalFooter } from "reactstrap";
 
-import { Input, Button } from "components/index";
+import { Input, Button } from "components/";
 import { appAdminAuth } from "store/app/actions";
 import { adminPasswordCheck } from "utils/password";
 
@@ -13,11 +13,14 @@ const LoginForm = ({ isOpen, toggle }) => {
     const history = useHistory();
     const { handleSubmit, register } = useForm();
 
-    const toAdmin = useCallback((data) => {
-        dispatch(appAdminAuth(data));
-        history.push("/admin/dashboard");
-        toggle();
-    }, [dispatch, history, toggle]);
+    const toAdmin = useCallback(
+        (data) => {
+            dispatch(appAdminAuth(data));
+            history.push("/admin/dashboard");
+            toggle();
+        },
+        [dispatch, history, toggle],
+    );
 
     const onSubmit = useCallback(
         (data) => {
