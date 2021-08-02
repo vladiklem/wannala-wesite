@@ -15,7 +15,7 @@ export const initUsersFailure = (error) => ({
     type: USERS.INIT.FAILURE,
     payload: {
         error,
-    }
+    },
 });
 
 export const addUser = (user) => ({
@@ -95,4 +95,9 @@ export const addPaymentSuccess = (user) => ({
     },
 });
 
-
+export const sendHomework = (hw) => ({
+    type: USERS.SEND_HOMEWORK.IDLE,
+    payload: {
+        hw,
+    },
+});

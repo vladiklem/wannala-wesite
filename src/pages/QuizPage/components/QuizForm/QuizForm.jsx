@@ -37,7 +37,7 @@ export const QuizForm = ({
                 isLast && handleSubmit(onSubmit)();
                 isFinish && onFinish();
                 !isFinish && setStep((step) => step + 1);
-            }, 220);
+            }, 240);
         },
         [setStep, isFinish, isLast, handleSubmit, onSubmit, onFinish, watch, nextCb],
     );
@@ -58,7 +58,7 @@ export const QuizForm = ({
                     <h2
                         className={cx(
                             {
-                                h3: !isPortable,
+                                h1: !isPortable,
                                 "regular font-weight-semibold": isPortable,
                             },
                             "mb-2",
@@ -68,7 +68,7 @@ export const QuizForm = ({
                     </h2>
                 )}
                 {stepItem.description && (
-                    <p className={cx({ h4: !isPortable, regular: isPortable }, "mb-3")}>
+                    <p className={cx({ h2: !isPortable, regular: isPortable }, "mb-3")}>
                         {stepItem.description}
                     </p>
                 )}
@@ -103,11 +103,15 @@ export const QuizForm = ({
                 </div>
             </div>
             <div>
-                <SubmitButton
-                    onClick={onNext}
-                    {...stepItem.submitButtonProps}
-                    type={isLast ? "submit" : undefined}
-                />
+                {len === step ? (
+                    <h3 className="h3 text-center">🎉 Congratulations 🎉</h3>
+                ) : (
+                    <SubmitButton
+                        onClick={onNext}
+                        {...stepItem.submitButtonProps}
+                        type={isLast ? "submit" : undefined}
+                    />
+                )}
                 <ProgressBar current={step} goal={len} className="mt-3" />
             </div>
         </form>

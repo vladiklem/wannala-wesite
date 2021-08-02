@@ -22,4 +22,7 @@ export const USERS = {
     ADD_PAYMENT: {
         IDLE: "USERS_ADD_PAYMENT_IDLE",
     },
+    SEND_HOMEWORK: {
+        IDLE: "USERS_SEND_HOMEWORK_IDLE",
+    }
 };

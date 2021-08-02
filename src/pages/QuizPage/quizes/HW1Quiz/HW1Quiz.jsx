@@ -1,6 +1,9 @@
 import React, { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { localStorageService } from "services/localStorageService";
+
+import { sendHomework } from "store/users/actions";
 
 import questions from "./HW1Quiz.constants";
 import { QuizForm } from "../../components/QuizForm/QuizForm";
@@ -9,11 +12,16 @@ import { ThankYouSlide } from "./ThankYouSlide/ThankYouSlide";
 const name = localStorageService.getItem("user").firstName;
 
 const HW1Quiz = () => {
+    const dispatch = useDispatch();
     const [theme, setTheme] = useState(null);
 
-    const onSubmit = useCallback((data) => {
-        console.log(name ? { ...data, firstName: name } : data);
-    }, []);
+    const onSubmit = useCallback(
+        (data) => {
+            const hw = name ? { ...data, firstName: name } : data;
+            dispatch(sendHomework(hw));
+        },
+        [dispatch],
+    );
 
     const onNext = useCallback((fields) => {
         !name &&

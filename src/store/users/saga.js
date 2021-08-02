@@ -1,7 +1,7 @@
 import { takeLatest, call, put, select } from "redux-saga/effects";
 
 import { firebaseService } from "services/firebaseService";
-import { FIREBASE_DATA_USERS } from "constants/firebase";
+import { FIREBASE_DATA_USERS, FIREBASE_DATA_HOMEWORK } from "constants/firebase";
 
 import { USERS } from "./constants";
 import {
@@ -70,7 +70,14 @@ function* addPaymentSaga({ payload: { payment } }) {
             merge: true,
         });
         yield put(addPaymentSuccess(updatedUser));
+    } catch (error) {}
+}
+
+function* sendHomework({ payload: { hw } }) {
+    try {
+        yield call(firebaseService.add, FIREBASE_DATA_HOMEWORK, hw);
     } catch (error) {
+        console.log(error);
     }
 }
 
@@ -80,4 +87,5 @@ export const usersSaga = [
     takeLatest(USERS.DELETE.IDLE, deleteUserSaga),
     takeLatest(USERS.EDIT.IDLE, editUserSaga),
     takeLatest(USERS.ADD_PAYMENT.IDLE, addPaymentSaga),
+    takeLatest(USERS.SEND_HOMEWORK.IDLE, sendHomework),
 ];
