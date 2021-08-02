@@ -2,7 +2,7 @@ import leraItAvatar from "assets/images/lera_it_avatar.jpeg";
 import martaItAvatar from "assets/images/marta_it_avatar.jpeg";
 import vladItAvatar from "assets/images/vlad_it_avatar.jpeg";
 import itHero from "assets/images/it-hero.png";
-import itCover from "assets/images/it-cover.png";
+import itCover from "assets/images/it-cover.webp";
 
 const translations = {
     ua: {
