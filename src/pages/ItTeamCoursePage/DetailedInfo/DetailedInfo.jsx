@@ -25,28 +25,10 @@ export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings,
         <>
             <h2 className={getHeadingClassName(4)}>{strings.h2_1}</h2>
             <h3 className="font-weight-normal h3 mb-5">{strings.h3_1}</h3>
-            {/* <div className="mb-6">
-                <h2 className={getHeadingClassName(4)}>{strings.h2_6}</h2>
-                <div>
-                    {strings.matchList.map(({ emoji, description }, index) => (
-                        <div
-                            className={cx(
-                                "position-relative d-flex mb-5",
-                                styles.matchItem,
-                                `ml-${index + 1}`,
-                            )}
-                            key={index}
-                        >
-                            <h3 className="h3 font-weight-normal">
-                                {emoji} {description}
-                            </h3>
-                        </div>
-                    ))}
-                </div>
-            </div> */}
             <h2 id="wannablab-show-action-button" className={getHeadingClassName(4)}>
                 {strings.h2_2}
             </h2>
+            <h3 className="font-weight-normal h3 mb-4">Курс поділений на 4 частини, кожна частина складається з 3-ох уроків та тематичного спікінг клабу.</h3>
             <CourseStructure isPortable={isPortable} className={isPortable ? "mb-4" : "mb-5"} />
             {isPortable && (
                 <Button

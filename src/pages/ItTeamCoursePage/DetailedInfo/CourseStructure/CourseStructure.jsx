@@ -8,7 +8,7 @@ import translations from "./CourseStructure.translations";
 const strings = translations.ua;
 
 export const CourseStructure = ({ className, isPortable }) => {
-    const [openCollapseId, setOpenCollapseId] = useState(2);
+    const [openCollapseId, setOpenCollapseId] = useState(0);
 
     return (
         <div className={className}>

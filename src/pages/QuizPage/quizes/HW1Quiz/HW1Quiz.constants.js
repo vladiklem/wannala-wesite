@@ -6,7 +6,7 @@ const name = localStorageService.getItem("user").firstName;
 export const stories = {
     friendBirthday: "you forgot about your friend's birthday.",
     fired: "you were fired by your boss.",
-    partner: "you saw you partner with smbd else.",
+    partner: "you saw you partner with somebody else.",
     famous: "you could meet someone famous.",
 };
 
@@ -34,7 +34,7 @@ const questions = [
         type: "input",
         component: Input,
         title: "1️⃣ Rewrite the text into past simple",
-        description: "I usually get up 7 oclock and have a big breakfast",
+        description: "I usually get up at 7 o'clock and have a big breakfast",
         commonProps: { type: inputTypeEnum.NEW, labelClassName: "bg-white-new" },
         list: [
             {
@@ -74,7 +74,7 @@ const questions = [
         list: [
             { value: "wrote", children: "wrote" },
             { value: "spent", children: "spent" },
-            { value: "tough", children: "tough" },
+            { value: "tough", children: "tought" },
             { value: "bought", children: "bought" },
         ],
     },
