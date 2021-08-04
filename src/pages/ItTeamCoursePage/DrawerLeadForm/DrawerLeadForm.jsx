@@ -1,4 +1,4 @@
-import React, { lazy, useEffect, useMemo } from "react";
+import React, { lazy, useMemo } from "react";
 import { useSelector } from "react-redux";
 import cx from "classnames";
 
@@ -13,10 +13,6 @@ const DrawerLeadForm = ({ isPortable, isOpen, onToggle, strings }) => {
 
     const isCoverVisible = useMemo(() => isLoading || isSuccess, [isLoading, isSuccess]);
 
-    useEffect(() => {
-        isOpen && document.querySelector("#name").focus();
-    }, [isOpen]);
-
     return (
         <Drawer
             width={isPortable ? "95%" : "80%"}
@@ -28,7 +24,10 @@ const DrawerLeadForm = ({ isPortable, isOpen, onToggle, strings }) => {
             )}
             components={{
                 Header: () => (
-                    <div className="d-flex align-items-center px-2_5 py-2" onClick={onToggle}>
+                    <div
+                        className="d-flex align-items-center px-2_5 py-2 cursor-pointer"
+                        onClick={onToggle}
+                    >
                         <ArrowRightLong height={24} width={24} className="mr-3 rotate-180" />
                         <h2 className="h2 font-weight-normal">
                             {strings.itRegistrationSection.drawer.heading}

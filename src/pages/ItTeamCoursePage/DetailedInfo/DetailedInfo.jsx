@@ -25,10 +25,10 @@ export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings,
         <>
             <h2 className={getHeadingClassName(4)}>{strings.h2_1}</h2>
             <h3 className="font-weight-normal h3 mb-5">{strings.h3_1}</h3>
-            <h2 id="wannablab-show-action-button" className={getHeadingClassName(4)}>
+            <h2 id="wannablab-show-action-button" className={getHeadingClassName(3)}>
                 {strings.h2_2}
             </h2>
-            <h3 className="font-weight-normal h3 mb-4">Курс поділений на 4 частини, кожна частина складається з 3-ох уроків та тематичного спікінг клабу.</h3>
+            <h3 className="font-weight-normal h3 mb-4">Курс поділений на 3 частини, кожна частина складається з 3-ох уроків і тематичного спікінг клабу.</h3>
             <CourseStructure isPortable={isPortable} className={isPortable ? "mb-4" : "mb-5"} />
             {isPortable && (
                 <Button

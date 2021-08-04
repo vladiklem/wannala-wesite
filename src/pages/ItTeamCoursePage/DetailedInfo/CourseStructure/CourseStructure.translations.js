@@ -7,7 +7,7 @@ const structure = {
             titleEng: "Dealing with people",
             lessons: (isPortable) => [
                 <>
-                    <strong>Asking something </strong>
+                    <strong>1️⃣ Asking something </strong>
                     <span className={cx({ "font-small": isPortable })}>
                         {
                             " — урок надасть тобі змогу уникнути невпевненості під час формулювання запитань, адже ми розберемо універсальні конструкції, які ти зможеш легко використовувати, щоб задавати питання і колегам і менеджерам"
@@ -15,7 +15,7 @@ const structure = {
                     </span>
                 </>,
                 <>
-                    <strong>Suggestions</strong>
+                    <strong>2️⃣ Suggestions</strong>
                     <span className={cx({ "font-small": isPortable })}>
                         {
                             " — після уроку ти вмітимеш робити пропозиції корректно і реагувати на них, висувати пропозиції за допомогою вставних слів і вивчиш як по іншому сказати I think"
@@ -23,7 +23,7 @@ const structure = {
                     </span>
                 </>,
                 <>
-                    <strong>Criticism</strong>
+                    <strong>3️⃣ Criticism</strong>
                     <span className={cx({ "font-small": isPortable })}>
                         {
                             " — після нашого уроку критикувати стане простіше, адже ми розберемо як обережно вказати людині на недоліки в роботі і заохотити до вдосконалення. Попрактикуємо разом техніку Sandwich і навчимо тебе сприймати критику ввічливо"
@@ -31,7 +31,7 @@ const structure = {
                     </span>
                 </>,
                 <>
-                    <strong>Спікінг клаб</strong>
+                    <strong>4️⃣ Спікінг клаб</strong>
                     <span className={cx({ "font-small": isPortable })}>
                         {
                             " — 'Role play' - a manager and employee (практика діалогів і критики), обговорення непорозумінь на роботі та способів їх уникнення "
@@ -46,7 +46,7 @@ const structure = {
             title: "",
             lessons: (isPortable) => [
                 <>
-                    <strong>Plans for a new product</strong>
+                    <strong>1️⃣ Plans for a new product</strong>
                     <span className={cx({ "font-small": isPortable })}>
                         {
                             " — після уроку ти навчишся будувати плани зі створення продуктів та обговорювати їх з колегами під час мітінгу"
@@ -54,13 +54,13 @@ const structure = {
                     </span>
                 </>,
                 <>
-                    <strong>Changes and how to respond to them </strong>
+                    <strong>2️⃣ Changes and how to respond to them </strong>
                     <span className={cx({ "font-small": isPortable })}>
                         {" — зумієш правильно реагувати на зміни в планах і самостійно їх висувати"}
                     </span>
                 </>,
                 <>
-                    <strong>Feedback</strong>
+                    <strong>3️⃣ Feedback</strong>
                     <span className={cx({ "font-small": isPortable })}>
                         {
                             " — навчишся надавати фідбек з приводу виконаної роботи та відповідати на фідбек у свою сторону за допомогою граматичних та лексичних конструкцій в англійській"
@@ -68,7 +68,7 @@ const structure = {
                     </span>
                 </>,
                 <>
-                    <strong>Спікінг клаб</strong>
+                    <strong>4️⃣ Спікінг клаб</strong>
                     <span className={cx({ "font-small": isPortable })}>
                         {
                             " — як змінився світ та ІТ індустрія після появи коронавірусу і які продукти почали з’являтися на ринках "
@@ -85,7 +85,7 @@ const structure = {
             titleEng: "Meetings",
             lessons: (isPortable) => [
                 <>
-                    <strong>Brainstorming the idea</strong>
+                    <strong>1️⃣ Brainstorming the idea</strong>
                     <span className={cx({ "font-small": isPortable })}>
                         {
                             " — навчишся безконфліктно брейнштормити ідеї англійською та вести дискусії зі своїми колегами"
@@ -93,7 +93,7 @@ const structure = {
                     </span>
                 </>,
                 <>
-                    <strong>Present an idea and report on what you did </strong>
+                    <strong>2️⃣ Present an idea and report on what you did </strong>
                     <span className={cx({ "font-small": isPortable })}>
                         {
                             " — отримаєш практику в презентуванні власної ідеї перед всім  колективом та навчишся звітувати про свою роботу англійською "
@@ -101,7 +101,7 @@ const structure = {
                     </span>
                 </>,
                 <>
-                    <strong>Dealing with misunderstandings </strong>
+                    <strong>3️⃣ Dealing with misunderstandings </strong>
                     <span className={cx({ "font-small": isPortable })}>
                         {
                             " — після останнього уроку сміливо розбиратимешся з непорозуміннями в команді і навчишся спілкуватися таким чином, щоб їх уникати"
@@ -109,7 +109,7 @@ const structure = {
                     </span>
                 </>,
                 <>
-                    <strong>Спікінг клаб</strong>
+                    <strong>4️⃣ Спікінг клаб</strong>
                     <span className={cx({ "font-small": isPortable })}>
                         {
                             " — вирішення спільної проблеми в команді і практика усунення можливих непорозумінь "
