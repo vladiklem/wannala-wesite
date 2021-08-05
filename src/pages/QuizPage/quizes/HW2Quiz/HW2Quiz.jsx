@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 
 import { localStorageService } from "services/localStorageService";
@@ -13,7 +13,6 @@ const name = localStorageService.getItem("user").firstName;
 
 const HW2Quiz = ({ slug }) => {
     const dispatch = useDispatch();
-    const [theme, setTheme] = useState(null);
 
     const onSubmit = useCallback(
         (data) => {
@@ -27,7 +26,6 @@ const HW2Quiz = ({ slug }) => {
         !name &&
             fields.firstName &&
             localStorageService.insertObjectField("user", { firstName: fields.firstName });
-        fields.ans5 && setTheme(fields.ans5);
     }, []);
 
     return (
@@ -36,7 +34,7 @@ const HW2Quiz = ({ slug }) => {
                 stepList={questions}
                 onSubmit={onSubmit}
                 onNext={onNext}
-                lastSlideNode={<ThankYouSlide theme={theme} />}
+                lastSlideNode={<ThankYouSlide />}
             />
         </div>
     );

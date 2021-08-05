@@ -1,4 +1,4 @@
-import { Input, inputTypeEnum, Radio } from "components/";
+import { Input, inputTypeEnum } from "components/";
 import { localStorageService } from "services/localStorageService";
 
 const name = localStorageService.getItem("user").firstName;
@@ -42,7 +42,7 @@ const questions = [
     {
         type: "input",
         component: Input,
-        title: "2️⃣ Виправ помилки в реченні",
+        title: "2️⃣ Виправ помилку в реченні",
         description: "What are you usually have for breakfast?",
         commonProps: { type: inputTypeEnum.NEW, labelClassName: "bg-white-new" },
         list: [
@@ -59,8 +59,8 @@ const questions = [
         type: "input",
         name: "ans3",
         component: Input,
-        title: "3️⃣ Переклади речення використовуючи future simple and to be going to",
-        description: "Мені здається, він не пройде цей етап інтерв'ю.",
+        title: "3️⃣ Переклади корисну звичку англійською.",
+        description: "Я не спілкуюся з людьми, з якими мені не комфортно.",
         commonProps: { type: inputTypeEnum.NEW, labelClassName: "bg-white-new" },
         list: [
             {
@@ -76,13 +76,13 @@ const questions = [
         type: "input",
         component: Input,
         name: "ans4",
-        title: "4️⃣ Доповни речення з допомогою Future Simple ",
-        description: "What time ________ (the sun/set) today?",
+        title: "4️⃣ Виправ помилку в реченні",
+        description: "My coworker spend hours on the phone! ",
         commonProps: { type: inputTypeEnum.NEW, labelClassName: "bg-white-new", name: "ans4" },
         list: [
             {
                 name: "ans4",
-                label: "Пропуск",
+                label: "Виправлене речення",
                 className: "mb-2 mt-2",
                 tag: "textarea",
                 inputClassName: "font-weight-semibold",
@@ -90,19 +90,20 @@ const questions = [
         ],
     },
     {
-        type: "radio",
+        type: "input",
         name: "ans5",
-        component: Radio,
-        title: "5️⃣ Обери правильний варіант відповіді.",
-        description: "I don't think he _____ come tonight. But he says he _____ come.",
-        commonProps: {
-            name: "ans5",
-        },
+        component: Input,
+        title: "5️⃣ Переклади корисну звичку англійською.",
+        description: "Я регулярно прибираю безлад у своїй квартирі ",
+        commonProps: { type: inputTypeEnum.NEW, labelClassName: "bg-white-new" },
         list: [
-            { children: "will / will", value: "will.will" },
-            { children: "is going to / will", value: "isGoingTo.will" },
-            { children: "will / is going to", value: "will.isGoingTo" },
-            { children: "is going to / would", value: "isGoingTo.would" },
+            {
+                name: "ans5",
+                label: "Переклад",
+                className: "mb-2",
+                tag: "textarea",
+                inputClassName: "font-weight-semibold",
+            },
         ],
     },
 ];

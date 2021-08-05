@@ -15,7 +15,9 @@ export const ThankYouSlide = ({ theme }) => (
             <span className="font-weight-semibold">
                 always, frequently, sometimes, rarely, often.
             </span>
-             {" "}Не відкладуй на потім 😉
+            <br />
+            <br />
+            Не відкладуй на потім 😉
         </h3>
     </>
 );
