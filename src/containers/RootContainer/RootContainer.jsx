@@ -79,7 +79,7 @@ export const RootContainer = () => {
                         />
                         <Route path="/test" render={renderRoute({ routeComponent: TestPage })} />
                         <Route
-                            path="/quiz/:slug"
+                            path="/quizme/:slug"
                             render={renderRoute({ routeComponent: QuizPage })}
                         />
                         <PrivateRoute

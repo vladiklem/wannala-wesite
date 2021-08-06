@@ -9,6 +9,7 @@ import { QuizTypes } from "./QuizPage.constants";
 const LeadQuiz = lazy(() => import("./quizes/LeadQuiz/LeadQuiz"));
 const HomeWorkOne = lazy(() => import("./quizes/HW1Quiz/HW1Quiz"));
 const HomeWorkTwo = lazy(() => import("./quizes/HW2Quiz/HW2Quiz"));
+const HomeWorkThree = lazy(() => import("./quizes/HW3Quiz/HW3Quiz"));
 
 const QuizPage = () => {
     const dispatch = useDispatch();
@@ -23,6 +24,8 @@ const QuizPage = () => {
             return <HomeWorkOne />;
         case QuizTypes.HW2:
             return <HomeWorkTwo slug={slug} />;
+        case QuizTypes.HW3:
+            return <HomeWorkThree slug={slug} />;
         default:
             return <LeadQuiz />;
     }
