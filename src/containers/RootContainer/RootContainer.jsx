@@ -25,6 +25,7 @@ const ChecklistPage = lazy(() => import("pages/ChecklistPage/ChecklistPage"));
 const TestPage = lazy(() => import("pages/TestPage/TestPage"));
 const ItTeamCoursePage = lazy(() => import("pages/ItTeamCoursePage/ItTeamCoursePage"));
 const NotFoundPage = lazy(() => import("pages/NotFoundPage/NotFoundPage"));
+const ItMarathonPage = lazy(() => import("pages/ItMarathonPage/ItMarathonPage"));
 
 firebaseService.init();
 
@@ -74,6 +75,13 @@ export const RootContainer = () => {
                             path="/it"
                             render={renderRoute({
                                 routeComponent: ItTeamCoursePage,
+                                props: { isPortable },
+                            })}
+                        />
+                        <Route
+                            path="/it-marathon"
+                            render={renderRoute({
+                                routeComponent: ItMarathonPage,
                                 props: { isPortable },
                             })}
                         />
