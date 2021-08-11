@@ -25,6 +25,7 @@ const ChecklistPage = lazy(() => import("pages/ChecklistPage/ChecklistPage"));
 const TestPage = lazy(() => import("pages/TestPage/TestPage"));
 const ItTeamCoursePage = lazy(() => import("pages/ItTeamCoursePage/ItTeamCoursePage"));
 const NotFoundPage = lazy(() => import("pages/NotFoundPage/NotFoundPage"));
+const TapLinkPage = lazy(() => import("pages/TapLinkPage/TapLinkPage"));
 
 firebaseService.init();
 
@@ -78,6 +79,13 @@ export const RootContainer = () => {
                             })}
                         />
                         <Route path="/test" render={renderRoute({ routeComponent: TestPage })} />
+                        <Route
+                            path="/taplink"
+                            render={renderRoute({
+                                routeComponent: TapLinkPage,
+                                props: { isPortable },
+                            })}
+                        />
                         <Route
                             path="/quizme/:slug"
                             render={renderRoute({ routeComponent: QuizPage })}

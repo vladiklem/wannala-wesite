@@ -1,4 +1,3 @@
-import kateAvatar from "assets/images/kate_avatar.jpeg";
 import marynaAvatar from "assets/images/maryna_avatar.webp";
 import martaItAvatar from "assets/images/marta_it_avatar.jpeg";
 
@@ -13,17 +12,6 @@ const mentorsList = [
         longDescription:
             'Знання підтверджені міжнародним сертифікатом IELTS (7.5 CERF C1) \nЗа рік роботи вчителем у wannablab допомогла більше 30 студентам позбавитися мовного бар\'єру та перестати нарешті говорити "I am agree". \n Маю досвід в підготовці студентів до таких екзаменів як ЄВІ, ЗНО, IELTS.',
         instaHref: "https://www.instagram.com/p/CKQ3toJnQRk/",
-    },
-    {
-        slug: "kate-timchenko",
-        name: "Катя Тимченко",
-        src: kateAvatar,
-        list: ["3+ роки практики", "1500+ уроків"],
-        shortDescription: "Репетитор англійської мови для дорослих та дітей.",
-        longDescription:
-            "Мене звати Катя, я викладаю англійську з 18 років і готова поділитись усіма знаннями, які накопичила за ці роки. Можу підтримати розмову на будь-яку тему - від бізнес-новин до моди та серіалів.",
-        color: "soft-purple",
-        instaHref: "https://www.instagram.com/p/CLMI-SRnLwM/",
     },
     {
         slug: "marina-torokhtiy",

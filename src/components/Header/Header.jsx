@@ -68,12 +68,18 @@ export const Header = ({
                 "d-flex": isVisible,
             })}
         >
-            <div className="d-flex align-items-center justify-content-between">
+            <div className="d-flex align-items-center justify-content-center">
                 <a href="/">
-                    <img src={logo} width="50" height="60" alt="Логотип компанії wannablab" />
+                    <img src={logo} width="40" height="45" alt="Логотип компанії wannablab" />
                 </a>
-                <a href="/" className="text-decoration-none text-gray-900">
-                    <p className={cx("font-weight-bold h1", { "ml-4": !isPortable })}>wannablab</p>
+                <a href="/" className="text-decoration-none text-gray-900 mx-2">
+                    <p
+                        className={cx("h1", {
+                            "ml-4 font-weight-bold": !isPortable,
+                        })}
+                    >
+                        wannablab
+                    </p>
                 </a>
                 <Button
                     className={cx({ "d-none": !isPortable })}
