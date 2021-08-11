@@ -2,6 +2,7 @@ import React, { useEffect, useCallback, Suspense, lazy } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import cx from "classnames";
 
 import { ModalsContainer } from "containers/ModalsContainer/ModalsContainer";
 import { Header, Footer } from "components/";
@@ -54,7 +55,7 @@ export const RootContainer = () => {
         <Suspense fallback={() => <span>"loading"</span>}>
             <Router>
                 <Header isPortable={isPortable} isVisible={headerSettings.isVisible} />
-                <main className={styles.background}>
+                <main className={cx("overflow-hidden", styles.background)}>
                     <ModalsContainer />
                     <Switch>
                         <Route path="/" render={renderRoute({ routeComponent: Home })} exact />

@@ -27,15 +27,18 @@ export const AuthorScrollableItem = ({
                 <div className="col-5">
                     <img src={src} alt={alt} className="image rounded-circle" />
                 </div>
-                <div className="col-7">
-                    <h3 className={cx("h2 mb-2", { h2: !isTiny, h3: isTiny })}>{name}</h3>
-                    <a href={inst} className="regular font-weight-semibold">
-                        INSTAGRAM
-                    </a>
-                </div>
-                <div className="col-12 mt-3">
+                <div className="col-7 bg-white pt-3 rounded-xl">
+                    <h3 className={cx("h2 mb-1", { h2: !isTiny, h3: isTiny })}>{name}</h3>
+                    <div className="mb-3">
+                        <a href={inst} className="regular font-weight-semibold">
+                            INSTAGRAM
+                        </a>
+                    </div>
                     <h4 className={cx("regular", { h4: isTiny })}>{description}</h4>
                 </div>
+                {/* <div className="col-12 mt-3">
+                    <h4 className={cx("regular", { h4: isTiny })}>{description}</h4>
+                </div> */}
             </div>
         </ScrollableItem>
     );

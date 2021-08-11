@@ -9,7 +9,7 @@ import { InfoBannerRow } from "./InfoBannerRow/InfoBannerRow";
 const strings = translations.ua;
 
 export const GeneralInfoBanner = ({ className, isPortable, onClick }) => (
-    <div className={cx("h3 font-weight-normal border p-4 rounded-lg border-width-2", className)}>
+    <section className={cx("h3 font-weight-normal p-4 rounded-lg shadow-medium bg-white", className)}>
         {strings.info.map((item, index, array) => (
             <InfoBannerRow item={item} index={index} array={array} />
         ))}
@@ -21,5 +21,5 @@ export const GeneralInfoBanner = ({ className, isPortable, onClick }) => (
         >
             {strings.actionButtonLabel}
         </Button>
-    </div>
+    </section>
 );

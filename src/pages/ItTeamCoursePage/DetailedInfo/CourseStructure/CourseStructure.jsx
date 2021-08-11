@@ -14,9 +14,11 @@ export const CourseStructure = ({ className, isPortable }) => {
         <div className={className}>
             {strings.map(({ lessons, titleEng, emoji }, index, array) => (
                 <Collapse
-                    togglerClassName="font-weight-semibold text-left px-3 py-2_5"
+                    togglerClassName={cx("font-weight-semibold text-left px-3 py-2_5", {
+                        regular: isPortable,
+                    })}
                     togglerContent={`${emoji}  ${titleEng}`}
-                    className={cx("border border-primary-new border-width-2 rounded-xl", {
+                    className={cx("shadow-soft rounded-xl bg-white", {
                         "mb-3": index + 1 !== array.length,
                     })}
                     contentClassName="px-3 pb-3"
@@ -30,7 +32,7 @@ export const CourseStructure = ({ className, isPortable }) => {
                     }
                     key={emoji}
                 >
-                    <List list={lessons(isPortable)} type="primary-new" />
+                    <List list={lessons(isPortable)} type="none" />
                 </Collapse>
             ))}
         </div>

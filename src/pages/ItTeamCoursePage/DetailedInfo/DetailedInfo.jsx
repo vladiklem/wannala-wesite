@@ -23,13 +23,18 @@ export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings,
 
     return (
         <>
-            <h2 className={getHeadingClassName(4)}>{strings.h2_1}</h2>
-            <h3 className="font-weight-normal h3 mb-5">{strings.h3_1}</h3>
-            <h2 id="wannablab-show-action-button" className={getHeadingClassName(3)}>
-                {strings.h2_2}
-            </h2>
-            <h3 className="font-weight-normal h3 mb-4">Курс поділений на 3 частини, кожна частина складається з 3-ох уроків і тематичного спікінг клабу.</h3>
-            <CourseStructure isPortable={isPortable} className={isPortable ? "mb-4" : "mb-5"} />
+            {/* <h2 className={getHeadingClassName(4)}>{strings.h2_1}</h2>
+            <h3 className="font-weight-normal h3 mb-5">{strings.h3_1}</h3> */}
+            <section>
+                <h2 id="wannablab-show-action-button" className={getHeadingClassName(3)}>
+                    {strings.h2_2}
+                </h2>
+                <h3 className="font-weight-normal h3 mb-4">
+                    Курс поділений на 3 частини, кожна частина складається з 3-ох уроків і
+                    тематичного спікінг клабу.
+                </h3>
+                <CourseStructure isPortable={isPortable} className={isPortable ? "mb-4" : "mb-5"} />
+            </section>
             {isPortable && (
                 <Button
                     color="green-soft"
@@ -37,17 +42,19 @@ export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings,
                     onClick={onClick}
                     block
                 >
-                    Записатися ⬇️
+                    Записатися ➡️
                 </Button>
             )}
-            <h2 className={getHeadingClassName(4)}>{strings.h2_4}</h2>
-            <CollapseGroup
-                className="mb-5"
-                defaultOpenedCollapseId={null}
-                list={strings.valuesList}
-                getCollapseProps={getCollapseProps("✅")}
-            />
-            <div className="position-relative pb-5">
+            <section>
+                <h2 className={getHeadingClassName(4)}>{strings.h2_4}</h2>
+                <CollapseGroup
+                    className="mb-5"
+                    defaultOpenedCollapseId={null}
+                    list={strings.valuesList}
+                    getCollapseProps={getCollapseProps("✅")}
+                />
+            </section>
+            <section className="position-relative pb-5">
                 <h2 className={getHeadingClassName(3)}>{strings.h2_3}</h2>
                 <AuthorsScrollable
                     className="mb-3"
@@ -55,8 +62,8 @@ export const DetailedInfo = ({ isPortable, isTiny, getHeadingClassName, strings,
                     isTiny={isTiny}
                     array={strings.authorsList}
                 />
-                <AndersenPartnerBlock />
-            </div>
+                {/* <AndersenPartnerBlock /> */}
+            </section>
             <h2 className={getHeadingClassName(4)}>{strings.h2_5}</h2>
             <CollapseGroup
                 defaultOpenedCollapseId={null}

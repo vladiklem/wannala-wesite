@@ -81,14 +81,17 @@
 @keyframes flying {
     0% {
         transform: translateY(0);
+        box-shadow: $shadow-soft;
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-6px);
+        box-shadow: $shadow-medium;
     }
 
     100% {
         transform: translateY(0);
+        box-shadow: $shadow-soft;
     }
 }
 

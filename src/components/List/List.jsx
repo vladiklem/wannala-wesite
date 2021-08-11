@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import cx from "classnames";
 
 export const List = ({
@@ -9,14 +9,18 @@ export const List = ({
     itemClassName,
     isShort = false,
 }) => {
-    const finalList = isShort ? list.slice(0, 2) : list;
+    const finalList = useMemo(() => (isShort ? list.slice(0, 2) : list), [isShort, list]);
+    const isNone = useMemo(() => type === "none", [type]);
 
     return (
         <div className={className}>
             {title && <h2 className="h3 mb-2_5">{title}</h2>}
             <ul className={`list list-${type} text-left`}>
                 {finalList.map((item, index) => (
-                    <li className={cx("mb-1 list__item", itemClassName)} key={index}>
+                    <li
+                        className={cx("mb-1 list__item", { "pl-0 mb-2": isNone }, itemClassName)}
+                        key={index}
+                    >
                         {item}
                     </li>
                 ))}

@@ -15,10 +15,11 @@ const translations = {
             },
             {
                 label: "💳 Вартість",
-                value: "3 970 грн",
+                value: "4 770 грн",
+                newValue: "3 970 грн",
             },
         ],
-        actionButtonLabel: "Записатися ⬇️",
+        actionButtonLabel: "Записатися ➡️",
     },
 };
 
