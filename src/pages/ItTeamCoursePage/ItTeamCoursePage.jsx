@@ -32,15 +32,16 @@ const ItTeamCoursePage = ({ isPortable }) => {
     }, [setIsOpen, isOpen]);
 
     const createClassName = useCallback(
-        (mobileClassName, desktopClassName, mutualClassName) =>
-            cx({ [mobileClassName]: isPortable, [desktopClassName]: !isPortable }, mutualClassName),
-        [isPortable],
-    );
-
-    const getHeadingClassName = useCallback(
-        (indent, portableIndent) =>
-            `${isTiny ? "h1" : "h1"} mb-${isPortable && portableIndent ? portableIndent : indent}`,
-        [isTiny, isPortable],
+        (mutualClassName, desktopClassName, mobileClassName, tinyClassName) =>
+            cx(
+                {
+                    [mobileClassName]: isPortable,
+                    [desktopClassName]: !isPortable,
+                    [tinyClassName]: isPortable && isTiny,
+                },
+                mutualClassName,
+            ),
+        [isPortable, isTiny],
     );
 
     useEffect(() => {
@@ -54,27 +55,15 @@ const ItTeamCoursePage = ({ isPortable }) => {
                 style={{ backgroundColor: "#F0F8FF" }}
                 className={cx({ "pt-4": !isPortable, "pt-3": isPortable })}
             >
+                <div class="wave shadow-soft"></div>
                 <div name="itIntroSection" className="mb-5">
-                    {/* <h1
-                        className={cx("container", {
-                            "h1 lh-44 mb-3": isPortable,
-                            "h0 mb-5": !isPortable,
-                        })}
-                    >
-                        {strings.itIntroSection.h1}
-                    </h1> */}
-                    {/* <div className="d-md-none">
-                        <img
-                            alt={strings.itIntroSection.img.alt}
-                            src={strings.itIntroSection.img.src}
-                            className="image mb-2"
-                        />
-                    </div> */}
                     <section className="container pt-4 position-relative">
-                        <h1 className={createClassName("h2 font-weight-bold", "h1", "mb-3")}>
+                        <h1 className={createClassName("mb-3", "h1", "h2 font-weight-bold")}>
                             {strings.heading}
                         </h1>
-                        <h2 className={createClassName("font-small font-weight-semibold", "h3")}>
+                        <h2
+                            className={createClassName("", "h3", "font-small font-weight-semibold")}
+                        >
                             {strings.description}
                         </h2>
                         <div className="mt-4">
@@ -100,9 +89,8 @@ const ItTeamCoursePage = ({ isPortable }) => {
                                 <DetailedInfo
                                     strings={strings.itDetailedInfoSection}
                                     isPortable={isPortable}
-                                    getHeadingClassName={getHeadingClassName}
+                                    createClassName={createClassName}
                                     onClick={onToggle}
-                                    isTiny={isTiny}
                                 />
                             </div>
                             <div
@@ -126,9 +114,8 @@ const ItTeamCoursePage = ({ isPortable }) => {
                         <DetailedInfo
                             strings={strings.itDetailedInfoSection}
                             isPortable={isPortable}
-                            getHeadingClassName={getHeadingClassName}
+                            createClassName={createClassName}
                             onClick={onToggle}
-                            isTiny={isTiny}
                         />
                     </section>
                 )}
