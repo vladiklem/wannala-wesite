@@ -58,14 +58,14 @@ const TapLink = ({ isPortable }) => {
                             Курс «English for IT teams»
                         </Button>
                         <Button onClick={onToggle} {...getButtonProps("mb-3")}>
-                            Індивідуальне заняття
+                            Пробне заняття 1-на-1
                         </Button>
-                        <Button onClick={onToggle} href="/test" {...getButtonProps()}>
-                            Тест рівня англійської
+                        <Button href="/" {...getButtonProps()}>
+                            Наш сайтік
                         </Button>
                     </section>
                     <section>
-                        <h3 className="h3 my-4 text-center">
+                        <h3 className="h3 py-3_5 text-center">
                             with ❤️ 4 u <br /> 15% знижка якщо прийдеш з другом (обом)
                         </h3>
                     </section>

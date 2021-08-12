@@ -95,7 +95,7 @@ const LeadForm = ({
             <Button
                 bstringsk
                 color="primary-new"
-                className="rounded-circle mt-4"
+                className="rounded-circle mt-4 py-2_5"
                 size="lg"
                 type="submit"
                 isRounded
