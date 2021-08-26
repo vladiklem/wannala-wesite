@@ -18,6 +18,7 @@ export const Scrollable = ({
     children,
     containerClassName = "",
     components,
+    arrowsProps,
     id,
 }) => {
     const isTiny = useMediaQuery({ maxWidth: mediaBreakpointsEnum.XXS });
@@ -63,7 +64,7 @@ export const Scrollable = ({
                                 "px-2_5": isTiny,
                             })}
                         >
-                            <ArrowRightLong width={20} height={20} />
+                            <ArrowRightLong width={20} height={20} {...arrowsProps} />
                         </Button>
                         <Button
                             color="unstyled"
@@ -73,7 +74,7 @@ export const Scrollable = ({
                                 "px-2_5": isTiny,
                             })}
                         >
-                            <ArrowRightLong width={20} height={20} />
+                            <ArrowRightLong width={20} height={20} {...arrowsProps} />
                         </Button>
                     </div>
                 </div>

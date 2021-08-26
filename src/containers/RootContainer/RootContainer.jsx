@@ -26,6 +26,9 @@ const TestPage = lazy(() => import("pages/TestPage/TestPage"));
 const ItTeamCoursePage = lazy(() => import("pages/ItTeamCoursePage/ItTeamCoursePage"));
 const NotFoundPage = lazy(() => import("pages/NotFoundPage/NotFoundPage"));
 const TapLinkPage = lazy(() => import("pages/TapLinkPage/TapLinkPage"));
+const SoftSkillsMarathonPage = lazy(() =>
+    import("pages/SoftSkillsMarathonPage/SoftSkillsMarathonPage"),
+);
 
 firebaseService.init();
 
@@ -75,6 +78,13 @@ export const RootContainer = () => {
                             path="/it"
                             render={renderRoute({
                                 routeComponent: ItTeamCoursePage,
+                                props: { isPortable },
+                            })}
+                        />
+                        <Route
+                            path="/soft-skills"
+                            render={renderRoute({
+                                routeComponent: SoftSkillsMarathonPage,
                                 props: { isPortable },
                             })}
                         />

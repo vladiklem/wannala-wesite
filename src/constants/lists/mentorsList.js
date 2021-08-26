@@ -1,5 +1,5 @@
 import marynaAvatar from "assets/images/maryna_avatar.webp";
-import martaItAvatar from "assets/images/marta_it_avatar.jpeg";
+import martaItAvatar from "assets/images/marta_it_avatar.webp";
 
 const mentorsList = [
     {

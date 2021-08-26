@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App.jsx";
-import TagManager from "react-gtm-module";
+// import TagManager from "react-gtm-module";
 import ReactGA from "react-ga";
 
 import "./index.scss";
 
-const tagManagerArgs = {
-    gtmId: "GTM-NVXXWWW",
-};
+// const tagManagerArgs = {
+//     gtmId: "GTM-NVXXWWW",
+// };
 
-TagManager.initialize(tagManagerArgs);
+// TagManager.initialize(tagManagerArgs);
 
 //Google Analytics init
 
