@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import LazyLoad from "react-lazyload";
 import cx from "classnames";
@@ -17,22 +17,67 @@ import styles from "./SoftSkillsMarathonPage.module.scss";
 import { Animated } from "components/Animated/Animated";
 import { AuthorsScrollablePanel } from "./AuthorsScrollablePanel/AuthorsScrollablePanel";
 import translations from "components/styled/FeedbackScrollable/FeedbackScrollable.translations";
+import { MarathonStructureItem } from "./MarathonStructureItem/MarathonStructureItem";
+import { localStorageService } from "services/localStorageService";
 
 const feedbacks = translations.ua;
 
 const BOT_LINK = "https://t.me/it_blab_bot?start=ZGw6NDM0NTk";
 
-const SoftSkillsMarathonPage = () => {
+const structure = [
+    {
+        title: <>English interview</>,
+        description: (
+            <>
+                Ти дізнаєшся кілька практичних порад, які допоможуть тобі підготуватись до
+                співбесіди англійською. А ще ми розглянемо найпоширеніші запитання на співбесідах в
+                міжнародні компанії і як на них краще давати відповідь.
+            </>
+        ),
+        emojiSrc: loveEyesEmoji,
+    },
+    {
+        title: <>How to ask and answer</>,
+        description: (
+            <>
+                Навіщо вміти ставити питання правильно, якщо і так зрозуміло, що я кажу? Це потрібно
+                для того, щоб ефективно побудувати комунікацію з клієнтом або ненароком не образити
+                його неформальним виразом. А ще, так ти зможеш швидше дізнаватись потрібну
+                інформацію і не витрачати час на додаткові роз’яснення.
+            </>
+        ),
+        emojiSrc: blinkEyeEmoji,
+    },
+    {
+        title: <>Small Talks</>,
+        description: (
+            <>
+                Ти дізнаєшся, що таке small talk і навіщо він потрібен. Тут буде декілька загальних
+                тем для коротких розмов, аби ти не губився, коли залишишся наодинці з клієнтом. А ще
+                ми розповімо, про що краще не говорити з англомовним замовником.
+            </>
+        ),
+        emojiSrc: fistEmoji,
+    },
+];
+
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const socialProof = localStorageService.getItem("socialProof");
+
+const SoftSkillsMarathonPage = ({ isPortable }) => {
     const dispatch = useDispatch();
 
     const setMove250 = useCallback(
         (isVisible) => ({
             loop: false,
-            config: { duration: 500 },
+            config: { duration: isPortable ? 500 : 800 },
             from: { x: 0 },
-            to: { x: isVisible ? window.innerWidth / 2 - 55 : 0 },
+            to: { x: isVisible ? (isPortable ? window.innerWidth / 2 - 55 : (1140 - 48) / 2) : 0 },
         }),
-        [],
+        [isPortable],
     );
 
     const setMoveBack = useCallback(
@@ -56,9 +101,32 @@ const SoftSkillsMarathonPage = () => {
         [],
     );
 
+    const videoHeight = useMemo(() => (isPortable ? 200 : 480), [isPortable]);
+    const feedbackAvatarHeight = useMemo(() => (isPortable ? 56 : 56), [isPortable]);
+    const randomNumber = useMemo(() => getRandomNumber(1, 100), []);
+    const isCountNew = useMemo(
+        () =>
+            !socialProof.timestamp ||
+            !socialProof.count ||
+            (socialProof.timestamp && (Date.now() - socialProof.timestamp) / 60000 >= 1),
+        [],
+    );
+    const count = useMemo(() => (isCountNew ? randomNumber : socialProof.count), [
+        isCountNew,
+        randomNumber,
+    ]);
+
     useEffect(() => {
         dispatch(toggleHeader());
     }, []);
+
+    useEffect(() => {
+        isCountNew &&
+            localStorageService.setItem("socialProof", {
+                timestamp: Date.now(),
+                count: randomNumber,
+            });
+    }, [isCountNew, randomNumber]);
 
     return (
         <article className="">
@@ -90,22 +158,39 @@ const SoftSkillsMarathonPage = () => {
                             src={vladItAvatar}
                             alt="Влад Балюк - один з авторів марафону."
                         />
-                        <h2 className="regular mt-2">by wannablab</h2>
+                        <h2 className={cx("regular mt-2", { "ml-3": !isPortable })}>
+                            by wannablab
+                        </h2>
                     </div>
-                    <h2 className="regular mt-3">
-                        Хочеш <br /> працювати <br /> <strong>на міжнародних проектах</strong>?
+                    <h2
+                        className={cx("mt-3", {
+                            "h4 font-weight-normal": !isPortable,
+                            regular: isPortable,
+                        })}
+                    >
+                        Хочеш бути впевненим у <br />{" "}
+                        <strong>розмовній англійській на роботі</strong>?
                     </h2>
                     <br />
-                    <p className="regular mt-3_5">
-                        Тоді приєднуйся до нашого 3-денного марафону, працюй з{" "}
-                        <strong>англомовними</strong> клієнтами і збільшуй свої{" "}
+                    <p
+                        className={cx("mt-3_5", {
+                            "w-50 h4 font-weight-normal": !isPortable,
+                            regular: isPortable,
+                        })}
+                    >
+                        Тоді приєднуйся до нашого 3-денного марафону, працюй над{" "}
+                        <strong>англійскою</strong> та <strong>soft skills</strong> і збільшуй свої{" "}
                         <strong>доходи</strong>.
                     </p>
                 </section>
                 <section className="pt-3_5">
                     <div className="d-flex align-items-center">
-                        <StudentHatIcon className="w-100" width={80} height={80} />
-                        <p className="ml-3 font-small">
+                        <StudentHatIcon
+                            className={cx({ "w-100": isPortable })}
+                            width={80}
+                            height={80}
+                        />
+                        <p className={cx("ml-3 font-small", { "w-50": !isPortable })}>
                             <span className="font-weight-semibold">
                                 Вже більше 100 наших студентів
                             </span>{" "}
@@ -129,14 +214,19 @@ const SoftSkillsMarathonPage = () => {
                 <div className="container text-white">
                     <Animated isOnce getConfig={setMove250}>
                         <Animated.Node>
-                            <h2 className="h1 font-weight-semibold">Як?</h2>
+                            <h2
+                                className={cx("h1 font-weight-semibold", {
+                                    h1: isPortable,
+                                    h0: !isPortable,
+                                })}
+                            >
+                                Як?
+                            </h2>
                         </Animated.Node>
                     </Animated>
-                    <h3 className="regular font-weight-bold mb-1">
-                        За допомогою англійської <br /> та soft skills!
-                    </h3>
                     <Animated className="mb-4">
                         <Animated.TrailText
+                            tagClassName={cx({ "w-75": !isPortable })}
                             items={[
                                 "Ми, засновники wannablab, працюємо в",
                                 "IT вже більше 4 років в autosource та продуктових",
@@ -147,11 +237,11 @@ const SoftSkillsMarathonPage = () => {
                         />
                     </Animated>
                     <div className="mb-2">
-                        <LazyLoad height={240} className="mr-2">
+                        <LazyLoad height={videoHeight} className="mr-2">
                             <iframe
                                 className="w-100 rounded-xl border border-width-2 p-1"
                                 title="Команда авторів курсу"
-                                height="240"
+                                height={videoHeight}
                                 src="https://www.youtube.com/embed/Tw0KU99vdB0"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -161,6 +251,7 @@ const SoftSkillsMarathonPage = () => {
                     </div>
                     <Animated>
                         <Animated.TrailText
+                            tagClassName={cx({ "w-75": !isPortable })}
                             items={[
                                 "А Марта — вчитель з 3 роками досвіду",
                                 "та 200-ма+ успішними учнями. ",
@@ -173,82 +264,23 @@ const SoftSkillsMarathonPage = () => {
             </section>
             <section>
                 <div className="container pt-4 pb-4">
-                    <h2 className="h1 mb-3">Чому ти навчишся?</h2>
+                    <h2 className="h1 mb-4">Чому ти навчишся?</h2>
                     <ul>
-                        <li className="row">
-                            <div className="col-8 pr-2">
-                                <span className="h3 font-weight-bold mb-1">01</span>
-                                <h3 className="h2 font-weight-bold text-alternative-secondary mb-2">
-                                    How to ask and answer
-                                </h3>
-                                <h4 className="font-small">
-                                    Ти дізнаєшся кілька практичних порад, які допоможуть тобі
-                                    підготуватись до співбесіди англійською. А ще ми розглянемо
-                                    найпоширеніші запитання на співбесідах в міжнародні компанії і
-                                    як на них краще давати відповідь.
-                                </h4>
-                                <br />
-                            </div>
-                            <Animated className="col-4 pl-2" isOnce getConfig={setMoveBack}>
-                                <Animated.Node>
-                                    <img
-                                        alt="Marta's love emoji"
-                                        src={loveEyesEmoji}
-                                        className="image"
-                                    />
-                                </Animated.Node>
-                            </Animated>
-                        </li>
-                        <li className="row mb-3">
-                            <div className="col-8 pr-2">
-                                <span className="h3 font-weight-bold mb-1">02</span>
-                                <h3 className="h2 font-weight-bold text-alternative-secondary mb-2">
-                                    English interview
-                                </h3>
-                                <h4 className="font-small">
-                                    Навіщо вміти ставити питання правильно, якщо і так зрозуміло, що
-                                    я кажу? Це потрібно для того, щоб ефективно побудувати
-                                    комунікацію з клієнтом або ненароком не образити його
-                                    неформальним виразом. А ще, так ти зможеш
-                                </h4>
-                                <br />
-                            </div>
-                            <Animated className="col-4 pl-2" isOnce getConfig={setMoveBack}>
-                                <Animated.Node>
-                                    <img
-                                        alt="Marta's emoji"
-                                        src={blinkEyeEmoji}
-                                        className="image"
-                                    />
-                                </Animated.Node>
-                            </Animated>
-                        </li>
-                        <li className="row mb-3">
-                            <div className="col-8 pr-2">
-                                <span className="h3 font-weight-bold mb-1">03</span>
-                                <h3 className="h2 font-weight-bold text-alternative-secondary mb-2">
-                                    Small talks
-                                </h3>
-                                <h4 className="font-small">
-                                    Ти дізнаєшся, що таке small talk і навіщо він потрібен. Тут буде
-                                    декілька загальних тем для коротких розмов, аби ти не губився,
-                                    коли залишишся наодинці з клієнтом. А ще ми розповімо, про що
-                                    краще не говорити з англомовним замовником.
-                                </h4>
-                                <br />
-                            </div>
-                            <Animated className="col-4 pl-2" isOnce getConfig={setMoveBack}>
-                                <Animated.Node>
-                                    <img alt="Marta's emoji" src={fistEmoji} className="image" />
-                                </Animated.Node>
-                            </Animated>
-                        </li>
+                        {structure.map((item, index) => (
+                            <MarathonStructureItem
+                                setMoveBack={setMoveBack}
+                                isPortable={isPortable}
+                                index={index}
+                                className={cx({ "mb-4": !isPortable })}
+                                {...item}
+                            />
+                        ))}
                     </ul>
                 </div>
             </section>
-            <section className={cx(styles.alternativeBlackBack, "py-4")}>
-                <div className="text-white">
-                    <AuthorsScrollablePanel />
+            <section className={cx(styles.alternativeBlackBack, "pt-4 pb-5")}>
+                <div className={cx({ container: !isPortable }, "text-white")}>
+                    <AuthorsScrollablePanel isPortable={isPortable} />
                 </div>
             </section>
             <section className="container py-4">
@@ -260,17 +292,28 @@ const SoftSkillsMarathonPage = () => {
                         />
                     </Animated>
                 </h2>
-                <div>
+                <div className={cx({ "row flex-wrap justify-content-center": !isPortable })}>
                     {feedbacks.map(({ name, avatar, instUsername, alt, description }) => (
-                        <Animated isOnce getConfig={setFeedbackConfig}>
+                        <Animated
+                            className={cx({ "col-6 mb-4_5": !isPortable, "mb-3": isPortable })}
+                            isOnce
+                            getConfig={setFeedbackConfig}
+                        >
                             <Animated.Node>
-                                <div className={cx(styles.card, "mb-3")}>
+                                <div
+                                    className={cx(styles.card, { [styles.isPortable]: isPortable })}
+                                >
                                     <div className="row mb-4">
-                                        <div className="col-3">
+                                        <div
+                                            className={cx({
+                                                "col-3": isPortable,
+                                                "col-2": !isPortable,
+                                            })}
+                                        >
                                             <img
                                                 src={avatar}
-                                                height={56}
-                                                width={56}
+                                                height={feedbackAvatarHeight}
+                                                width={feedbackAvatarHeight}
                                                 alt={alt}
                                                 className="rounded-circle image"
                                             />
@@ -294,7 +337,15 @@ const SoftSkillsMarathonPage = () => {
                     ))}
                 </div>
             </section>
-            <section className="container mt-4 mb-5">
+            <section className="container mb-5">
+                <Animated>
+                    <Animated.Number
+                        val={count}
+                        prepandNode="✍️ "
+                        appendNode=" однодумців записуються разом с тобою прямо зараз!"
+                        className="h3 px-2 mb-5"
+                    />
+                </Animated>
                 <div
                     className={cx(
                         styles.banner,
@@ -321,6 +372,7 @@ const SoftSkillsMarathonPage = () => {
                     styles.sm,
                     styles.fixed,
                     "font-weight-bold rounded-circle",
+                    { [styles.fixedDesktop]: !isPortable },
                 )}
                 href={BOT_LINK}
             >

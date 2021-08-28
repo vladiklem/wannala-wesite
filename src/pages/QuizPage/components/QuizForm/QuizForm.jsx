@@ -43,14 +43,16 @@ export const QuizForm = ({
     );
 
     useEffect(() => {
-        stepItem.focus && setTimeout(() => document.getElementById(stepItem.focus).focus(), 100);
-    }, [stepItem]);
+        stepItem.focus &&
+            !isPortable &&
+            setTimeout(() => document.getElementById(stepItem.focus).focus(), 100);
+    }, [stepItem, isPortable]);
 
     return (
         <form
             className={cx(
                 styles.form,
-                "d-flex flex-column justify-content-between border border-transparent rounded-xl p-4 bg-white-new",
+                "d-flex flex-column justify-content-between pt-6 pb-5",
             )}
         >
             <div className="flex-grow-1">

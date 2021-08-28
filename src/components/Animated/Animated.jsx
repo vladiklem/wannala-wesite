@@ -39,7 +39,32 @@ const Node = ({ config: cf, tag = "div", className = "", children }) => {
     );
 };
 
-const TrailText = ({ items = [], config: cf, isVisible = true, tag: Tag = "p", delay = 0 }) => {
+const Number = ({
+    val = 1,
+    tag: Tag = "p",
+    className = "",
+    appendNode,
+    prepandNode,
+    isVisible,
+}) => {
+    const props = useSpring({ to: { val: isVisible ? val : 1 }, from: { val: 1 } });
+
+    return (
+        <Tag className={className}>
+            {prepandNode} <a.span>{props.val.interpolate((val) => Math.floor(val))}</a.span>{" "}
+            {appendNode}
+        </Tag>
+    );
+};
+
+const TrailText = ({
+    items = [],
+    config: cf,
+    isVisible = true,
+    tag: Tag = "p",
+    delay = 0,
+    tagClassName,
+}) => {
     const trail = useTrail(items.length, {
         config: { mass: 5, tension: 2000, friction: 200, duration: 200, ...cf },
         delay,
@@ -51,7 +76,7 @@ const TrailText = ({ items = [], config: cf, isVisible = true, tag: Tag = "p", d
 
     return (
         <div className="trails-main">
-            <Tag>
+            <Tag className={tagClassName}>
                 {trail.map(({ x, height, ...rest }, index) => (
                     <a.span
                         key={items[index]}
@@ -71,3 +96,4 @@ const TrailText = ({ items = [], config: cf, isVisible = true, tag: Tag = "p", d
 
 Animated.TrailText = TrailText;
 Animated.Node = Node;
+Animated.Number = Number;

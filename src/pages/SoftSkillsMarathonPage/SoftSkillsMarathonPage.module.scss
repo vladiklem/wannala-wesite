@@ -1,11 +1,19 @@
 @import "~assets/styles/config/colors";
 
+$color: rgb(8, 73, 151);
+$color20: rgba(8, 73, 151, 0.2);
+
 .joinButton {
-    box-shadow: 0px 14px 55px rgba(8, 73, 151, 0.2);
+    box-shadow: 0px 14px 55px $color20;
     background-color: white;
-    color: rgb(8, 73, 151);
+    color: $color;
     border: 0;
     padding: 0;
+    transition: all 0.3s ease-in-out !important;
+
+    &:hover {
+        background-color: $color;
+    }
 
     & .content {
         padding: 18px 28px;
@@ -21,9 +29,19 @@
         right: 32px;
     }
 
+    &.fixedDesktop {
+        position: fixed;
+        top: 72px;
+        right: 72px;
+    }
+
+    &:hover .append {
+        border-left-color: white;
+    }
+
     & .append {
         padding: 18px 28px;
-        border-left: 1px solid rgb(8, 73, 151);
+        border-left: 1px solid $color;
     }
 }
 
@@ -49,6 +67,11 @@
     border: 2px solid rgba(0, 0, 0, 0.05);
     border-radius: 8px;
     padding: 20px;
+    min-height: 244px;
+
+    &isPortable {
+        min-height: auto;
+    }
 }
 
 .banner {

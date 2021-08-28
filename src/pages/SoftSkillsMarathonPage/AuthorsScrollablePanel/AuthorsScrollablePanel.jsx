@@ -73,7 +73,7 @@ export const authors = [
     },
 ];
 
-export const AuthorsScrollablePanel = () => {
+export const AuthorsScrollablePanel = ({ isPortable }) => {
     const setTrailTextConfig = useCallback(
         () => ({
             config: { duration: 300 },
@@ -83,7 +83,7 @@ export const AuthorsScrollablePanel = () => {
 
     return (
         <Scrollable
-            offset={document.documentElement.clientWidth - 48}
+            offset={isPortable ? document.documentElement.clientWidth - 48 : 1140 - 100}
             hasArrows
             arrowsProps={{ fill: "#fff" }}
             isScrollbarVisible={false}
@@ -91,7 +91,11 @@ export const AuthorsScrollablePanel = () => {
             containerClassName="px-4"
         >
             {authors.map(({ nameArray, description, social }) => (
-                <ScrollableItem className="mx-4" key={social.instagram || description}>
+                <ScrollableItem
+                    className="mx-4"
+                    style={!isPortable ? { paddingRight: "40%" } : {}}
+                    key={social.instagram || description}
+                >
                     <div>
                         <h2 className="h3 mt-2 mb-3 d-flex align-items-center">
                             <span className="text-alternative-tertiary font-weight-bold mr-2">
