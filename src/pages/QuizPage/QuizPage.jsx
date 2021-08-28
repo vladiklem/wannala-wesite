@@ -11,6 +11,7 @@ const HomeWorkOne = lazy(() => import("./quizes/HW1Quiz/HW1Quiz"));
 const HomeWorkTwo = lazy(() => import("./quizes/HW2Quiz/HW2Quiz"));
 const HomeWorkThree = lazy(() => import("./quizes/HW3Quiz/HW3Quiz"));
 const HomeWorkFour = lazy(() => import("./quizes/HW4Quiz/HW4Quiz"));
+const MarathonOne = lazy(() => import("./quizes/MarathonHW1/MarathonHW1"));
 
 const QuizPage = () => {
     const dispatch = useDispatch();
@@ -29,6 +30,8 @@ const QuizPage = () => {
             return <HomeWorkThree slug={slug} />;
         case QuizTypes.HW4:
             return <HomeWorkFour slug={slug} />;
+        case QuizTypes.MHW1:
+            return <MarathonOne slug={slug} />;
         default:
             return <LeadQuiz />;
     }

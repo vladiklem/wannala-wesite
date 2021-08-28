@@ -4,4 +4,5 @@ export const QuizTypes = {
     HW2: "homework2",
     HW3: "homework3",
     HW4: "homework4",
+    MHW1: "eng-interview",
 };

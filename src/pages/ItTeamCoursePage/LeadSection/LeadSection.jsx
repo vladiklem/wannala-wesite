@@ -5,7 +5,7 @@ const LeadForm = lazy(() => import("forms/LeadForm/LeadForm"));
 const LeadSection = ({ isPortable, strings, isHidden }) => (
     <section
         id="wannablab-it-course-registration"
-        className="py-5 mb-5 full-screen-height container d-flex flex-column align-items-center"
+        className="py-5 mb-5 full-height container d-flex flex-column align-items-center"
         name="itRegistrationSection"
     >
         <h2 className="h0 mb-4">{strings.itRegistrationSection.h2}</h2>

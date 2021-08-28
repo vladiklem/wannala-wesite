@@ -130,7 +130,7 @@ const SoftSkillsMarathonPage = ({ isPortable }) => {
 
     return (
         <article className="">
-            <section className="pt-6 mb-4 container full-screen-height">
+            <section className="pt-6 mb-4 container full-height">
                 <section className={cx(styles.bottomBorderElement, "py-3")}>
                     <h1 className="h2 mb-3 font-weight-bold">
                         Free Марафон <br />
@@ -277,6 +277,16 @@ const SoftSkillsMarathonPage = ({ isPortable }) => {
                         ))}
                     </ul>
                 </div>
+            </section>
+            <section>
+                <h2 className="h1 mb-4">Що ти отримаєш після марафону?</h2>
+                <ul>
+                    <li>Базу для проходження співбесід та спілкування с замовником англійською</li>
+                    <li>Цілу торбу корисних подарунків (за умови виконання домашки)</li>
+                    <li>-Тест рівня англійської</li>
+                    <li>-Спікінг клаб з американцем</li>
+                    <li>-Знижку 10% на програму тренування англійської English for IT teams</li>
+                </ul>
             </section>
             <section className={cx(styles.alternativeBlackBack, "pt-4 pb-5")}>
                 <div className={cx({ container: !isPortable }, "text-white")}>

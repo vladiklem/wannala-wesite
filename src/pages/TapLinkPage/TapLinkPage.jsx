@@ -54,7 +54,7 @@ const TapLink = ({ isPortable }) => {
                     zIndex: -2,
                 }}
             />
-            <div className="d-flex flex-column full-screen-height pt-4 pb-4_5">
+            <div className="d-flex flex-column full-height pt-4 pb-4_5">
                 <h1 className="h2 font-weight-semibold mb-1 mt-3">
                     <a href="/" className="mr-2">
                         <img src={logo} width="36" height="36" alt="Логотип компанії wannablab" />

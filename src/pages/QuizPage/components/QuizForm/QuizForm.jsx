@@ -12,12 +12,13 @@ import { StepItem } from "../StepItem/StepItem";
 import { SubmitButton } from "../SubmitButton/SubmitButton";
 
 export const QuizForm = ({
-    stepList,
+    stepList = [],
     onFinish = () => {},
     onSubmit,
     onNext: nextCb,
     startSlideNode,
     lastSlideNode,
+    className,
 }) => {
     const { handleSubmit, register, watch } = useForm();
     const [step, setStep] = useState(0 - !!startSlideNode);
@@ -49,12 +50,7 @@ export const QuizForm = ({
     }, [stepItem, isPortable]);
 
     return (
-        <form
-            className={cx(
-                styles.form,
-                "d-flex flex-column justify-content-between pt-6 pb-5",
-            )}
-        >
+        <form className={cx(styles.form, "d-flex flex-column justify-content-between", className)}>
             <div className="flex-grow-1">
                 {stepItem.title && (
                     <h2

@@ -99,7 +99,7 @@ const MentorPage = () => {
                     <Loader />
                 )}
             </section>
-            <section id="wannablab-lead-form" className="full-screen-height bg-primary-new-75">
+            <section id="wannablab-lead-form" className="full-height bg-primary-new-75">
                 <div className="container d-flex flex-column align-items-center">
                     <h2 className="hidden-element">
                         Форма для запису на курс англійської мови від школи розмовної англійської
