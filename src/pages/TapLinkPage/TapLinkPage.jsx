@@ -23,8 +23,19 @@ const getButtonProps = (className, isOutlined) => ({
 const TapLink = ({ isPortable }) => {
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
+    const [type, setType] = useState("it");
 
-    const onToggle = useCallback(() => setIsOpen((open) => !open), []);
+    const onToggle = useCallback(() => setIsOpen((open) => !open), [setIsOpen]);
+
+    const onTrialClick = useCallback(() => {
+        onToggle();
+        setType("regular");
+    }, [onToggle]);
+
+    const onItClick = useCallback(() => {
+        onToggle();
+        setType("it");
+    }, [onToggle]);
 
     useEffect(() => {
         dispatch(toggleHeader());
@@ -43,30 +54,32 @@ const TapLink = ({ isPortable }) => {
                     zIndex: -2,
                 }}
             />
-            <div className="d-flex flex-column full-screen-height py-4">
+            <div className="d-flex flex-column full-screen-height pt-4 pb-4_5">
                 <h1 className="h2 font-weight-semibold mb-1 mt-3">
                     <a href="/" className="mr-2">
                         <img src={logo} width="36" height="36" alt="Логотип компанії wannablab" />
                     </a>
                     {"English from IT & for IT"}
                 </h1>
-                <h2 className="h3 font-weight-normal mb-4">Продавай свої послуги за кордон!</h2>
+                <h2 className="h3 font-weight-normal mb-4">
+                    Заробляй більше з англійською та soft skills!
+                </h2>
                 <div className="flex-grow-1 d-flex flex-column justify-content-between">
                     <section className="d-flex flex-column">
                         <h3></h3>
                         <Button href="/it" {...getButtonProps("mb-3")}>
                             Курс «English for IT teams»
                         </Button>
-                        <Button onClick={onToggle} {...getButtonProps("mb-3")}>
+                        <Button onClick={onItClick} {...getButtonProps("mb-3")}>
                             Пробне заняття 1-на-1
                         </Button>
-                        <Button href="/" {...getButtonProps()}>
-                            Наш сайтік
+                        <Button onClick={onTrialClick} {...getButtonProps()}>
+                            Запис на тест рівня
                         </Button>
                     </section>
                     <section>
                         <h3 className="h3 py-3_5 text-center">
-                            with ❤️ 4 u <br /> 15% знижка якщо прийдеш з другом (обом)
+                            with ❤️ 4 u <br /> 10% знижка якщо прийдеш з другом (обом)
                         </h3>
                     </section>
                     <section className="d-flex flex-column">
@@ -87,6 +100,7 @@ const TapLink = ({ isPortable }) => {
                 isOpen={isOpen}
                 isPortable={isPortable}
                 onToggle={onToggle}
+                type={type}
                 afterWord="Дякуємо, що вирішили займатися з нами ❤️ Чекайте на наш дзвінок після 18-ти вечора."
             />
 

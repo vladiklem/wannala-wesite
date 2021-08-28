@@ -10,7 +10,7 @@ import vladAvatar from "assets/images/vlad_it_avatar.webp";
 const LeadForm = lazy(() => import("forms/LeadForm/LeadForm"));
 const Drawer = lazy(() => import("components/Drawer/Drawer"));
 
-const DrawerLeadForm = ({ isPortable, isOpen, onToggle }) => {
+const DrawerLeadForm = ({ isPortable, isOpen, onToggle, type }) => {
     const { isLoading, isSuccess } = useSelector(selectLeadFormState);
 
     const isCoverVisible = useMemo(() => isLoading || isSuccess, [isLoading, isSuccess]);
@@ -58,7 +58,7 @@ const DrawerLeadForm = ({ isPortable, isOpen, onToggle }) => {
                 description="Залиш свій контакт і Лєра або Влад зателефонують тобі найближчим часом 😃"
                 afterWord="Дякуємо, що вирішили займатися з нами ❤️"
                 styleType="drawer"
-                type="it"
+                type={type}
             />
         </Drawer>
     );
